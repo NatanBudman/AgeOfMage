@@ -1,0 +1,101 @@
+Elfo: ¡Alto ahí! ¿Acaso sabes lo dificil
+que es limpiar la sangre de mis compatriotas
+del piso?
+
+Edgar: Disculpa, pero ellos atacaron primero...
+
+Elfo: ¡No importa! ¡Es mi deber como guardian
+de este bosque acabar con la maldad y peligro
+que representa la gente como vos!
+
+(Se abre decisión)
+
+Decisión 1: ¿Para que necesita un elfo
+guardian una mopa y una botella de 
+limpiapisos?
+
+	Elfo: No importa, mis artes antiguas de
+	combate no son de tu incumbencia.
+
+	Edgar: ¿Como que no? La mopa te la enteindo.
+	¿Pero limpiapisos en medio de un bosque?
+	No tiene sentido...
+
+	Elfo: ¡Calla! ¡No intentes comprender las
+	costumbres ancestrales de mi gente!
+
+	Edgar: Perdón, es que soy un poco curioso y se
+	me hizo un detalle que no pude ignorar.
+
+	Elfo: ¡Basta de charla! ¡No pienso que sigas
+	profanando la tierra de mi gente! ¡Ahora
+	desenfunda tu escoba!
+
+Decisión 2: Me recuerdas a otro elfo rubio
+vestido de verde.
+
+	Elfo: ¡Silencio! ¡Esos tipos son muy atentos
+	en cuanto a derechos de autor!
+
+	Edgar: Perdón, se me pasó por la cabeza y tenía
+	que decirlo.
+
+	Elfo: ¡Gracias! ¡Ya me perdí en mi discurso!
+	¿Donde me quedé?...
+
+	Edgar: En algo de acabar con la maldad y el 
+	peligro que representan los bananas como yo...
+
+	Elfo: ¡Cierto, gracias! ¡Ahora desenfunda tu
+	escoba y preparate para una batalla de limpieza!
+
+(Termina la pelea)
+
+Elfo: ¡Ya basta! ¡Has probado tener lo que hace
+falta para cumplir tu deber!
+
+Edgar: ¿O sea que voy a conseguir novia?
+
+Elfo: ¿Novia? ¡No seas ridiculo! ¡Tenes un 
+deber mucho mas grande!
+
+Edgar: ¿Que deber?
+
+Elfo: ¡Vos y yo compartimos un mismo poder,
+un arte ancestral conocida como "La limpieza
+celestial"!
+
+Edgar: ¿Limpieza Celestial? ¿Te afectó feo 
+ese limpiapisos acaso?
+
+Elfo: Entiendo tu eceptisismo, pero los dos
+tenemos el don de limpiar la maldad. Somos
+guerreros que emplean la magia de la limpieza...
+
+Edgar: Esto es muy ridiculo...
+
+Elfo: ¿Ridiculo? Veamos si seguis pensando lo
+mismo una vez que pruebes el poder que yace en
+tu interior ¡Aprende este hechizo ancestral!
+
+Edgar: ¿Un pergamino? Huele a lisoform...
+
+Elfo: El hechizo antiguo de nuestra gente,
+las "Burbujas Purificadoras", erradican el
+mal y huelen a lavanda.
+
+Edgar: Bueno, gracias. Si no me matan despues
+de esto voy a poder dejar el piso de mi casa
+con rico olor...
+
+Elfo: Hasta que nos veamos de nuevo, Edgar,
+el joven limpiador...
+
+Edgar: En serio. ¿Como es que todos saben mi
+nombre?
+
+Elfo: Lo dijiste antes de entrar...
+
+Edgar: Ok, ya entendí, nos vemos otro día.
+
+(Termina el Nivel 2)

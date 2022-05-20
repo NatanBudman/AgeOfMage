@@ -1,0 +1,127 @@
+Elfo: ¡Alto ahí! ¿Acaso sabes lo dificil
+que es limpiar la sangre de mis compatriotas
+del piso?
+
+Edgar: Disculpa, pero ellos atacaron primero...
+
+Bonelord: En realidad vos entraste y empezaste
+a matar a todos los que se te cruzaban.
+
+Elfo: ¡No importa! ¡Es mi deber como guardian
+de este bosque acabar con la maldad y peligro
+que representa la gente como vos!
+
+(Se abre decisión)
+
+Decisión 1: ¿Para que necesita un elfo
+guardian una mopa y una botella de 
+limpiapisos?
+
+	Elfo: No importa, mis artes antiguas de
+	combate no son de tu incumbencia.
+
+	Bonelord: Voy a ahorrarte las explicaciones,
+	muñeco. El tipo este es un limpiador celestial
+
+	Edgar: ¿Limpiador Celestial?
+
+	Elfo: En efecto, somos guerreros que emplean
+	el antiguo arte de la magia de la limpieza
+	para limpiar la maldad de este mundo.
+
+	Bonelord: A mi se me hace que es un conserje
+	con delirios de grandeza.
+
+	Elfo: ¡Calla craneo mal hablado!¡No oses
+	desprestigiar el arte milenario de mi
+	gente!
+
+	Edgar: ¿Van a seguir discutiendo mucho rato?
+	Si es así puedo irme a la siguiente sala...
+
+	Elfo: ¡No tan rapido! ¡Tu amigo ha insultado
+	mi honor! ¡Ahora pagaras por el!¡Apronta tu
+	escoba, joven mago!
+
+Decisión 2: ¿Que no estaba en una torre hace 5
+minutos? ¿Que hago en un bosque?
+
+	Bonelord: Estabas en la Torre del Caos 		absoluto,tiene portales a todo el mundo.
+
+	Elfo: El craneo tiene razón, es una estructura
+	tan antigua como misteriosa. Dime joven,
+	¿Como accediste a la torre?
+
+	Edgar: Mi maestro tenía un portal raro 	guardado en su armario, lo usa para ir
+	a hacer las compras...
+
+	Elfo: Una respuesta de lo mas peculiar cuanto
+	menos...
+
+	Bonelord: Bueno ¿Vamos a hablar de armarios y
+	portales o van a romperse la cara entre
+	ustedes para mi entretenimiento?
+
+	Elfo: ¡Es verdad, no retrasemos mas este
+	enfrentamiento! ¡Joven brujo, empuña tu 	escoba!
+
+(Termina el combate)
+
+Elfo: ¡Ya basta! ¡He visto suficiente!
+
+Bonelord: Pero si se estaba poniendo interesante...
+
+Elfo: ¡Silencio calaca parlanchina! Joven, has
+demostrado ser digno del poder de los "Limpiadores
+Celestiales", estoy impresionado...
+
+Edgar: ¿Y eso en que me beneficia?
+
+Bonelord: Nos Beneficia...
+
+Elfo: Como has demostrado tu valía enfrentandote a
+uno de los nuestros y prevalecido, te hago entrega
+de este hechizo. ¡Las "Burbujas Purificadoras"!
+
+Bonelord: ¡Genial, si nos atacan los demonios los
+matamos con burbujitas! Los magos son tan raros...
+
+Edgar: Agradezco el reconocimiento y el regalo pero
+en serio. ¿Burbujas?
+
+Elfo: Comprendo tu eceptisismo, pero creeme que es
+un hechizo mas que digno cuando es usado por un
+limpiador celestial hecho y derecho.
+
+Bonelord: ¿Me estás diciendo que el chico es uno de
+esos "conserjes mágicos"?
+
+Edgar: ¿Tengo que recordate que el "conserje mágico"
+te redujo a una simple calavera parlante?
+
+Elfo: Respondiendo a la pregunta de tu huesudo amigo,
+si, eres uno de los nuestros, pude sentir la pasión 
+con la que empuñabas tu escoba y el poder de tu magia.
+
+Edgar: Es lo mas bonito qu me dijeron en lo que va del
+día...
+
+Bonelord: ¿Algo mas que quiera decirnos elfo con rasgos de depresión?
+
+Elfo: No de momento, solo me queda desearles la mejor
+de las suertes en su viaje, hasta luego Edgar, el 
+aprendiz de Limpiador Celestial.
+
+Edgar: ¿Vos tambien sabes mi nombre?
+
+Bonelord: Seguramente el tambien lo escuchó cuando lo
+gritaste en la puerta...
+
+Edgar: Bueno, vamonos, seguramente se abrió otra puerta en la torre, a ver a donde nos lleba ahora.
+
+Bonelord: Espero que sea un buen bar por que tengo
+muy seca la garganta
+
+Edgar: Pero ni siquiera tenes garganta.
+
+(Termina el Nivel 2)

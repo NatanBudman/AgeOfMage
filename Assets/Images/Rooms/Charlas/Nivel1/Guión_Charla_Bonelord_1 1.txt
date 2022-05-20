@@ -1,0 +1,127 @@
+(Natan, las cutscenes de texto van a funcionar así, cada caja de texto va a tener 3
+lineas de texto y pasan al siguiente cuando el jugador aprieta ENTER, cada vez que un
+personaje habla se reproduce la pequeña animación de el personaje hablando hasta que hable
+otro personaje, en un momento se presenta una decisión para que el jugador elija que decir,
+hay una imagen de Edgar que va en ese momento llamada "Edgar_Choise", lo que elija el jugador 
+solo varia en la respuesta, es una excusa para meter mas chistes, por las dudas te mando unas 
+referencias de como quedaría)
+
+
+Bonelord: ¡Alto ahí joven hechicero!
+
+Edgar: Genial, otro esqueleto...
+
+Bonelord: ¿Otro esqueleto decís? ¡Soy Bonelord!
+¡Rey de los huesos y emperador de la fiesta!
+
+(Se abre decision de texto)
+
+Edgar Opcion 1: ¿Fiesta?
+
+	Bonelord: ¡Obvion nene, no sabes lo que son
+	mis fiestas en mi palacio del inframundo, 
+	muchas mujeres y el mejor vino del mundo!
+	
+	Edgar: Mira, tengo algo de prisa pero te 
+	prometo que cuando me muera voy a ir a una
+	de tus locas fiestas.
+
+	Bonelord: ¿Para que esperar? Te puedo ahorrar
+	la espera matandote acá mismo ¡Que empiece
+	la fiesta, niño mago!
+
+Edgar Opción 2: ¡No me importa quien sos, 
+la princesa me espera así que largo!
+
+	Bonelord: ¡AH! ¡Otro heroe que busca el amor
+	de una doncella en apuros! ¡No te preocupes!
+	Cuando te mate y te reanime como esqueleto, 
+	vas a tener a todas las chicas esqueleto que
+	desees.
+
+	Edgar: Agradezco la oferta señor Bonelord,
+	pero me gustan las chicas con algo de 
+	carne en los huesos, no es por ofender
+	pero usted me entiende.
+
+	Bonelord: Ah esos gustos mortales, no importa,
+	igual estoy necesitando mayordomos para mi
+	proxima fiesta...
+	!Así que anda preparandote que lo proximo que
+	vas a ver va a ser una bandeja con copas!
+
+
+
+
+(Despues del combate)
+
+Bonelord: ¡Mi mágia! ¡Mis poderes! ¡Mi vino!
+
+Edgar: ¡Listo, prearate huesudo que se viene
+el golpe de gracia!
+
+Bonelord: ¡Espera! ¡Puedo ayudarte si me perdonas!
+¿Que me decís Eddy? ¿Me perdonas la no-vida y te
+doy una mano?
+
+Edgar: ¿Como sabes mi nombre?
+
+Bonelord: Lo gritaste bien fuerte afuera de la 
+torre antes de entrara...
+
+Edgar: Bueno. ¿Me vas a ayudar o no?
+
+Bonelord: Ya va, ya va. ¿Viste mis piernas por
+algún lado? ¡Bueno, agarrate las botas que tenia
+puestas y te van a ayudar a moverte mas rápido!
+
+Edgar: La verdad que suena muy util, gracias huesitos
+
+(El sprite de edgar se desvanece y queda Bonelord hablando solo)
+
+Bonelord: ...
+
+Bonelord: ¡Edgar espera!
+
+(Edgar vuelve)
+
+Edgar: ¿Que pasa?
+
+Bonelord: ¿Me llevas con vos?
+
+Edgar: ¿Desde cuando te interesa venir conmigo?
+
+Bonelord: Desde que soy una cabeza sin cuerpo,
+entre acompañarte o morirme de aburrimiento acá 
+prefiero ir con vos ¿Me llevas?
+
+Edgar: No se, intentaste matarme hace 5 minutos...
+
+Bonelord: No dejemos que mi trabajo como protector
+de esta mazmorra arruine nuestra amistad.
+¿Me llevas?
+
+(Se abre decision de texto)
+
+LLevarse a Bonelord
+(Bonelord acompaña a Edgar a partir de ahora, no sirve de nada, solo aporta lineas 
+de texto extra a las demás conversaciones con los jefes)
+
+	Bonelord: Sabía que eras un buen pibe Eddy,
+	ahora vamos a salvar a esa chica ¡Dos amigos
+	heroes en una aventura sin parangon!
+
+	Edgar: Ya me estoy arrepintiendo de esto...
+
+No llevarselo
+
+	(Edgar se va desapareciendo nuevamente su sprite)
+
+	Bonelord: Tomo nota, la gente no acepta facilmente
+	las solicitudes de amistad tras un intento de 
+	asesinato...
+
+	Bonelord: Bueno, intentemos rodar lentamente hacia 
+	mi copa de vino, debe estar por algún lado
+
+(Termina el nivel)

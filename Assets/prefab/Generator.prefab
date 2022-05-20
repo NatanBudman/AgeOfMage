@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6707164217849624988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6707164217849624987}
+  - component: {fileID: 6707164217849624986}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6707164217849624987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707164217849624988}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 37.776276, y: 13.729206, z: 0}
+  m_LocalScale: {x: 0.8038822, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6707164217849624986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707164217849624988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb378fe3ef634d4ea669066e37184b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossSpawn: {fileID: 0}
+  SpawnsGenerators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  LongRangeEnemy:
+  - {fileID: 2125737678531217217, guid: 34e0d845658058d45ba089efbb1bbd12, type: 3}
+  MeleEnemy:
+  - {fileID: 3771405797708684518, guid: 8ca313d19cc0c2a43823e3756036183e, type: 3}
+  - {fileID: 5273805884302020360, guid: e8cec5e6fae21874d9940371b3dd7e86, type: 3}
+  BossRoom: {fileID: 0}
+  GoblinCount: 0
+  SkeletonCount: 0
+  RoundGoblins: 
+  RoundSkeletons: 
+  GoblinsInMap: []
+  SkeletonsInMap: []
+  EntityCount: 0
+  PosibilitySpawnSkeletons: 2
+  PosibilitySpawnGoblins: 3
+  CoolDownGoblins: 0
+  CoolDownSkeleton: 0
+  MaxGoblinsGenerateInRound: 10
+  MaxSkeletonsGenerateInRound: 5
