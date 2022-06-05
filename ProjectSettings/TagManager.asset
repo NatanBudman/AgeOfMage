@@ -13,6 +13,8 @@ TagManager:
   - Boss
   - ManaPotion
   - Enemy
+  - Gold
+  - TPWalls
   layers:
   - Default
   - TransparentFX

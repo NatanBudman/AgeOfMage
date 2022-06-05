@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
 
+
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
         animation.SetFloat("Y", moveY);
         animation.SetFloat("X", moveX);
 
-        if (Input.GetMouseButtonDown(0) && Mana.CurrentMana >= Weapon.SpellCost)
+        if (Input.GetMouseButtonDown(0) && Mana.CurrentMana >= Weapon.SpellCost && !game.GamePuase)
         {
             weapon.Fire();
             Mana.CurrentMana -= Weapon.SpellCost;
@@ -237,6 +238,12 @@ public class PlayerController : MonoBehaviour
         if (TagName == "ManaPotion")
         {
             Mana.CurrentMana += 50;
+        }
+        if (TagName == "Gold")
+        {
+            int Gold = Random.Range(1, 5);
+            GameManager.GetGold(Gold);
+           
         }
 
     }

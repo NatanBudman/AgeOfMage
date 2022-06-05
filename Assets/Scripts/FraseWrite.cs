@@ -9,13 +9,11 @@ public class FraseWrite : MonoBehaviour
     public string[] Frase;
     public Text text;
     string NextFrase;
-
     public static int index;
     public static bool IsSelectOptions;
     public static bool IsCompleteDialogue;
 
     float TimerNextFrame;
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -64,6 +62,7 @@ public class FraseWrite : MonoBehaviour
             IsCompleteDialogue = false;
 
         }
+  
     }
      public void StartDialogue() 
     {
@@ -74,6 +73,7 @@ public class FraseWrite : MonoBehaviour
     {
        foreach (char character in Frase[index].ToCharArray()) 
        {
+            
            text.text = text.text + character;
            yield return new WaitForSeconds(0.05f);
         }

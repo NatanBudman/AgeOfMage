@@ -19,10 +19,12 @@ public class HealthController : MonoBehaviour
     public  float DamageReduction = 0;
     public float DamageIncrement = 0;
 
+    public float DurationBurning;
     public string Element;
     string SpellElement;
     float currentSpell;
-    float DurationBurning;
+    float DamagePerSeconds;
+    bool TimeDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class HealthController : MonoBehaviour
         Revive();
         IfDeath();
         DeathAction();
+        Burning();
+        ReductionElements();
     }
 
     void DeathAction() 
@@ -135,9 +139,14 @@ public class HealthController : MonoBehaviour
             }
         }
 
-        if (SpellElement == "Agua")
+        if (SpellElement == "Agua" || Element == "Agua")
         {
-            burningTime = 0;
+            DurationBurning = 0;
+        }
+        if (SpellElement == "Fuego") 
+        {
+            DurationBurning = 2;
+         
         }
     }
     void Revive() 
@@ -163,35 +172,85 @@ public class HealthController : MonoBehaviour
     {
         currentLife += Cure;
     }
-    public void burning(float DamagePerSeconds, float Duration) 
+    public void burning(float TakingDamagePerSeconds, float Duration) 
     {
         DurationBurning = Duration;
+        DamagePerSeconds = TakingDamagePerSeconds;
+       // if (state.ThisIsPlayer) 
+       // {
+       //     Element = "Fuego";
+       //     state.PlayerState.text = "Burning";
+       //     state.PlayerFire = true;
+       //     state.PlayerState.color = new Color(255, 0, 0);
+       // }
 
-        if (state.ThisIsPlayer) 
+
+        // TimePerSecond += Time.deltaTime;
+        //burningTime = (int)TimePerSecond;
+
+        // if (burningTime < DurationBurning)
+        // {
+        //     state.PlayerFire = true;
+        //     burningState = true;
+        //     currentLife -= DamagePerSeconds;
+        // }
+        // else 
+        // {
+        //     state.PlayerFire = false;
+        //     burningState = false;
+        // }
+
+
+    }
+    private void Burning() 
+    {
+        if (state.ThisIsPlayer && burningTime < DurationBurning)
         {
             Element = "Fuego";
             state.PlayerState.text = "Burning";
             state.PlayerFire = true;
             state.PlayerState.color = new Color(255, 0, 0);
         }
-       
 
-        TimePerSecond += Time.deltaTime;
-       burningTime = (int)TimePerSecond;
+        Debug.Log(burningTime);
+        Debug.Log(DurationBurning);
 
         if (burningTime < DurationBurning)
         {
+            TimePerSecond += Time.deltaTime;
+            burningTime = (int)TimePerSecond;
+            //DamagePerSeconds = 1;
+            if (burningTime / 2 == 0 )
+            {
+                TimeDamage = true;
+                if (TimeDamage == true) 
+                {
+                    StartCoroutine(GetDamangePerSeconds());
+                    TimeDamage = false;
+            
+                }
+                if (!TimeDamage)
+                {
+                    DamagePerSeconds = 0f;
+                    StopCoroutine(GetDamangePerSeconds());
+                }
+            }
+          
+
+            //StopCoroutine(GetDamangePerSeconds());
             state.PlayerFire = true;
             burningState = true;
-            currentLife -= DamagePerSeconds;
+            
         }
-        else 
+        else
         {
+            StopCoroutine(GetDamangePerSeconds());
+            TimePerSecond = 0;
+            DurationBurning = 0;
+            burningTime = 0;
             state.PlayerFire = false;
             burningState = false;
         }
-
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -209,5 +268,13 @@ public class HealthController : MonoBehaviour
             SpellElement = "Null";
         }
         
+    }
+    public IEnumerator GetDamangePerSeconds()
+    {
+        DamagePerSeconds = 0.05f;
+        currentLife -= DamagePerSeconds;
+        yield return new WaitForSeconds(0.001f);
+       
+
     }
 }

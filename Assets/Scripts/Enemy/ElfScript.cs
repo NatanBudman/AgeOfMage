@@ -8,12 +8,14 @@ public class ElfScript : MonoBehaviour
     EnemyScript enemy;
     [SerializeField]private Transform PointShoot;
     [SerializeField]private GameObject Bullet;
+    [SerializeField]private GameObject Blood;
     [SerializeField]private float CoolwDownShoot;
     [SerializeField]private Animator animation;
     [SerializeField]private bool ShootBullet;
     [SerializeField]private bool ShootAnimation;
     float CurrentTimeShoot;
     [SerializeField]private float fireForce;
+    float bloodScale;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class ElfScript : MonoBehaviour
         CurrentTimeShoot += Time.deltaTime;
         ShootElf();
         Animations();
+        Death();
     }
 
     void ShootElf() 
@@ -59,5 +62,18 @@ public class ElfScript : MonoBehaviour
     void Animations() 
     {
         animation.SetBool("Shoot", ShootAnimation);
+        animation.SetBool("Death", health.Death);
+    }
+    void Death()
+    {
+        bloodScale = Mathf.Clamp(bloodScale, 0.1f, 1f);
+        if (health.Death)
+        {
+            bloodScale += Time.deltaTime;
+            Blood.SetActive(true);
+            Blood.transform.localScale = new Vector3(bloodScale, bloodScale, 1f);
+
+
+        }
     }
 }

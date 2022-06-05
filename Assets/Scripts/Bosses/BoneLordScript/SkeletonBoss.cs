@@ -13,6 +13,7 @@ public class SkeletonBoss : MonoBehaviour
     [SerializeField] private GameObject Portals;
     [SerializeField]private float CoolDownSpawnEnemy;
     [SerializeField] private BoxCollider2D colliderAttack;
+   [SerializeField]private bool Attack;
     private float CurrentTime;
 
     public GameObject Skeleton;
@@ -24,7 +25,6 @@ public class SkeletonBoss : MonoBehaviour
 
     private GameObject Player;
 
-    bool Attack;
     bool Drink;
     bool Eructando;
     public  bool InstanciaGomito;
@@ -56,7 +56,7 @@ public class SkeletonBoss : MonoBehaviour
       
         SpawnGas.position = new Vector2(transform.position.x, transform.position.y);
 
-
+        Debug.Log(CurrenTimeAttack);
         CurrenTimeAttack += Time.deltaTime;
         CurrentTime += Time.deltaTime;
         CurrenTimeGas += Time.deltaTime;
@@ -87,9 +87,10 @@ public class SkeletonBoss : MonoBehaviour
             if (CurrenTimeGas >= CoolDownGas)
             {
                 GasAttack();
-             
+
                 CurrenTimeGas = 0;
             }
+           
         }
 
         if (InstanciaGomito)
@@ -109,17 +110,17 @@ public class SkeletonBoss : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, Player.transform.position) < RangeAttack)
         {
-            if (CurrenTimeAttack >= CoolDownAttack && CurrenTimeAttack <= CoolDownAttack + 2)
+            if (CurrenTimeAttack >= CoolDownAttack)
             {
                 Attack = true;
-                if (Attack)
+               if(Attack)
                 CurrenTimeAttack = 0;
             }
-            else 
+            else
             {
                 Attack = false;
-                enemy.chasePlayer = true;
             }
+
         }
        
 

@@ -37,14 +37,14 @@ public class Portals : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PJ") && !IsLoadScene ) 
         {
-            if(Input.GetKey(KeyCode.F))
+            //if(Input.GetKey(KeyCode.F))
             player.transform.position = point.transform.position;
             //Camera.main.transform.position = 
             //destroyGameObject();
         }
         if(collision.gameObject.CompareTag("PJ") && IsLoadScene ) 
         {
-            if(Input.GetKey(KeyCode.F))
+            //if(Input.GetKey(KeyCode.F))
             SceneManager.LoadScene(SceneName);
             //destroyGameObject();
         }

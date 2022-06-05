@@ -5,11 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public Text round;
+    public Text[] round;
+    [SerializeField] private Image BossBatlle;
 
     [SerializeField]public Room[] room;
 
     [SerializeField] private Image LoadIcon;
+    [SerializeField] private Text[] Gold;
     [SerializeField] private Transform LoadIconPosition;
 
     public  bool GamePuase = false;
@@ -18,13 +20,15 @@ public class GameManager : MonoBehaviour
     public Transform SpawnPoint;
     public Transform[] newSpawnPoint;
 
-    private int PlayerGold;
-
-    public int index;
+    private static int PlayerGold;
+    string _NumbersInCount;
+    string _RoundInCount;
+    string _LevelInCount;
 
     bool InstantiateLoadIcon;
     float CurrentLoadIcon;
-    //int countCutScene = 0;
+
+    int Level;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -46,13 +50,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         PauseMode();
+
         AutoSave();
+        GoldCount();
         IconLoad();
         SpawnPoints();
         RoundPlaying();
         CusSceneConditions();
-        Debug.Log(room[0].Levels);
+        RoundCount();
 
+ 
         //Debug.Log(countCutScene);
     }
     void SpawnPoints() 
@@ -63,36 +70,41 @@ public class GameManager : MonoBehaviour
     void RoundPlaying() 
     {
 
-        round.text ="Round: " + room[room[0].Levels].RoundRooms;
+      
     }
     void AutoSave() 
     {
         for (int i = 0; i < room[0].Levels; i++) 
         {
             InstantiateLoadIcon = true;
-            index = i;
+           
             Save();
+
             if (i >= room.Length) 
             {
                 i = room.Length;
             }
         }
-        if (room[0].Levels == 1) 
+
+        Level = room[0].Levels;
+
+        if (room[0].Levels >= 1) 
         {
             room[0].CompleteLevel = "Complete";
         }
-        if (room[0].Levels == 2) 
+        if (room[0].Levels >= 2) 
         {
             room[1].CompleteLevel = "Complete";
-
         }
-
+        if (room[0].Levels >= 3)
+        {
+            room[2].CompleteLevel = "Complete";
+        }
     }
     void CusSceneConditions() 
     {
         if (Room.IsBossApears)
         {
-            //countCutScene++;
             InstantiateLoadIcon = true;
             Save();
             SceneManager.LoadScene("cutscenes");
@@ -100,7 +112,6 @@ public class GameManager : MonoBehaviour
   
        if (Room.IsDefeatBoss)
        {
-            //countCutScene++;
             InstantiateLoadIcon = true;
             room[room[0].Levels].CompleteLevel = "Complete";
             Save();
@@ -124,12 +135,24 @@ public class GameManager : MonoBehaviour
     }
     public void Save()
     {
-        
-        PlayerPrefs.SetInt("Rounds", room[room[0].Levels].RoundRooms);
-        //PlayerPrefs.SetInt("CutScene", countCutScene);
-        PlayerPrefs.SetInt("Level", room[0].Levels);
-        PlayerPrefs.SetString("Complete", room[room[0].Levels].CompleteLevel);
+  
+        PlayerPrefs.SetInt("Rounds", room[Level].RoundRooms);
+        PlayerPrefs.SetInt("Level", Level);
+        PlayerPrefs.SetString("Complete", room[Level].CompleteLevel);
 
+    }
+    void Load()
+    {
+
+        room[0].Levels = PlayerPrefs.GetInt("Level", Level);
+        room[room[0].Levels].RoundRooms = PlayerPrefs.GetInt("Rounds", room[Level].RoundRooms);
+        for (int i = 0; i < Level - 1; i++) 
+        {
+            room[i].CompleteRoom = true;
+        }
+
+
+        LevelsSave();
     }
     void LevelsSave() 
     {
@@ -142,27 +165,7 @@ public class GameManager : MonoBehaviour
             room[0].CompleteRoom = true;
             room[1].CompleteRoom = true;
         }
-        //if (room[3].CompleteRoom == true)
-        //{
-        //    room[0].CompleteRoom = true;
-        //    room[1].CompleteRoom = true;
-        //    room[2].CompleteRoom = true;
-        //}
-        //if (room[4].CompleteRoom == true)
-        //{
-        //    room[0].CompleteRoom = true;
-        //    room[1].CompleteRoom = true;
-        //    room[3].CompleteRoom = true;
-        //}
-    }
-    void Load()
-    {
-        //countCutScene = PlayerPrefs.GetInt("CutScene", countCutScene);
-        //room[room[0].Levels].CompleteLevel = PlayerPrefs.GetString("Complete", room[room[0].Levels].CompleteLevel);
-        room[0].Levels = PlayerPrefs.GetInt("Level", room[0].Levels);
-        room[room[0].Levels].RoundRooms = PlayerPrefs.GetInt("Rounds", room[room[0].Levels].RoundRooms);
-        index = room[0].Levels;
-        LevelsSave();
+  
     }
     void PauseMode() 
     {
@@ -178,7 +181,7 @@ public class GameManager : MonoBehaviour
             GamePuase = false;
         }
     }
-   public  void IsGamePause(bool Pause) 
+   public void IsGamePause(bool Pause) 
     {
         if (Pause)
         {
@@ -192,9 +195,62 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GetGold(int Gold) 
+    public static void GetGold(int Gold) 
     {
         PlayerGold += Gold;
 
+    }
+    void GoldCount() 
+    {
+        _NumbersInCount = "" + PlayerGold;
+
+        char numer1 = _NumbersInCount[0];
+        Gold[0].text = "" + numer1;
+
+        if (PlayerGold > 9)
+        { 
+            char numer2 = _NumbersInCount[1];
+            Gold[1].text = "" + numer2;
+        }
+        if (PlayerGold > 99) 
+        {
+            char numer3 = _NumbersInCount[2];
+            Gold[2].text = "" + numer3;
+
+        }
+        if (PlayerGold > 999) 
+        {
+            char numer4 = _NumbersInCount[3];
+            Gold[3].text = "" + numer4;
+        }
+        if (PlayerGold > 9999) 
+        {
+            char numer5 = _NumbersInCount[4];
+            Gold[4].text = "" + numer5;
+
+        }
+
+    }
+    void RoundCount() 
+    {
+        _RoundInCount = "" + room[room[0].Levels].RoundRooms;
+        _LevelInCount = "" + room[0].Levels;
+
+        char number1 = _RoundInCount[0];
+        round[0].text = "" + number1; 
+   
+       char number2 = _LevelInCount[0];
+       round[1].text = "" + number2;
+        
+
+
+        if (room[room[0].Levels].RoundRooms == 5)
+        {
+            BossBatlle.gameObject.SetActive(true);
+        }
+        else 
+        {
+            BossBatlle.gameObject.SetActive(false);
+        }
     }
 }
