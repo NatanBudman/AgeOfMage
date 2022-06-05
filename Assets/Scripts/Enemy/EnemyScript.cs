@@ -7,8 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
     HealthController heatlh;
     PlayerController playerScript;
-    //Room level;
-    //EnemyGenerator generator;
+  
     State state;
     public GameObject player;
     public Rigidbody2D rb;
@@ -30,8 +29,7 @@ public class EnemyScript : MonoBehaviour
     public bool Encantado;
 
     public bool death;
-    //bool Attacking = false;
-    //public int AddCurrentLife;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +45,7 @@ public class EnemyScript : MonoBehaviour
 
         Colliders = GetComponentsInChildren<BoxCollider2D>();
 
-        //level = FindObjectOfType<Room>();
-
-        //heatlh.MaxLife = AddCurrentLife;
+ 
     }
 
     // Update is called once per frame

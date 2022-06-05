@@ -68,14 +68,30 @@ public class GasBoss : MonoBehaviour
         {
             //if (!playerScript.Invensibility)
             //{
-                collision.GetComponent<State>().Slow(15);
-                //playerScript.Invensibility = true;
+            //collision.GetComponent<State>().Slow(15);if
+            if (collision.GetComponent<HealthController>().DurationBurning <= 1) 
+            {
+               collision.GetComponent<HealthController>().DurationBurning += 1;
+            }
+            //playerScript.Invensibility = true;
             //}
         }
 
-
+        if (collision.gameObject.GetComponent<Elements>().SpellElement == "Agua" && collision.gameObject.GetComponent<EnemyScript>() == null && collision.tag != "EnemyBullets") 
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
 
 
     }
-  
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "PJ") 
+        {
+                if (collision.GetComponent<HealthController>() != null)
+                   collision.GetComponent<HealthController>().DurationBurning = 0;
+        }
+    }
+
 }

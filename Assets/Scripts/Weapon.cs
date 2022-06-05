@@ -15,6 +15,8 @@ public class Weapon : MonoBehaviour
     public GameObject WaterSpell;
     public GameObject lightningSpell;
     public Transform firePoint;
+
+    public AudioSource DashSound;
     [SerializeField] private float weaponRange = 10f;
 
    
@@ -68,6 +70,7 @@ public class Weapon : MonoBehaviour
     }
     void Dash() 
     {
+        DashSound.Play();
         SpellCost = 100;
         player.transform.position = target.position;
     }

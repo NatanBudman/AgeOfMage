@@ -36,8 +36,9 @@ public class Detector : MonoBehaviour
            {
                 principalDoors.EnableDoors(i);
                 door[i].AnimatedDoor();
-            }
+           }
         }
+      
     }
 
     private void OnTriggerStay2D(Collider2D collision)

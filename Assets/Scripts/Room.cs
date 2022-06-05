@@ -21,7 +21,7 @@ public class Room : MonoBehaviour
     private Portals DoorsToPrincipalRoom;
 
     public GameObject RoomItem;
-
+    [SerializeField] private GameObject PortalShop;
     public bool CompleteRoom = false;
     public bool PlayerInRoom;
 
@@ -76,6 +76,7 @@ public class Room : MonoBehaviour
         if (CompleteLevel == "Complete") 
         {
             CompleteRoom = true;
+            PortalShop.SetActive(true);
         }
         if (CompleteRoom == true && InstatntiateItem == true)
         {
@@ -97,10 +98,13 @@ public class Room : MonoBehaviour
         if (CompleteRoom && !RoomPrincipal)
         {
             DoorsToPrincipalRoom.enabled = true;
+            DoorsToPrincipalRoom.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
         else if(!CompleteRoom && !RoomPrincipal)
         {
             DoorsToPrincipalRoom.enabled = false;
+            DoorsToPrincipalRoom.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
         }
     }
 
@@ -120,7 +124,7 @@ public class Room : MonoBehaviour
         if (NoEnemy == true && PlayerInRoom == true && RoundRooms <= 5)
         {
             cooldownPass += Time.deltaTime;
-            if (cooldownPass >= 3.5)
+            if (cooldownPass >= 5)
             {
                 RoundRooms += 1;
                 AddEnemy = true;

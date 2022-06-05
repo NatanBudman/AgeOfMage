@@ -23,7 +23,6 @@ public class SpellSelected : MonoBehaviour
     void Update()
     {
         SpellParchment();
-        Debug.Log(index);
 
     
     }
