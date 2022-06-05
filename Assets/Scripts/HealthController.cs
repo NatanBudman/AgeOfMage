@@ -212,8 +212,7 @@ public class HealthController : MonoBehaviour
             state.PlayerState.color = new Color(255, 0, 0);
         }
 
-        Debug.Log(burningTime);
-        Debug.Log(DurationBurning);
+  
 
         if (burningTime < DurationBurning)
         {

@@ -1019,8 +1019,7 @@ public class CutSceneScript : MonoBehaviour
                 BoneTalking.IsTalkingBone = true;
             BoneTalking.Standart = true;
 
-            //PlayerTalking.IsTalkingEdgar = false;
-            //PlayerTalking.Standart = false;
+          
         }
         else 
         {
@@ -1034,8 +1033,7 @@ public class CutSceneScript : MonoBehaviour
                     PlayerTalking.IsTalkingEdgar = true;
                 PlayerTalking.Standart = true;
 
-            //    BoneTalking.IsTalkingBone = false;
-            //BoneTalking.IsTalkingBone = false;
+       
              }
              else 
              {
