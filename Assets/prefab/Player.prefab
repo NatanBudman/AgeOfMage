@@ -43,10 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf96d41bef5230498ca132dc23c960b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spell: {fileID: 3154996019703547604, guid: 65f48ab864aedf14d96d32132548ebe1, type: 3}
+  player: {fileID: 0}
+  target: {fileID: 0}
+  fireBolt: {fileID: 0}
+  WaterSpell: {fileID: 0}
+  lightningSpell: {fileID: 0}
   firePoint: {fileID: 1700699231072575343}
+  DashSound: {fileID: 0}
+  weaponRange: 10
   fireForce: 45
-  raycastShooting: 1
 --- !u!1 &1700699232410722184
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +141,7 @@ SpriteRenderer:
   m_Size: {x: 4.0116706, y: 4.69}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1700699232410722189
@@ -171,6 +176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1700699232410722189}
+  dashSpeed: 0
+  dashLength: 0.5
+  dashCooldown: 1
   rb: {fileID: 1700699232410722187}
   weapon: {fileID: 1700699231072575340}
   SpellPower: 125
@@ -215,6 +223,7 @@ MonoBehaviour:
   Death: 0
   DamageReduction: 0
   DamageIncrement: 0
+  DurationBurning: 0
   Element: 
 --- !u!61 &1700699232410722225
 BoxCollider2D:
@@ -398,5 +407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 633bf6b9381bffa4bb438dcfce32b5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 0
   SpeedRotate: 361
   Book: {fileID: 4116460570083406306}
