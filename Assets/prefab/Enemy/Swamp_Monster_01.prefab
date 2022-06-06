@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8480967784615646016}
   - component: {fileID: 3561414684143322810}
   - component: {fileID: 4331246532605286691}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Swamp_Monster_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -132,6 +132,7 @@ MonoBehaviour:
   Death: 0
   DamageReduction: 0
   DamageIncrement: 0
+  DurationBurning: 0
   Element: 
 --- !u!114 &8067290051970754340
 MonoBehaviour:
@@ -309,7 +310,7 @@ GameObject:
   - component: {fileID: 7701965110109460414}
   - component: {fileID: 4944329116908625408}
   - component: {fileID: 4929506464635560983}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LifreBar_%100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +386,7 @@ GameObject:
   - component: {fileID: 1205082126861035133}
   - component: {fileID: 3082167110769780076}
   - component: {fileID: 7300003419900598836}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +486,7 @@ GameObject:
   - component: {fileID: 2427903000179393616}
   - component: {fileID: 8575894610265624194}
   - component: {fileID: 2894596432661418895}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: LifreBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4006370904830387627}
   - component: {fileID: 9073754447510308421}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mud
   m_TagString: Untagged
   m_Icon: {fileID: 0}

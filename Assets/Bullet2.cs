@@ -23,10 +23,8 @@ public class Bullet2 : MonoBehaviour
     //            break;
     //    }
     //}
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (SplashRange > 0)
@@ -48,13 +46,13 @@ public class Bullet2 : MonoBehaviour
             }
             else
             {
-                var enemy = collision.collider.GetComponent<EnemyScript>();
+                var enemy = collision.GetComponent<EnemyScript>();
                 if (enemy)
                 {
                     enemy.TakeHit(Damage);
                 }
             }
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
     }
 }
