@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: -6347672325503889769}
   - component: {fileID: 8021192340366417787}
   - component: {fileID: -7293255769509455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -188,6 +188,7 @@ MonoBehaviour:
   Death: 0
   DamageReduction: 0
   DamageIncrement: 0
+  DurationBurning: 0
   Element: 
 --- !u!114 &-5207355501217664444
 MonoBehaviour:
@@ -330,7 +331,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3049140685931919445}
   - component: {fileID: 2793728183583498253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dialogos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172343932333908847}
   - component: {fileID: 7905664842061912958}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dead_Goblin_Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -467,6 +468,10 @@ PrefabInstance:
     - target: {fileID: 1983808139239847280, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -319.85114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036834952101818687, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2540974474333702457, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
       propertyPath: m_Pivot.x
@@ -556,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 196515efe8dd57b45b3b8dd40d9701f7, type: 3}
+    - target: {fileID: 3265910017260414273, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3447446835154896894, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
       propertyPath: m_SortingLayerID
       value: 1818281517
@@ -567,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 8028672806237094569, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
       propertyPath: m_Name
       value: Canvas 2D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028672806237094569, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde5aa3a6dd71e349902ef91709d129a, type: 3}

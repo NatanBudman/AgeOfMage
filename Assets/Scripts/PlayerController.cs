@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     int Spell = 1;
 
-   
+
 
     public int SpellPower = 1;
 
@@ -48,11 +48,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-   
+
     }
     void Start()
     {
-      
+
         Mana = FindObjectOfType<BarraDeVida>();
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         StartCoroutine(time());
@@ -88,6 +88,22 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            weapon.Melee();
+        }
+
+        if (Input.GetKeyDown(KeyCode.B) && Mana.CurrentMana >= 30)
+        {
+            Mana.CurrentMana -= 30;
+            weapon.Heal();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T) && Mana.CurrentMana >= 30)
+        {
+            Mana.CurrentMana -= 20;
+            weapon.Wall();
+        }
 
         //if (Input.GetKeyDown(KeyCode.Q) && Mana.CurrentMana >= 50) //Stop Time when Q is pressed
         //{
@@ -141,14 +157,14 @@ public class PlayerController : MonoBehaviour
         rb.rotation = aimAngle;
     }
     // PlayerMechanics Guarda todas las habiliadades y mecanicas del palyer
-    void PlayerMechanics() 
+    void PlayerMechanics()
     {
         ProcessInput();
         InvensibilityOff();
         death();
         Dash();
     }
-    void Dash() 
+    void Dash()
     {
         if (dashCounter > 0)
         {
@@ -166,9 +182,9 @@ public class PlayerController : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
     }
-    void death() 
+    void death()
     {
-        if (health.Death == true) 
+        if (health.Death == true)
         {
             transform.position = game.SpawnPoint.position;
             SceneManager.LoadScene("Lose");
@@ -176,17 +192,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StatesEnable() 
+    void StatesEnable()
     {
         // estado  quemado
-        if (health.burningState) 
+        if (health.burningState)
         {
             health.burning(5, 10);
         }
 
-        
+
     }
-    void InvensibilityOff() 
+    void InvensibilityOff()
     {
         if (Invensibility == true)
         {
@@ -202,21 +218,22 @@ public class PlayerController : MonoBehaviour
             CoolwdownInvensibility = 0;
         }
     }
-    void InvensibilityOn(bool On) 
+    void InvensibilityOn(bool On)
     {
-      
-        if (On == true ) 
+
+        if (On == true)
         {
             Invensibility = true;
-            
-        }else if (On == false) 
+
+        }
+        else if (On == false)
         {
             Invensibility = false;
         }
 
-  
+
     }
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         TagName = collision.gameObject.tag;
@@ -231,7 +248,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (TagName == "PocionHealth") 
+        if (TagName == "PocionHealth")
         {
             health.CureLife(25);
         }
@@ -243,7 +260,7 @@ public class PlayerController : MonoBehaviour
         {
             int Gold = Random.Range(1, 5);
             GameManager.GetGold(Gold);
-           
+
         }
 
     }
