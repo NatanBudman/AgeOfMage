@@ -98,37 +98,43 @@ public class EnemyScript : MonoBehaviour
    
     void SeePlayer(GameObject See) 
     {
-        Vector2 lookDir = See.transform.position - this.transform.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
+        if (!heatlh.Death) 
+        {
+            Vector2 lookDir = See.transform.position - this.transform.position;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
 
-        rb.rotation = angle;
+            rb.rotation = angle;
+        }
     }
 
     public void Death() 
     {
-        var PosibilitySpawnItem = (int)Random.Range(0,5);
-        var Item = (int)Random.Range(0,DeathItems.Length);
+    
        if (heatlh.Death == true) 
         {
             for (int i = 0; i < Colliders.Length; i++) 
             {
-                Colliders[i].enabled = false;
+                Colliders[i].isTrigger = true;
             }
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             sprite.sortingLayerName = "Default";
             sprite.sortingOrder = 3;
             death = true;
-           
-            if (PosibilitySpawnItem == 1) 
-            {
-                Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
-            }
-            this.GetComponent<EnemyScript>().enabled = false;
-           
+            //this.GetComponent<EnemyScript>().enabled = false;
         }
 
- 
     }
+    void LootEnmey() 
+    {
+         var PosibilitySpawnItem = (int)Random.Range(0, 5);
+         var Item = (int)Random.Range(0, DeathItems.Length);
+         if (PosibilitySpawnItem == 1)
+         {
+             Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
+         }
+        Destroy(gameObject);
+
+       }
     public void DestroyObject() 
     {
         Destroy(gameObject);
@@ -141,16 +147,28 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.gameObject.tag == "Bullets")
-        //{
-        //    StartCoroutine(FlashRed());
-        //}
+      
         if (other.collider.tag == "PJ")
         {
-            if (!playerScript.Invensibility) 
+            if (heatlh.Death && Input.GetKeyDown(KeyCode.F)) 
+            {
+                LootEnmey();
+            }
+
+            if (!playerScript.Invensibility && !heatlh.Death) 
             {
                 other.collider.GetComponent<HealthController>().GetDamage(Damage);
                 playerScript.Invensibility = true;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "PJ")
+        {
+            if (heatlh.Death && Input.GetKeyDown(KeyCode.F))
+            {
+                LootEnmey();
             }
         }
     }

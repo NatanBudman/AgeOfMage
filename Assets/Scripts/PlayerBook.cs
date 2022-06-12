@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerBook : MonoBehaviour
 {
     public float maxSpeed;
-    public float SpeedRotate;
+    public float Speed;
     public GameObject Book;
-
+    public bool Up = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +18,25 @@ public class PlayerBook : MonoBehaviour
     void Update()
     {
         BookRotate();
+        UpTransform();
     }
 
     void BookRotate() 
     {
-        
-        SpeedRotate += Time.deltaTime;
-        SpeedRotate = Mathf.Clamp(SpeedRotate, 0, maxSpeed);
-        Book.transform.Rotate(Book.transform.rotation.x, Book.transform.rotation.y,  SpeedRotate);
+        Speed += Time.deltaTime;
+        Speed = Mathf.Clamp(Speed, 0, maxSpeed);
+        if (!Up) 
+        {
+            Book.transform.Rotate(Book.transform.rotation.x, Book.transform.rotation.y,  Speed);
+        }
     }
+    void UpTransform()
+    {
+        if (Up) 
+        {
+             transform.position = new Vector2(transform.position.x, transform.position.y + Speed * Time.deltaTime);
+            Book.transform.Rotate(0, 0, 0);
 
+        }
+    }
 }

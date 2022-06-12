@@ -243,11 +243,12 @@ public class PlayerController : MonoBehaviour
         {
             int Gold = Random.Range(1, 5);
             GameManager.GetGold(Gold);
+
            
         }
 
     }
-
+    
     IEnumerator time()
     {
         while (true)
