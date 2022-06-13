@@ -16,6 +16,7 @@ TagManager:
   - Gold
   - TPWalls
   - SlimeParent
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX

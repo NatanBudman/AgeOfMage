@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class Canvas : MonoBehaviour
 {
     GameManager manager;
 
+    public AudioMixer Mixer;
+
+    public Slider Music;
+    public Slider Sound;
     public GameObject Pause;
-    //Room room;
-    //EnemyGenerator generator;
-
-    //public Image[] Boss1StoryBoard;
-    //public Image[] Boss2StoryBoard;
-
+    public GameObject Options;
+    public GameObject Controls;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Music.onValueChanged.AddListener(ChangeVolMaster);
+        Sound.onValueChanged.AddListener(ChangeVolSound);
+    }
     void Start()
     {
         manager = FindObjectOfType<GameManager>();
         //room = FindObjectOfType<Room>();
         //generator = FindObjectOfType<EnemyGenerator>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,13 +44,34 @@ public class Canvas : MonoBehaviour
         }
     }
          
-    //void StoryBoardBoss()
-    //{
-    //    //if(room.Levels == 1 && generator.BossInMap.Length == 1)
-    //    //{
-
-    //    //}
-    //}
-
-
+   public  void OptionsEnable()
+    {
+        if (Options.activeInHierarchy == true)
+        {
+            Options.SetActive(false);
+        }
+        else if (Options.activeInHierarchy == false) 
+        {
+            Options.SetActive(false);
+        }
+    }
+    public void EnableControls()
+    {
+        if (Controls.activeSelf == true)
+        {
+            Controls.SetActive(false);
+        }
+        else
+        {
+            Controls.SetActive(true);
+        }
+    }
+    public void ChangeVolMaster(float Volumen)
+    {
+        Mixer.SetFloat("VolMaster", Volumen);
+    }
+    public void ChangeVolSound(float Volumen)
+    {
+        Mixer.SetFloat("VolSound", Volumen);
+    }
 }

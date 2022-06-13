@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
 
+    public bool TakeLifePotion;
+    public bool TakeManaPotion;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
@@ -251,9 +253,12 @@ public class PlayerController : MonoBehaviour
         if (TagName == "PocionHealth")
         {
             health.CureLife(25);
+            TakeLifePotion = true;
+
         }
         if (TagName == "ManaPotion")
         {
+            TakeManaPotion = true;
             Mana.CurrentMana += 50;
         }
         if (TagName == "Gold")
