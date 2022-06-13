@@ -8,7 +8,7 @@ public class Select : MonoBehaviour
     GameManager manager;
     Room room;
     public Transform[] Selected;
-
+    [SerializeField] GameObject Options;
     public Image SelectPosition;
 
     int index;
@@ -62,7 +62,7 @@ public class Select : MonoBehaviour
                 break;
             case 1:
                 if (Input.GetKeyDown(KeyCode.Return))
-                    Debug.Log("Opciones");
+                    Options.SetActive(true);
                 break;
             case 2:
                 if (Input.GetKeyDown(KeyCode.Return)) 

@@ -1015,11 +1015,16 @@ public class CutSceneScript : MonoBehaviour
 
         if (ID == "Bone")
         {
-            if (!FraseWrite.IsCompleteDialogue)
+            if (!FraseWrite.IsCompleteDialogue) 
+            {
                 BoneTalking.IsTalkingBone = true;
-            BoneTalking.Standart = true;
+            }
+            else 
+            {
+                BoneTalking.IsTalkingBone = false;
 
-          
+            }
+            BoneTalking.Standart = true;
         }
         else 
         {
@@ -1027,19 +1032,23 @@ public class CutSceneScript : MonoBehaviour
             BoneTalking.Standart = false;
         }
          
-            if (ID == "Edgar") 
+        if (ID == "Edgar") 
+        {
+            if (!FraseWrite.IsCompleteDialogue)
             {
-                if (!FraseWrite.IsCompleteDialogue)
-                    PlayerTalking.IsTalkingEdgar = true;
-                PlayerTalking.Standart = true;
-
-       
-             }
-             else 
-             {
+                PlayerTalking.IsTalkingEdgar = true;
+            }
+            else 
+            {
+                PlayerTalking.IsTalkingEdgar = false;
+            }
+            PlayerTalking.Standart = true;
+        }
+        else 
+        {
                  PlayerTalking.IsTalkingEdgar = false;
                  PlayerTalking.Standart = false;
-             }
+        }
         if (ID == "Elfo")
         {
             ElfTalking.Standart = true;

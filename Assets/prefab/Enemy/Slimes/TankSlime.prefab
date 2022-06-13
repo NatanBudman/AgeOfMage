@@ -172,6 +172,8 @@ MonoBehaviour:
   sprite: {fileID: 7029032262736473799}
   DeathItems:
   - {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
+  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
+  - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
   Colliders: []
   Damage: 23
   IsLongRange: 1

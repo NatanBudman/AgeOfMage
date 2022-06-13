@@ -80,9 +80,7 @@ public class GoblinScript : MonoBehaviour
             BloodScale += Time.deltaTime;
             GoblinBlood.SetActive(true);
             GoblinBlood.transform.localScale = new Vector3( BloodScale,BloodScale) ;
-            attackCollider.enabled = false;
-            colliders.enabled = false;
-            //this.GetComponent<GoblinScript>().enabled = false;
+          
         }
     }
     void AnimationsEnemy()

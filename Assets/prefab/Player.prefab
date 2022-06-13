@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1424290676355348105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2790243798843149814}
+  m_Layer: 0
+  m_Name: CoinsSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2790243798843149814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424290676355348105}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.6911037, y: 0.209716, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1700699232410722191}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700699231072575341
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,9 +79,16 @@ MonoBehaviour:
   WaterSpell: {fileID: 0}
   lightningSpell: {fileID: 0}
   firePoint: {fileID: 1700699231072575343}
+  healingCircle: {fileID: 0}
+  earthWall: {fileID: 0}
   DashSound: {fileID: 0}
   weaponRange: 10
   fireForce: 45
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  meleeRange: 1
+  meleeDamage: 15
 --- !u!1 &1700699232410722184
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +127,7 @@ Transform:
   m_Children:
   - {fileID: 1700699231072575343}
   - {fileID: 6849970136850116218}
+  - {fileID: 2790243798843149814}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -133,15 +171,15 @@ SpriteRenderer:
   m_SortingLayerID: 1818281517
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6248144250217613860, guid: 9bbb9b7e003d6ae4ba886101507b24dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f0e61cba49046b43a1895a678f6e3de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.0116706, y: 4.69}
+  m_Size: {x: 5.28, y: 6.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1700699232410722189
@@ -242,8 +280,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.0116706, y: 4.69}
-    newSize: {x: 4.0116706, y: 4.69}
+    oldSize: {x: 5.28, y: 6.74}
+    newSize: {x: 5.28, y: 6.74}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -268,8 +306,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.0116706, y: 4.69}
-    newSize: {x: 4.0116706, y: 4.69}
+    oldSize: {x: 5.28, y: 6.74}
+    newSize: {x: 5.28, y: 6.74}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -408,5 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 0
-  SpeedRotate: 361
+  Speed: 0
   Book: {fileID: 4116460570083406306}
+  Up: 0

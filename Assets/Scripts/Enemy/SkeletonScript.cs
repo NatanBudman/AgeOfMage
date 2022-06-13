@@ -68,8 +68,7 @@ public class SkeletonScript : MonoBehaviour
     {
         if (health.Death) 
         {
-            enemy.enabled = false;
-            SkeletonCollider.enabled = false;
+         
             this.GetComponent<SkeletonScript>().enabled = false;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
              Destroy(gameObject,6);

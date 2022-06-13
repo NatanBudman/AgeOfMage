@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Transform SpawnPoint;
     public Transform[] newSpawnPoint;
 
-    private static int PlayerGold;
+    public static int PlayerGold;
     string _NumbersInCount;
     string _RoundInCount;
     string _LevelInCount;

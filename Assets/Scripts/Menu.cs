@@ -45,6 +45,7 @@ public class Menu : MonoBehaviour
     }
     void DaleteSave()
     {
+        GameManager.PlayerGold = 0;
         PlayerPrefs.DeleteAll();
     }
     public void StarCampaing() 
