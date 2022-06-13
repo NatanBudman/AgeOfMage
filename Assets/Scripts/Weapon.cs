@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject healingCircle;
     public GameObject earthWall;
+    public GameObject windProjectile;
 
     public AudioSource DashSound;
     [SerializeField] private float weaponRange = 10f;
@@ -62,6 +63,11 @@ public class Weapon : MonoBehaviour
         SpellCost = 5;
         GameObject projectile = Instantiate(fireBolt, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+    }
+    public void Wind()
+    {
+        GameObject wind;
+        wind = Instantiate(windProjectile, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation) as GameObject;
     }
     void Water()
     {

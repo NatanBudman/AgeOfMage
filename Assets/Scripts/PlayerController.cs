@@ -14,12 +14,16 @@ public class PlayerController : MonoBehaviour
     GameManager game;
     public Animator animation;
     private TimeManager timemanager;
+    private bool EscobazoAnim;
 
     //public Camera sceneCamera;
     private float activeMoveSpeed;
     public float dashSpeed;
 
     public float dashLength = .5f, dashCooldown = 1f;
+    private float dashTime = 0.5f;
+
+    private Coroutine dashing;
 
     private float dashCounter;
     private float dashCoolCounter;
@@ -37,7 +41,6 @@ public class PlayerController : MonoBehaviour
     int Spell = 1;
 
 
-
     public int SpellPower = 1;
 
     public bool Invensibility = false;
@@ -45,7 +48,6 @@ public class PlayerController : MonoBehaviour
     string TagName;
 
     bool PlayerBurning = false;
-    // Start is called before the first frame update
     private void Awake()
     {
 
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         StatesEnable();
         PlayerMechanics();
+
     }
 
     void FixedUpdate()
@@ -79,18 +82,21 @@ public class PlayerController : MonoBehaviour
 
     void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && dashing == null && Mana.CurrentMana >= 10)
         {
-            if (dashCoolCounter <= 0 && dashCounter <= 0)
-            {
-                activeMoveSpeed = dashSpeed;
-                dashCounter = dashLength;
-            }
+            dashing = StartCoroutine(DashCoroutine());
+            Mana.CurrentMana -= 10;
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
             weapon.Melee();
+            EscobazoAnim = true;
+        }
+        else
+        {
+            EscobazoAnim = false;
         }
 
         if (Input.GetKeyDown(KeyCode.B) && Mana.CurrentMana >= 30)
@@ -103,6 +109,11 @@ public class PlayerController : MonoBehaviour
         {
             Mana.CurrentMana -= 20;
             weapon.Wall();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            weapon.Wind();
         }
 
         //if (Input.GetKeyDown(KeyCode.Q) && Mana.CurrentMana >= 50) //Stop Time when Q is pressed
@@ -121,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
         animation.SetFloat("Y", moveY);
         animation.SetFloat("X", moveX);
+        animation.SetBool("IsAttacking", EscobazoAnim);
 
         if (Input.GetMouseButtonDown(0) && Mana.CurrentMana >= Weapon.SpellCost && !game.GamePuase)
         {
@@ -148,6 +160,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private IEnumerator DashCoroutine()
+    {
+        var endOfFrame = new WaitForEndOfFrame();
+
+        for (float timer = 0; timer < dashTime; timer += Time.deltaTime)
+        {
+            rb.MovePosition(transform.position - (transform.up * (dashSpeed * Time.deltaTime)));
+
+            yield return endOfFrame;
+        }
+
+        dashing = null;
+    }
+
     void Move()
     {
         rb.velocity = moveDirection * state.Speed;
@@ -162,25 +188,6 @@ public class PlayerController : MonoBehaviour
         ProcessInput();
         InvensibilityOff();
         death();
-        Dash();
-    }
-    void Dash()
-    {
-        if (dashCounter > 0)
-        {
-            dashCounter -= Time.deltaTime;
-
-            if (dashCounter <= 0)
-            {
-                activeMoveSpeed = state.Speed;
-                dashCoolCounter = dashCooldown;
-            }
-        }
-
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
     }
     void death()
     {

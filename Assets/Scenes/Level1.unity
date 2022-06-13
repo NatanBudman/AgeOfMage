@@ -2113,7 +2113,7 @@ GameObject:
   - component: {fileID: 365056162}
   - component: {fileID: 365056164}
   - component: {fileID: 365056163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -8120,6 +8120,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -10294,7 +10295,7 @@ GameObject:
   - component: {fileID: 924180761}
   - component: {fileID: 924180763}
   - component: {fileID: 924180762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16185,7 +16186,7 @@ GameObject:
   - component: {fileID: 1998329157}
   - component: {fileID: 1998329159}
   - component: {fileID: 1998329158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -17440,7 +17441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2065364101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17585,7 +17586,7 @@ GameObject:
   - component: {fileID: 2080765871}
   - component: {fileID: 2080765873}
   - component: {fileID: 2080765872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -18169,6 +18170,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3154996019703547604, guid: f68be0386af8529419c05f86f05379e0, type: 3}
     - target: {fileID: 1700699231072575340, guid: d705b7973680521468f522360a935776, type: 3}
+      propertyPath: windProjectile
+      value: 
+      objectReference: {fileID: 501982740030260225, guid: a5792fa6f6a1bb44c90643214760c9a4, type: 3}
+    - target: {fileID: 1700699231072575340, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: enemyLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -18178,11 +18183,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1700699232410722186, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: dashSpeed
-      value: 2
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1700699232410722186, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: SpellPower
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700699232410722186, guid: d705b7973680521468f522360a935776, type: 3}
+      propertyPath: dashMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1700699232410722187, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: m_Mass
