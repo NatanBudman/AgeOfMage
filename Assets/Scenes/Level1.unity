@@ -1321,7 +1321,7 @@ Transform:
   - {fileID: 1350954793}
   - {fileID: 85100682}
   m_Father: {fileID: 391316065}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237217491
 GameObject:
@@ -2128,7 +2128,7 @@ RectTransform:
   - {fileID: 1998760792}
   - {fileID: 237217492}
   m_Father: {fileID: 391316065}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7562501, y: 0.6723333}
   m_AnchorMax: {x: 1, y: 1}
@@ -8056,12 +8056,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 200687391}
-  - {fileID: 1364427017}
   - {fileID: 233559401}
   - {fileID: 1111472086}
   - {fileID: 1384097481}
   - {fileID: 347959385}
   - {fileID: 618358984}
+  - {fileID: 1364427017}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9715,7 +9715,7 @@ RectTransform:
   - {fileID: 1122362720}
   - {fileID: 2104205505}
   m_Father: {fileID: 391316065}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.72875005, y: 0}
   m_AnchorMax: {x: 1, y: 0.23333333}
@@ -12875,7 +12875,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391316065}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13878,7 +13878,7 @@ Transform:
   - {fileID: 613667852}
   - {fileID: 978317875}
   m_Father: {fileID: 391316065}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1364427018
 MonoBehaviour:
@@ -14300,7 +14300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundSkeletons.Array.size
@@ -14331,6 +14331,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
+      propertyPath: LongRangeEnemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 7029032262736473793, guid: 5876752e45c53d047a257181f36e03e4, type: 3}
+    - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[0]
       value: 6
       objectReference: {fileID: 0}
@@ -14344,15 +14348,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[4]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[5]
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundSkeletons.Array.data[0]
@@ -16481,7 +16485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2903827213557949441, guid: 00087f88ae745a14c9c15ca5615beb2b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2903827213557949441, guid: 00087f88ae745a14c9c15ca5615beb2b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -18679,7 +18683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[4]
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[5]
@@ -21355,11 +21359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[4]
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundMeleEnmey.Array.data[5]
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: RoundSkeletons.Array.data[0]
