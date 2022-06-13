@@ -244,7 +244,7 @@ public class GameManager : MonoBehaviour
         
 
 
-        if (room[room[0].Levels].RoundRooms == 5)
+        if (room[room[0].Levels].RoundRooms == 4)
         {
             BossBatlle.gameObject.SetActive(true);
         }

@@ -12,6 +12,8 @@ public class CutSceneScript : MonoBehaviour
     public GameObject CutScene_Level_1_Part_2;
     public GameObject CutScene_Level_2;
     public GameObject CutScene_Level_2_Part2;
+    public GameObject CutScene_Level_3;
+    public GameObject CutScene_Level_3_Part2;
     public GameObject Edgar;
 
     [SerializeField] private GameObject BoneLose;
@@ -76,6 +78,12 @@ public class CutSceneScript : MonoBehaviour
         {
             Level2LaterBoss();
             LoadScene = 4;
+            Save();
+        }
+        if(Scene == 4) 
+        {
+            Level3BeforeBoss();
+            LoadScene = 5;
             Save();
         }
 
@@ -963,6 +971,186 @@ public class CutSceneScript : MonoBehaviour
         }
 
     }
+    void Level3BeforeBoss() 
+    {
+     
+     
+        if (IsBoneLordFollow == "Si") 
+        {
+            if (FraseWrite.index == 7 && Options == 0)
+            {
+                FraseWrite.IsSelectOptions = true;
+                Option1.gameObject.SetActive(true);
+                Option2.gameObject.SetActive(true);
+            }
+            else
+            {
+                FraseWrite.IsSelectOptions = false;
+                Option1.gameObject.SetActive(false);
+                Option2.gameObject.SetActive(false);
+            }
+            BoneLose.SetActive(true);
+            switch (FraseWrite.index) 
+            {
+                case 0:
+                   
+                    frase.SpeakCutScene("¡Glup!");
+                    break;
+                case 1:
+                    Talking("Simo");
+
+                    frase.SpeakCutScene("¿Eh?");
+                    break;
+                case 2:
+                    Talking("Edgar");
+
+                    frase.SpeakCutScene("Tranquilo muñeco, yo hablo algo de slime, deja que te traduzco...");
+                    break;
+                case 3:
+                    Talking("Bone");
+
+                    frase.SpeakCutScene("Ok...");
+                    break;
+                case 4:
+                    Talking("Edgar");
+
+                    frase.SpeakCutScene(" Dice que está enojado por que vinimos y empezamos a romper sus inventos así nomas...");
+                    break;
+                case 5:
+                    Talking("Bone");
+
+                    frase.SpeakCutScene("Oh, lo siento slimecito...");
+                    break;
+                case 6:
+                    Talking("Edgar");
+
+                    frase.SpeakCutScene("¡Glup!¡Glup!");
+                    break;
+                case 7:
+                    Talking("Simo");
+             
+                    frase.SpeakCutScene("Dice que ya que lo entendemos, le paguemos los daños, si no entendieramos nada de lo que dice, nos dejaba ir sin drama...");
+                    break;
+                case 8:
+                    Talking("Bone");
+                    frase.SpeakCutScene("Pagar los daños o No pienso pagar");
+
+             
+                    break;
+                case 9:
+                    Talking("Simo");
+                    if (Options == 1)
+                    {
+                        frase.SpeakCutScene("¡Glup!¡Glup!");
+                    }
+                    if (Options == 2)
+                    {
+                        frase.SpeakCutScene(" ¡Glup!¡Glup!¡Glup!¡Glup!");
+                    }
+
+                    break;
+                case 10:
+                    Talking("Simo");
+               
+                    if (Options == 1) 
+                    {
+                        frase.SpeakCutScene("(Edgar pierde 50 monedas y termina el nivel, si no puede pagar, empieza el combate)");
+                      
+                    }
+                    if (Options == 2) 
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                            SceneManager.LoadScene("Level1");
+                    }
+                    break;
+                default:
+                    if (Options == 1) 
+                    {
+                        GameManager.PlayerGold += 50;
+                    }
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        SceneManager.LoadScene("Level1");
+                    break;
+
+
+
+            }
+
+        }else if(IsBoneLordFollow == "No") 
+        {
+            if (FraseWrite.index == 5 && Options == 0)
+            {
+                FraseWrite.IsSelectOptions = true;
+                Option1.gameObject.SetActive(true);
+                Option2.gameObject.SetActive(true);
+            }
+            else
+            {
+                FraseWrite.IsSelectOptions = false;
+                Option1.gameObject.SetActive(false);
+                Option2.gameObject.SetActive(false);
+            }
+            BoneLose.SetActive(false);
+            switch (FraseWrite.index) 
+            {
+                case 0:
+                    frase.SpeakCutScene("¡Glup!");
+                    break;
+                case 1:
+                    Talking("Simo");
+                    frase.SpeakCutScene("¡¿Eh?!");
+                    break;
+                case 2:
+                    Talking("Edgar");
+
+                    frase.SpeakCutScene("¡Glup Glup Glup!");
+                    break;
+                case 3:
+                    Talking("Simo");
+
+                    frase.SpeakCutScene("No entiendo nada");
+                    break;
+                case 4:
+                    Talking("Edgar");
+
+                    frase.SpeakCutScene("¿Glup?");
+                    break;
+                case 5:
+
+                    frase.SpeakCutScene("¡Glup! o ¡Glup! ¡Glup!");
+                    break;
+                case 6:
+              
+                    if (Options == 1) 
+                    {
+                        frase.SpeakCutScene(" ¡Glup! ¡Glup! ¡Glup!");
+
+                    }
+                    if (Options == 2) 
+                    {
+                        frase.SpeakCutScene("¡Glup!");
+
+                    }
+                    break;
+                case 7:
+                    Talking("Simo");
+                    if (Options == 1)
+                    {
+                        frase.SpeakCutScene(" (Se inicia la pelea de jefe)");
+
+                    }
+                    if (Options == 2)
+                    {
+                        frase.SpeakCutScene("(Se omite la pelea de jefe y Slimo te regala 30 monedas)");
+                    }
+                    break;
+                default:
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        SceneManager.LoadScene("Level1");
+                    break;
+            }
+        }
+    }
     public void Opcion1() 
     {
         Options = 1;
@@ -1006,6 +1194,21 @@ public class CutSceneScript : MonoBehaviour
 
             Option1.GetComponentInChildren<Text>().text = "1 ";
             Option2.GetComponentInChildren<Text>().text = "2 ";
+        }
+        if (Scene == 4) 
+        {
+            CutScene_Level_3.gameObject.SetActive(true);
+            if(IsBoneLordFollow == "Si") 
+            {
+                Option1.GetComponentInChildren<Text>().text = "Si ";
+                Option2.GetComponentInChildren<Text>().text = "No ";
+            }
+            if (IsBoneLordFollow == "No")
+            {
+                Option1.GetComponentInChildren<Text>().text = "¡Glup!";
+                Option2.GetComponentInChildren<Text>().text = "¡Glup! ¡Glup!";
+            }
+
         }
     }
 
@@ -1056,6 +1259,15 @@ public class CutSceneScript : MonoBehaviour
         else 
         {
             ElfTalking.Standart = false;
+
+        }
+        if (ID == "Simo")
+        {
+            Standarts[3].SetActive(true);
+        }
+        else 
+        {
+            Standarts[3].SetActive(false);
 
         }
 
