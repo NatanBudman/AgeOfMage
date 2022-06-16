@@ -100,6 +100,10 @@ public class GameManager : MonoBehaviour
         {
             room[2].CompleteLevel = "Complete";
         }
+        if (room[0].Levels >= 4)
+        {
+            room[3].CompleteLevel = "Complete";
+        }
     }
     void CusSceneConditions() 
     {

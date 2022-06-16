@@ -132,7 +132,6 @@ public class Room : MonoBehaviour
                 if (RoundRooms == 4) 
                 {
                     IsBossApears = true;
-                    Debug.Log("entre");
                 }
             }
             else 
