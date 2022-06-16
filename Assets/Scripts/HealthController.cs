@@ -270,7 +270,7 @@ public class HealthController : MonoBehaviour
     }
     public IEnumerator GetDamangePerSeconds()
     {
-        DamagePerSeconds = 0.05f;
+        DamagePerSeconds = 0.1f;
         currentLife -= DamagePerSeconds;
         yield return new WaitForSeconds(0.001f);
        

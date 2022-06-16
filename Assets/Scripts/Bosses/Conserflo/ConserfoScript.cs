@@ -33,6 +33,8 @@ public class ConserfoScript : MonoBehaviour
     float beforeCooldownBombarding;
     float bloodScale;
     float FireForce = 40;
+
+    float CountLisofor;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +49,7 @@ public class ConserfoScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CountLisofor = 1;
         CurrentTimeLysoformBombardment += Time.deltaTime;
         CurrentTimeCrazyLysoformBombardment += Time.deltaTime;
 
@@ -95,10 +98,15 @@ public class ConserfoScript : MonoBehaviour
     }
     public void CreateLysoform() 
     {
-        if (ShootLysoform) 
+        if (ShootLysoform && CountLisofor == 1)
         {
             ShootLysoform = false;
             Instantiate(granate, PointToShoot.position, Quaternion.identity);
+            CountLisofor = 0;
+        }
+        else 
+        {
+            CountLisofor = 1;
         }
     }
     void Teleport() 
