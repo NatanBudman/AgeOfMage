@@ -148,6 +148,11 @@ public class HealthController : MonoBehaviour
             DurationBurning = 2;
          
         }
+
+        if (gameObject.tag == "Altar") 
+        {
+            DurationBurning = 0;
+        }
     }
     void Revive() 
     {
@@ -266,6 +271,14 @@ public class HealthController : MonoBehaviour
         {
             SpellElement = "Null";
         }
+        if (gameObject.tag == "Altar") 
+        {
+            if (collision.gameObject.tag == "Bullets") 
+            {
+                collision.gameObject.GetComponent<Bullet>().Damage = 0;
+                Destroy(collision.gameObject);
+            }
+        }
         
     }
     public IEnumerator GetDamangePerSeconds()
@@ -273,7 +286,5 @@ public class HealthController : MonoBehaviour
         DamagePerSeconds = 0.1f;
         currentLife -= DamagePerSeconds;
         yield return new WaitForSeconds(0.001f);
-       
-
     }
 }

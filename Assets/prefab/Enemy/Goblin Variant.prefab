@@ -12,6 +12,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2538156863698582771, guid: e8cec5e6fae21874d9940371b3dd7e86, type: 3}
+      propertyPath: IsAltarEnable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538156863698582771, guid: e8cec5e6fae21874d9940371b3dd7e86, type: 3}
       propertyPath: DeathItems.Array.size
       value: 3
       objectReference: {fileID: 0}

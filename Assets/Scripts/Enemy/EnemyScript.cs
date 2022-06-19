@@ -30,11 +30,20 @@ public class EnemyScript : MonoBehaviour
 
     public bool death;
 
+    public bool IsAltarEnable;
+
+   [SerializeField] GameObject[] Altares;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Altares = GameObject.FindGameObjectsWithTag("Altar");
+
+
+    }
     void Start()
     {
         state = GetComponent<State>();
-
+   
         player = GameObject.FindGameObjectWithTag("PJ");
 
         playerScript = FindObjectOfType<PlayerController>();
@@ -62,7 +71,31 @@ public class EnemyScript : MonoBehaviour
         {
             SeePlayer(player);
         }
+        ChaseDiffObject();
 
+    }
+    void ChaseDiffObject()
+    {
+        for (int i = 0; i < Altares.Length; i++)
+        {
+            if (Altares[i].activeSelf == true)
+            {
+                IsAltarEnable = true;
+            }
+            else
+            {
+                IsAltarEnable = false;
+            }
+      
+        }
+        if (IsAltarEnable)
+        {
+            player = GameObject.FindGameObjectWithTag("Altar");
+        }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("PJ");
+        }
     }
     public void ChasePlayer() 
     {
@@ -144,7 +177,7 @@ public class EnemyScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
      
-        if (other.collider.tag == "PJ" && !heatlh.Death)
+        if (other.collider.tag == "PJ" || other.collider.tag == "Altar" && !heatlh.Death)
         {
             if (!playerScript.Invensibility) 
             {
@@ -155,7 +188,7 @@ public class EnemyScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "PJ")
+        if (collision.tag == "PJ" )
         {
             if (heatlh.Death && Input.GetKeyDown(KeyCode.F))
             {

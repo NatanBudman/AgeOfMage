@@ -17,7 +17,7 @@ public class ProtectedZoneScript : MonoBehaviour
     [SerializeField]float BarAmount;
     [SerializeField] GameObject EnableNextObject;
     float CurrentAmount = 0;
-    bool IsComplete;
+    public bool IsComplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,9 +51,14 @@ public class ProtectedZoneScript : MonoBehaviour
 
         }
 
-        if(CurrentAmount == BarAmount) 
+        if(CurrentAmount >= BarAmount) 
         {
             CurrentAmount = BarAmount;
+            IsComplete = true;
+        }
+        if (IsComplete) 
+        {
+            EnableNextObject.SetActive(true);
         }
         BarLoad.fillAmount = CurrentAmount / BarAmount;
 
@@ -73,11 +78,16 @@ public class ProtectedZoneScript : MonoBehaviour
                 IsZoneLoad = false;
             }
         }
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && collision.GetComponent<HealthController>().Death == false && collision.GetComponent<EnemyScript>())
         {
+      
             IsEnemyInZone = true;
         }
-   
+        else if(collision.CompareTag("Enemy") && collision.GetComponent<HealthController>().Death == true && collision.GetComponent<EnemyScript>())
+        {
+            IsEnemyInZone = false;
+        }
+
     }
   
     private void OnTriggerExit2D(Collider2D collision)
