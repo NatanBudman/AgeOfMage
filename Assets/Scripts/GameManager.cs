@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         GoldCount();
         IconLoad();
         SpawnPoints();
-        RoundPlaying();
+        SpecialLevels();
         CusSceneConditions();
         RoundCount();
 
@@ -67,9 +67,13 @@ public class GameManager : MonoBehaviour
          SpawnPoint.position = newSpawnPoint[room[0].Levels].position;
         
     }
-    void RoundPlaying() 
+    void SpecialLevels() 
     {
-
+        // exepciones del sistema de rondas y niveles
+        if (room[3].CompleteRoom == true && room[0].Levels == 3) 
+        {
+            room[0].Levels = 4;
+        }
       
     }
     void AutoSave() 
@@ -169,7 +173,14 @@ public class GameManager : MonoBehaviour
             room[0].CompleteRoom = true;
             room[1].CompleteRoom = true;
         }
-  
+        if (room[3].CompleteRoom == true)
+        {
+            room[0].CompleteRoom = true;
+            room[1].CompleteRoom = true;
+            room[2].CompleteRoom = true;
+        }
+
+
     }
     void PauseMode() 
     {

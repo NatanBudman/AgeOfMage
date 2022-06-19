@@ -8,7 +8,6 @@ public class SkeletonScript : MonoBehaviour
     EnemyScript enemy;
     Rigidbody2D rb;
 
-    private GameObject player;
 
     public BoxCollider2D SkeletonCollider;
 
@@ -26,7 +25,6 @@ public class SkeletonScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("PJ");
 
         enemy = GetComponent<EnemyScript>();
         health = GetComponent<HealthController>();
@@ -44,7 +42,7 @@ public class SkeletonScript : MonoBehaviour
 
  
 
-        if (Vector2.Distance(transform.position, player.transform.position) <= enemy.RangeShoot)
+        if (Vector2.Distance(transform.position, enemy.player.transform.position) <= enemy.RangeShoot)
         {
             AttackCurrentTime += Time.deltaTime;
         }

@@ -17,6 +17,7 @@ TagManager:
   - TPWalls
   - SlimeParent
   - EnemySpawn
+  - Altar
   layers:
   - Default
   - TransparentFX
