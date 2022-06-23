@@ -31,7 +31,6 @@ public class PlayerBook : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + Speed * Time.deltaTime);
             Book.transform.Rotate(0, 0, 0);
-
         }
     }
 }

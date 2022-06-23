@@ -18,6 +18,7 @@ TagManager:
   - SlimeParent
   - EnemySpawn
   - Altar
+  - Books
   layers:
   - Default
   - TransparentFX

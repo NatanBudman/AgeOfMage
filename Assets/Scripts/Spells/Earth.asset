@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef17af1284bcd0e4aa2be9e2fd797fd5, type: 3}
+  m_Name: Earth
+  m_EditorClassIdentifier: 
+  spellName: Earth Wall
+  description: stone wall
+  Book: {fileID: 3715197859461176417, guid: c685444004722064fb1d4d92c10d7521, type: 3}
+  mana: 5
+  attack: 0
+  cost: 45
+  IsBoughtBook: 0
