@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SpellSelected : MonoBehaviour
 {
+    GameObject player;
+    PlayerController playerScript;
     public static int index;
     private int indexColor;
 
@@ -16,7 +18,8 @@ public class SpellSelected : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        player = GameObject.FindGameObjectWithTag("PJ");
+        playerScript = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -30,10 +33,10 @@ public class SpellSelected : MonoBehaviour
     {
         //parchment.color = Color[index].color;
 
-        if (index >= 2)
+        if (index == 2)
             indexColor = 2;
             parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g, Color[indexColor].color.b);
-        if (index <= 0)
+        if (index == 0)
             indexColor = 0;
             parchmentCircle.color = new Color(Color[indexColor].color.r - 25, Color[indexColor].color.g, Color[indexColor].color.b);
         if (index == 1)
@@ -71,7 +74,7 @@ public class SpellSelected : MonoBehaviour
             Spell[2].enabled = false;
             Spell[1].enabled = false;
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
+        if (Input.GetKeyUp(KeyCode.Alpha2)&& playerScript.hasFire == true)
         {
             index = 1;
             Spell[0].enabled = false;

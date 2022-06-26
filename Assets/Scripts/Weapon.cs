@@ -42,20 +42,25 @@ public class Weapon : MonoBehaviour
     {
         if (SpellSelected.index == 0)
         {
+            NormalSpell();
+        }
+        if (SpellSelected.index == 1)
+        {
             FireBolt();
         }
         if (SpellSelected.index == 2)
         {
             Water();
         }
-        if (SpellSelected.index == 1)
-        {
-            Dash();
-        }
         if (SpellSelected.index == 3)
         {
             lightning();
         }
+    }
+
+    void NormalSpell()
+    {
+
     }
 
     void FireBolt()

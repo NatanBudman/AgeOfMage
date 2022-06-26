@@ -48,6 +48,16 @@ public class PlayerController : MonoBehaviour
     string TagName;
 
     bool PlayerBurning = false;
+
+
+    public bool hasFire;
+    public bool hasWater;
+    public bool hasLightning;
+    public bool hasEarth;
+    public bool hasWind;
+    public bool hasDash;
+    public bool hasHeal;
+
     private void Awake()
     {
 
