@@ -113,7 +113,7 @@ MonoBehaviour:
   DeathItems:
   - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
   - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
-  - {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
+  - {fileID: 5649100164515028444, guid: 6259bcaa26cdba54eb370278d30e9e8d, type: 3}
   Colliders: []
   Damage: 15
   IsLongRange: 1
@@ -121,6 +121,8 @@ MonoBehaviour:
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &4274068510930549653
 Rigidbody2D:
   serializedVersion: 4

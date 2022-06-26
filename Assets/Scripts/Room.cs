@@ -148,7 +148,6 @@ public class Room : MonoBehaviour
         CompleteRoom = true;
    
         IsDefeatBoss = true;
-        Debug.Log("entre2");
 
         //AutoSave = true;
     }

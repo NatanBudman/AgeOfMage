@@ -56,7 +56,6 @@ public class SkeletonBoss : MonoBehaviour
       
         SpawnGas.position = new Vector2(transform.position.x, transform.position.y);
 
-        Debug.Log(CurrenTimeAttack);
         CurrenTimeAttack += Time.deltaTime;
         CurrentTime += Time.deltaTime;
         CurrenTimeGas += Time.deltaTime;

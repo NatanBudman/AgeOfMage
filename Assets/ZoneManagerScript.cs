@@ -10,19 +10,23 @@ public class ZoneManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ProtectedZone[0].gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (room.RoundRooms >= 1){ Destroy(gameObject); }
-        if (ProtectedZone[2].IsComplete) 
+        //if (room.RoundRooms >= 1){ Destroy(gameObject); }
+        if (ProtectedZone[2].IsComplete || room.RoundRooms > 1) 
         {
             for(int i = 0; i < ProtectedZone.Length; i++) 
             {
-                Destroy(ProtectedZone[i]);
+                ProtectedZone[i].gameObject.SetActive(false);
                 room.RoundRooms = 1;
-                Destroy(gameObject);
+                if(i >= ProtectedZone.Length - 1) 
+                {
+                    this.gameObject.SetActive(false);
+                }
             }
         }
     }

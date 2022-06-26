@@ -22,7 +22,7 @@ PrefabInstance:
     - target: {fileID: 2538156863698582771, guid: e8cec5e6fae21874d9940371b3dd7e86, type: 3}
       propertyPath: DeathItems.Array.data[2]
       value: 
-      objectReference: {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
+      objectReference: {fileID: 5649100164515028444, guid: 6259bcaa26cdba54eb370278d30e9e8d, type: 3}
     - target: {fileID: 5273805884302020360, guid: e8cec5e6fae21874d9940371b3dd7e86, type: 3}
       propertyPath: m_Name
       value: Goblin Variant

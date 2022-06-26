@@ -21,12 +21,16 @@ public class GameManager : MonoBehaviour
     public Transform[] newSpawnPoint;
 
     public static int PlayerGold;
+
     string _NumbersInCount;
     string _RoundInCount;
     string _LevelInCount;
 
     bool InstantiateLoadIcon;
     float CurrentLoadIcon;
+
+    public static bool IsLevel3;
+    public static bool IsLevel5;
 
     int Level;
     // Start is called before the first frame update
@@ -36,8 +40,15 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        Load(); 
-
+        Load();
+        if (room[0].Levels == 2 && IsLevel3 == true)
+        {
+            room[2].RoundRooms = 3;
+        }
+        if (room[0].Levels == 4) 
+        {
+            room[4].RoundRooms = 4;
+        }
         //SpawnPoints();
         room = GetComponentsInChildren<Room>();
        //Load();
@@ -74,6 +85,10 @@ public class GameManager : MonoBehaviour
         {
             room[0].Levels = 4;
         }
+        if (room[0].Levels <= 2 || room[2].RoundRooms < 3) 
+        {
+            IsLevel3 = true;
+        }
       
     }
     void AutoSave() 
@@ -107,6 +122,10 @@ public class GameManager : MonoBehaviour
         if (room[0].Levels >= 4)
         {
             room[3].CompleteLevel = "Complete";
+        }
+        if (room[0].Levels >= 5)
+        {
+            room[4].CompleteLevel = "Complete";
         }
     }
     void CusSceneConditions() 
@@ -218,30 +237,52 @@ public class GameManager : MonoBehaviour
     void GoldCount() 
     {
         _NumbersInCount = "" + PlayerGold;
+        if (PlayerGold <= 9) 
+        {
+            char numer1 = _NumbersInCount[0];
+            Gold[0].text = "" + numer1;
+        }
 
-        char numer1 = _NumbersInCount[0];
-        Gold[0].text = "" + numer1;
-
-        if (PlayerGold > 9)
+        if (PlayerGold > 9 && PlayerGold <= 99)
         { 
             char numer2 = _NumbersInCount[1];
-            Gold[1].text = "" + numer2;
+            Gold[0].text = "" + numer2;
+            char numer1 = _NumbersInCount[0];
+            Gold[1].text = "" + numer1;
         }
-        if (PlayerGold > 99) 
+        if (PlayerGold > 99 && PlayerGold <= 999) 
         {
             char numer3 = _NumbersInCount[2];
-            Gold[2].text = "" + numer3;
+            Gold[0].text = "" + numer3;
+            char numer2 = _NumbersInCount[1];
+            Gold[1].text = "" + numer2;
+            char numer1 = _NumbersInCount[0];
+            Gold[2].text = "" + numer1;
 
         }
-        if (PlayerGold > 999) 
+        if (PlayerGold > 999 && PlayerGold <= 9999) 
         {
             char numer4 = _NumbersInCount[3];
-            Gold[3].text = "" + numer4;
+            Gold[0].text = "" + numer4;
+            char numer3 = _NumbersInCount[2];
+            Gold[1].text = "" + numer3;
+            char numer2 = _NumbersInCount[1];
+            Gold[2].text = "" + numer2;
+            char numer1 = _NumbersInCount[0];
+            Gold[3].text = "" + numer1;
         }
         if (PlayerGold > 9999) 
         {
             char numer5 = _NumbersInCount[4];
-            Gold[4].text = "" + numer5;
+            Gold[0].text = "" + numer5;
+            char numer4 = _NumbersInCount[3];
+            Gold[1].text = "" + numer4;
+            char numer3 = _NumbersInCount[2];
+            Gold[2].text = "" + numer3;
+            char numer2 = _NumbersInCount[1];
+            Gold[3].text = "" + numer2;
+            char numer1 = _NumbersInCount[0];
+            Gold[4].text = "" + numer1;
 
         }
 

@@ -14,9 +14,9 @@ public class ProtectedZoneScript : MonoBehaviour
     [SerializeField]bool IsZoneLoad;
     [SerializeField] Image BarLoad;
     //[SerializeField] SpriteRenderer BarLoadSprite;
-    [SerializeField]float BarAmount;
+    public float BarAmount;
     [SerializeField] GameObject EnableNextObject;
-    float CurrentAmount = 0;
+    public float CurrentAmount = 0;
     public bool IsComplete;
     // Start is called before the first frame update
     void Start()

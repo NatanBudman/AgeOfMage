@@ -17,7 +17,7 @@ public class AltaresManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Altares[finalAltar - 1].IsComplete && Altares[finalAltar].gameObject.activeSelf == true) 
+        if (Altares[2].IsComplete && Altares[2].gameObject.activeSelf == true) 
         {
             Room4.CompleteRoom = true;
         }
