@@ -52,6 +52,10 @@ public class AltarScript : MonoBehaviour
 
             nextObject.SetActive(true);
         }
+        if (IsComplete) 
+        {
+            this.gameObject.tag = "Wall";
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

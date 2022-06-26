@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8168522997747970950}
   - component: {fileID: 4284126391877456675}
   - component: {fileID: 2215873123373349244}
+  - component: {fileID: 6063512039095263972}
   m_Layer: 0
   m_Name: Lava (1)
   m_TagString: Untagged
@@ -110,6 +111,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.14, y: 13.79}
   m_EdgeRadius: 0
+--- !u!114 &6063512039095263972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441140133619922474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb8f988bcbe1524da1e4d04395c0592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4762013599766787492
 GameObject:
   m_ObjectHideFlags: 0
