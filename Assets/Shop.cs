@@ -64,12 +64,18 @@ public class Shop : MonoBehaviour
 
     void SpellDescription() 
     {
-        if (ItemsForSale[Items1].IsBoughtBook) 
+        if (ItemsForSale[Items1].IsBoughtBook)
         {
             ItemsForSale[Items1].Book.gameObject.SetActive(false);
 
             if (ItemsForSale[Items1].Book.activeSelf == true)
                 ItemsInSale[0].SetActive(false);
+
+        }
+        else 
+        {
+            ItemsForSale[Items1].Book.gameObject.SetActive(true);
+
 
         }
         if (ItemsForSale[Items2].IsBoughtBook)
@@ -80,18 +86,29 @@ public class Shop : MonoBehaviour
                 ItemsInSale[1].SetActive(false);
 
         }
+        else 
+        {
+            ItemsForSale[Items2].Book.gameObject.SetActive(true);
+
+
+        }
         if (ItemsForSale[Items3].IsBoughtBook)
         {
             ItemsForSale[Items3].Book.gameObject.SetActive(false);
 
-            if(ItemsForSale[Items3].Book.activeSelf == true)
-            ItemsInSale[2].SetActive(false);
+            if (ItemsForSale[Items3].Book.activeSelf == true)
+                ItemsInSale[2].SetActive(false);
+
+        }
+        else 
+        {
+            ItemsForSale[Items3].Book.gameObject.SetActive(true);
 
         }
 
         if (isItem1) 
         {
-            if (ItemsForSale[Items1].IsBoughtBook)
+            if (!ItemsForSale[Items1].IsBoughtBook)
             {
 
                 ItemDescription.text = "Description: " + ItemsForSale[Items1].description;
@@ -103,7 +120,7 @@ public class Shop : MonoBehaviour
         }
         if (isItem2) 
         {
-            if (ItemsForSale[Items2].IsBoughtBook) 
+            if (!ItemsForSale[Items2].IsBoughtBook) 
             {
 
                 ItemDescription.text = "Description: " + ItemsForSale[Items2].description;
@@ -116,7 +133,7 @@ public class Shop : MonoBehaviour
         }
         if (isItem3) 
         {
-            if (ItemsForSale[Items3].IsBoughtBook) 
+            if (!ItemsForSale[Items3].IsBoughtBook) 
             {
 
                 ItemDescription.text = "Description " + ItemsForSale[Items3].description;

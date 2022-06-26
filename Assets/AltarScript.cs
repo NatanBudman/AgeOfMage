@@ -16,7 +16,7 @@ public class AltarScript : MonoBehaviour
     [SerializeField] float FullBar;
     [SerializeField] float VelocityLoadBar;
     public bool IsComplete;
-    float CurrentLoad;
+    public float CurrentLoad;
     // Start is called before the first frame update
     void Start()
     {

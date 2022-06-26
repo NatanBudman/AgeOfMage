@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
+    public SpellsBook[] resetBooks;
     public Button Continue_Buttom;
     public GameObject Opcion;
     public GameObject Controls;
@@ -45,6 +46,10 @@ public class Menu : MonoBehaviour
     }
     void DaleteSave()
     {
+        for (int i = 0; i < resetBooks.Length; i++) 
+        {
+            resetBooks[i].IsBoughtBook = false;
+        }
         GameManager.PlayerGold = 0;
         PlayerPrefs.DeleteAll();
     }

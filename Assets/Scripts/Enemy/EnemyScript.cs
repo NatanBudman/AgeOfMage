@@ -32,6 +32,10 @@ public class EnemyScript : MonoBehaviour
 
     public bool IsAltarEnable;
 
+    int Item;
+
+    int PosibilitySpawnItem;
+
    [SerializeField] GameObject[] Altares;
     // Start is called before the first frame update
     private void Awake()
@@ -60,8 +64,12 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        Item = (int)Random.Range(0, DeathItems.Length);
+
+        PosibilitySpawnItem = (int)Random.Range(0, 4);
+
         Mechanics();
+
     }
     public void Mechanics() 
     {
@@ -164,9 +172,7 @@ public class EnemyScript : MonoBehaviour
     }
     void LootEnmey()
     {
-        var PosibilitySpawnItem = (int)Random.Range(0, 5);
-        var Item = (int)Random.Range(0, DeathItems.Length);
-        if (PosibilitySpawnItem == 1)
+        if (PosibilitySpawnItem == 1 || PosibilitySpawnItem == 0)
         {
             Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
         }

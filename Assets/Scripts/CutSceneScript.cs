@@ -54,8 +54,11 @@ public class CutSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
-      
+        if (Input.GetKeyDown(KeyCode.G)) 
+        {
+            SceneManager.LoadScene("Level1");
+        }
+
         if (Scene == 0) 
         {
             Level1BeforeBoss();
@@ -86,7 +89,15 @@ public class CutSceneScript : MonoBehaviour
             LoadScene = 5;
             Save();
         }
-
+        if (Scene == 5) 
+        {
+            LoadScene = 6;
+            Save();
+        }
+        if (Scene == 6) 
+        {
+            LevelLoader.LoadLevel("VictoryScene");
+        }
         StandartsTalking();
 
 
@@ -973,11 +984,11 @@ public class CutSceneScript : MonoBehaviour
     }
     void Level3BeforeBoss() 
     {
-     
+        GameManager.IsLevel3 = false;
      
         if (IsBoneLordFollow == "Si") 
         {
-            if (FraseWrite.index == 7 && Options == 0)
+            if (FraseWrite.index == 9 && Options == 0)
             {
                 FraseWrite.IsSelectOptions = true;
                 Option1.gameObject.SetActive(true);
@@ -1151,6 +1162,55 @@ public class CutSceneScript : MonoBehaviour
             }
         }
     }
+    void Level3LaterBoss() 
+    {
+        if (IsBoneLordFollow == "Si")
+        {
+            switch (FraseWrite.index) 
+            {
+                case 0:
+                    frase.SpeakCutScene(" Genial, mataste a un inocente, espero que estés contento...");
+
+                    break;
+                case 1:
+                    Talking("Bone");
+                    frase.SpeakCutScene("Callate, su inventos nos empezaron a atacar primero...");
+
+
+                    break;
+                case 2:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Si claro, sigue alegando que fue en legitima defensa...");
+
+
+                    break;
+                case 3:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¿Quieres que te deje tirado acá?");
+
+                    break;
+                case 4:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Ahora que lo dices, el atacó primero...");
+
+                    break;
+                case 5:
+                    Talking("Bone");
+                    if(Input.GetKeyDown(KeyCode.Space))
+                    SceneManager.LoadScene("Level1");
+
+                    break;
+                default:
+                    SceneManager.LoadScene("Level1");
+                    break;
+            }
+        }
+        else if (IsBoneLordFollow == "No") 
+        {
+            SceneManager.LoadScene("Level1");
+        }
+
+    }
     public void Opcion1() 
     {
         Options = 1;
@@ -1210,8 +1270,12 @@ public class CutSceneScript : MonoBehaviour
             }
 
         }
-    }
+        if (Scene == 5) 
+        {
+            CutScene_Level_3_Part2.gameObject.SetActive(true);
 
+        }
+    }
     void Talking(string ID) 
     {
 

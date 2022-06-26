@@ -2600,6 +2600,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3ca41046477dc44955d41bde368656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetBooks:
+  - {fileID: 11400000, guid: e7839685c0b41374e8c87bf4c44db069, type: 2}
+  - {fileID: 11400000, guid: 9bae17bfb86240b44940151003a248c0, type: 2}
+  - {fileID: 11400000, guid: a4135541ed0c0f1478c4b4e01ee6487d, type: 2}
+  - {fileID: 11400000, guid: a64cb9e8c575fac409c8858cae66d923, type: 2}
   Continue_Buttom: {fileID: 1797798196}
   Opcion: {fileID: 1689445260}
   Controls: {fileID: 1652713590}

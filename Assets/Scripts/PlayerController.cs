@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     State state;
     GameManager game;
     public Animator animation;
+    public Text Interface;
     private TimeManager timemanager;
     private bool EscobazoAnim;
 
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
     bool PlayerBurning = false;
     private void Awake()
     {
-
+        Interface.gameObject.SetActive(false);
     }
     void Start()
     {
@@ -245,8 +247,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TagName = collision.gameObject.tag;
 
+        TagName = collision.gameObject.tag;
+        if (TagName == "Enemy" && collision.GetComponent<HealthController>().Death == true)
+        {
+            Interface.gameObject.transform.position = collision.GetComponent<EnemyScript>().gameObject.transform.position;
+            Interface.gameObject.transform.rotation = new Quaternion(0,0,0f,0f);
+            Interface.gameObject.SetActive(true);
+            Interface.text = "F";
+        }
         if (Invensibility == false)
         {
 
@@ -276,7 +285,11 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        Interface.gameObject.SetActive(false);
+        
+    }
     IEnumerator time()
     {
         while (true)
