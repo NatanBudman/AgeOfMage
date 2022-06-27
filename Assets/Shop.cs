@@ -23,22 +23,27 @@ public class Shop : MonoBehaviour
     public bool isItem1;
     public bool isItem2;
     public bool isItem3;
+    bool IsShopRealod = false;
     public GameObject[] ItemsInSale;
     // Start is called before the first frame update
     void Start()
     {
 
         player = GameObject.FindGameObjectWithTag("PJ");
+        IndexBooks = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(IndexBooks);
+        Debug.Log(IsShopRealod);
+
         ItemsInSale = GameObject.FindGameObjectsWithTag("Books");
 
         if (Items1 == -1) 
         {
-            Items1 = (int)Random.Range(0, ItemsForSale.Length);
+            Items1 = (int)Random.Range(0, ItemsForSale.Length - 1);
 
 
         }
@@ -46,15 +51,19 @@ public class Shop : MonoBehaviour
         {
     
 
-            Items2 = (int)Random.Range(0, ItemsForSale.Length);
+            Items2 = (int)Random.Range(0, ItemsForSale.Length - 1);
         }
         if(/*Items2 > -1 || Items3 == -1 ||*/Items3 == -1|| Items3 == Items2 || Items3 == Items1) 
         {
              
-           Items3 = (int)Random.Range(0, ItemsForSale.Length);
+           Items3 = (int)Random.Range(0, ItemsForSale.Length - 1);
         }
 
-        if(Items3 > -1 && Items3 != Items2 && Items3 != Items1) 
+        if(Items3 > -1 && Items3 != Items2 && Items3 != Items1)  
+        {
+            IsShopRealod = true;
+        }
+        if (IsShopRealod) 
         {
             ReloadShop();
         }
@@ -147,20 +156,45 @@ public class Shop : MonoBehaviour
  
     void ReloadShop() 
     {
-        if (IndexBooks < 1) 
+        if (IndexBooks >= 0) 
         {
-            if (!ItemsForSale[Items1].IsBoughtBook)
-                Instantiate(ItemsForSale[Items1].Book, ItemsSpawn[0].position, Quaternion.identity, this.gameObject.transform);
+            Debug.Log(Items1);
+            Debug.Log(Items2);
+            Debug.Log(Items3);
+            for (int i = 0; i < 3; i++) 
+            {
+                if (i == 0) 
+                {
+                    Instantiate(ItemsForSale[Items1].Book, ItemsSpawn[0].position, Quaternion.identity, this.gameObject.transform);
+                    i = 1;
+                }
+                if (i == 1)
+                {
+                    Instantiate(ItemsForSale[Items2].Book, ItemsSpawn[1].position, Quaternion.identity, this.gameObject.transform);
+                    IsShopRealod = false;
+                    i = 2;
 
-            if (!ItemsForSale[Items2].IsBoughtBook)
-                Instantiate(ItemsForSale[Items2].Book, ItemsSpawn[1].position, Quaternion.identity, this.gameObject.transform);
+                }
+                if (i == 2) 
+                {
+                    Instantiate(ItemsForSale[Items3].Book, ItemsSpawn[2].position, Quaternion.identity, this.gameObject.transform);
+                    IsShopRealod = false;
+                    i = 3;
+                }
+                if (i == 3) 
+                {
+                    IndexBooks = -1;
+                }
+            }
+            if (ItemsInSale.Length == 4) 
+            {
+                Destroy(ItemsInSale[4]);
+            }
+            //Instantiate(ItemsForSale[Items2].Book, ItemsSpawn[1].position, Quaternion.identity, this.gameObject.transform);
 
-            if (!ItemsForSale[Items3].IsBoughtBook)
-                Instantiate(ItemsForSale[Items3].Book, ItemsSpawn[2].position, Quaternion.identity, this.gameObject.transform);
+            //Instantiate(ItemsForSale[Items3].Book, ItemsSpawn[2].position, Quaternion.identity, this.gameObject.transform);
 
-
-             IndexBooks++;
-            
+           
         }
    
 
