@@ -9,6 +9,6 @@ public class triggerBoolTest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        spells.hasFire = true;
+        spells.hasLightning = true;
     }
 }

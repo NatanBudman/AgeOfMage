@@ -5,24 +5,8 @@ using UnityEngine;
 public class Bullet2 : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float Damage = 1;
-    public float SplashRange = 1;
-
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    switch (other.gameObject.tag)
-    //    {
-    //        case "Wall":
-    //            Destroy(gameObject);
-    //            break;
-    //        case "Skeleton":
-    //            Destroy(gameObject);
-    //            break;
-    //        case "Goblin":
-    //            Destroy(gameObject);
-    //            break;
-    //    }
-    //}
+    public float Damage;
+    public float SplashRange;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
