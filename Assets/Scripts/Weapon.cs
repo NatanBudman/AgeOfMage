@@ -68,12 +68,14 @@ public class Weapon : MonoBehaviour
         SpellCost = 5;
         GameObject projectile = Instantiate(fireBolt, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+
     }
     public void Wind()
     {
         GameObject wind;
-        wind = Instantiate(windProjectile, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation) as GameObject;
+        wind = Instantiate(windProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation) as GameObject;
     }
+
     void Water()
     {
         SpellCost = 10;

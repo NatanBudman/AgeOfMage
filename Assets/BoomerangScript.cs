@@ -11,9 +11,11 @@ public class BoomerangScript : MonoBehaviour
 
     void Start()
     {
+        go = false;
+
         player = GameObject.Find("Player");
 
-        locationInFrontOfPlayer = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z) + player.transform.forward * 10f;
+        locationInFrontOfPlayer = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z) + player.transform.forward * 10f;
 
         StartCoroutine(Boom());
     }
@@ -21,7 +23,7 @@ public class BoomerangScript : MonoBehaviour
     IEnumerator Boom()
     {
         go = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         go = false;
     }
 
@@ -34,7 +36,7 @@ public class BoomerangScript : MonoBehaviour
 
         if (!go)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z), Time.deltaTime * 40);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.transform.position.x + 1, player.transform.position.y, player.transform.position.z), Time.deltaTime * 40);
         }
 
         if (!go && Vector3.Distance(player.transform.position, transform.position) < 1.5)
