@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrackingBullet : MonoBehaviour
+public class trackingPlayerBullet : MonoBehaviour
 {
     private GameObject enemy;
     private int speed = 20;
+    private TimeManager timemanager;
 
     private GameObject FindClosestEnemy()
     {
         try
         {
             GameObject[] enemies;
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            enemies = GameObject.FindGameObjectsWithTag("PJ");
 
             GameObject closest = null;
             float distance = Mathf.Infinity;

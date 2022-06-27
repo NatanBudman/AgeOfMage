@@ -7,23 +7,22 @@ public class Princesa_Boss : MonoBehaviour
     EnemyScript enemy;
     [SerializeField] Animator Animations;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] Transform Bullet1PointShoot;
-    [SerializeField] Transform Bullet2CanonPointShoot;
+    [SerializeField] Transform BulletPointShoot;
     [SerializeField] GameObject Bullet1;
     [SerializeField] GameObject Bullet2;
     [SerializeField] float fireForce;
+    [SerializeField] float fireForceBullet2;
     [SerializeField] float FrecuenceBullet1Shoot;
     [SerializeField] float CoolDownBullet1;
     [SerializeField] float CoolDownBullet2;
     [SerializeField] bool IsShootBullet2;
     [SerializeField] bool IsShootBullet1;
+    float CurrentBullet1Bullets;
     float CurrentBullet1;
     float CurrentBullet2;
     public bool IsBullet2;
     public bool IsBullet1;
-    float EnemeySpawning = 5;
-    int count = 4;
-    int countCanonShoot = 1;
+    int countBullet2Shoot = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,59 +38,46 @@ public class Princesa_Boss : MonoBehaviour
     }
     void animations()
     {
-
+        Animations.SetBool("Ataque1", IsBullet1);
     }
     void Mechanics()
     {
         CurrentBullet2 += Time.deltaTime;
         CurrentBullet1 += Time.deltaTime;
-        else
+
+        if (CurrentBullet1 >= CoolDownBullet1)
         {
-            IsShoot = true;
-        }
-        if (CurrentRifle >= CoolDownRifle)
-        {
-            IsRifle = true;
-            CurrentRifle = 0;
+            IsBullet1 = true;
+            CurrentBullet1 = 0;
         }
 
-        if (CurrentCanon >= CoolDownCanon)
+        if (CurrentBullet2 >= CoolDownBullet2)
         {
-            IsCanon = true;
-            CurrentRifle = 0;
-            IsRifle = false;
-            countCanonShoot = 1;
-            CurrentCanon = 0;
-        }
-
-    }
-    void SpawnEnemy()
-    {
-
-        if (IsReload && count >= 0)
-        {
-            Instantiate(EnemySpawn[count], Spawn[count].transform.position, Quaternion.identity);
-            count--;
+            IsBullet2 = true;
+            CurrentBullet1 = 0;
+            IsBullet1 = false;
+            countBullet2Shoot = 1;
+            CurrentBullet2 = 0;
         }
 
     }
     public void Fire()
     {
-        if (IsShootRifle)
+        if (IsShootBullet1)
         {
-            CurrentRifleBullets += Time.deltaTime;
-            if (FrecunceRifleBullets <= CurrentRifleBullets)
+            CurrentBullet1Bullets += Time.deltaTime;
+            if (FrecuenceBullet1Shoot <= CurrentBullet1Bullets)
             {
-                GameObject CanonProjectile = Instantiate(BulletRifle, CanonPointShoot.position, Quaternion.identity);
-                CanonProjectile.GetComponent<Rigidbody2D>().AddForce(CanonPointShoot.up * fireForce, ForceMode2D.Impulse);
-                CurrentRifleBullets = 0;
+                GameObject CanonProjectile = Instantiate(Bullet1, BulletPointShoot.position, Quaternion.identity);
+                CanonProjectile.GetComponent<Rigidbody2D>().AddForce(BulletPointShoot.up * fireForce, ForceMode2D.Impulse);
+                CurrentBullet1Bullets = 0;
             }
         }
-        if (IsShootCanon && countCanonShoot > 0)
+        if (IsShootBullet2 && countBullet2Shoot > 0)
         {
-            GameObject RifleProjectile = Instantiate(BulletCanon, RiflePointShoot.position, Quaternion.identity);
-            RifleProjectile.GetComponent<Rigidbody2D>().AddForce(RiflePointShoot.up * fireForce, ForceMode2D.Impulse);
-            countCanonShoot--;
+            GameObject RifleProjectile = Instantiate(Bullet2, BulletPointShoot.position, Quaternion.identity);
+            RifleProjectile.GetComponent<Rigidbody2D>().AddForce(BulletPointShoot.up * fireForce, ForceMode2D.Impulse);
+            countBullet2Shoot--;
         }
 
     }

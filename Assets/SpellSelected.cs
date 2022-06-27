@@ -8,6 +8,8 @@ public class SpellSelected : MonoBehaviour
     public static int index;
     private int indexColor;
 
+    BarraDeVida Mana;
+    public SpellsBook[] books;
     public Image[] Spell;
     public List<Image> Color;
     public Image parchment;
@@ -18,12 +20,13 @@ public class SpellSelected : MonoBehaviour
     public bool hasWind;
     public bool hasEarth;
     public bool hasHeal;
-    public bool hasDash;
+
+    public Weapon weapon;
 
     // Start is called before the first frame update
     void Start()
     {
-     
+        Mana = FindObjectOfType<BarraDeVida>();
     }
 
     // Update is called once per frame
@@ -31,7 +34,33 @@ public class SpellSelected : MonoBehaviour
     {
         SpellParchment();
 
-    
+        if (books[0].IsBoughtBook == true)
+        {
+            hasFire = true;
+        }
+        if (books[1].IsBoughtBook == true)
+        {
+            hasWater = true;
+        }
+        if (books[2].IsBoughtBook == true)
+        {
+            hasLightning = true;
+        }
+        if (books[3].IsBoughtBook == true)
+        {
+            hasEarth = true;
+        }
+        if (books[4].IsBoughtBook == true)
+        {
+            hasWind = true;
+        }
+        if (books[5].IsBoughtBook == true)
+        {
+            hasHeal = true;
+        }
+
+
+
     }
     void SpellParchment() 
     {
@@ -101,5 +130,17 @@ public class SpellSelected : MonoBehaviour
             Spell[3].enabled = false;
             Spell[0].enabled = false;
         }
+        if (Input.GetKeyDown(KeyCode.B) && Mana.CurrentMana >= 30 && hasHeal == true)
+        {
+            Mana.CurrentMana -= 30;
+            weapon.Heal();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T) && Mana.CurrentMana >= 30 && hasEarth == true)
+        {
+            Mana.CurrentMana -= 20;
+            weapon.Wall();
+        }
+
     }
 }
