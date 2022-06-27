@@ -159,7 +159,7 @@ public class Shop : MonoBehaviour
                 Instantiate(ItemsForSale[Items3].Book, ItemsSpawn[2].position, Quaternion.identity, this.gameObject.transform);
 
 
-             IndexBooks++;
+             IndexBooks--;
             
         }
    

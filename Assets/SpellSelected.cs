@@ -12,13 +12,13 @@ public class SpellSelected : MonoBehaviour
     public List<Image> Color;
     public Image parchment;
     public Image parchmentCircle;
-    bool hasFire;
-    bool hasWater;
-    bool hasEarth;
-    bool hasHeal;
-    bool hasLightning;
-    bool hasWind;
-    bool hasDash;
+    public bool hasFire;
+    public bool hasWater;
+    public bool hasLightning;
+    public bool hasWind;
+    public bool hasEarth;
+    public bool hasHeal;
+    public bool hasDash;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +35,6 @@ public class SpellSelected : MonoBehaviour
     }
     void SpellParchment() 
     {
-        //parchment.color = Color[index].color;
-
         if (index == 2)
             indexColor = 2;
             parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g, Color[indexColor].color.b);
@@ -48,16 +46,18 @@ public class SpellSelected : MonoBehaviour
             parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g + 100, Color[indexColor].color.b);
         if (index == 3)
             indexColor = 3;
-        parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g + 100, Color[indexColor].color.b);
+        parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g + 150, Color[indexColor].color.b);
+        if (index == 4)
+            indexColor = 4;
+        parchmentCircle.color = new Color(Color[indexColor].color.r, Color[indexColor].color.g + 120, Color[indexColor].color.b);
 
         Spell[index].enabled = true;
 
-        if (index <= Spell.Length - 1)
-        {
-            Spell[index + 1].enabled = false;
+        //if (index <= Spell.Length - 1)
+        //{
+        //    Spell[index + 1].enabled = false;
 
-        }
-        
+        //}
         if (index > 0)
         {
             Spell[index - 1].enabled = false;
@@ -68,29 +68,38 @@ public class SpellSelected : MonoBehaviour
             Spell[2].enabled = false;
             Spell[1].enabled = false;
             Spell[3].enabled = false;
+            Spell[4].enabled = false;
         }
-        if (Input.GetKeyUp(KeyCode.Alpha2))
+        if (Input.GetKeyUp(KeyCode.Alpha2) && hasFire == true) //fuego
         {
             index = 1;
             Spell[0].enabled = false;
             Spell[2].enabled = false;
             Spell[3].enabled = false;
+            Spell[4].enabled = false;
         }
-        if (Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.Alpha3) && hasWater == true) //agua
         {
             index = 2;
             Spell[0].enabled = false;
             Spell[1].enabled = false;
             Spell[3].enabled = false;
+            Spell[4].enabled = false;
         }
-        if (Input.GetKeyUp(KeyCode.Alpha4))
+        if (Input.GetKeyUp(KeyCode.Alpha4) && hasLightning == true) //rayo
         {
             index = 3;
             Spell[2].enabled = false;
             Spell[1].enabled = false;
             Spell[0].enabled = false;
         }
-
-
+        if (Input.GetKeyUp(KeyCode.Alpha5)&& hasWind == true)
+        {
+            index = 4;
+            Spell[2].enabled = false;
+            Spell[1].enabled = false;
+            Spell[3].enabled = false;
+            Spell[0].enabled = false;
+        }
     }
 }
