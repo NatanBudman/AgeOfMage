@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rayo
   m_EditorClassIdentifier: 
   spellName: Ray
-  description: ' You shoot beams that bounce off walls and pierce through enemies'
+  description: Disparas un rayo electrificante de electricidad que electrifica.
   Book: {fileID: 7526711161049944199, guid: b3b602a83eaa5ee48aeafc808ad2e710, type: 3}
   mana: 10
   attack: 13

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   spellName: Fire Bolt
-  description: You shoot a ball of fire that produces burns
+  description: Disparas una bola caliente de fuego que quema.
   Book: {fileID: 6162996503211972893, guid: b417d9f9e2da2d944a871df0821bd457, type: 3}
   mana: 5
   attack: 10

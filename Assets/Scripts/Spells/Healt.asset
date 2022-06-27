@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Healt
   m_EditorClassIdentifier: 
   spellName: ' Healing Spell'
-  description: ' healing area'
+  description: Invocas el poder del SAME en forma de circulo.
   Book: {fileID: 7126886899103141336, guid: 55f47b627e1cac444a83779f1de114aa, type: 3}
   mana: 15
   attack: 0
