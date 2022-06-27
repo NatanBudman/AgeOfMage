@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
 
     void Normal()
     {
-        SpellCost = 1;
+        SpellCost = 5;
         GameObject projectile = Instantiate(normalBolt, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }

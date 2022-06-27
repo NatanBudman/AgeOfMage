@@ -3793,7 +3793,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c66edd78485453c4d8f0e384cf486b5d, type: 2}
+  - {fileID: 2100000, guid: e0f64538f87e1144285eacec695bd446, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20824,15 +20824,23 @@ PrefabInstance:
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: BossRoom
       value: 
-      objectReference: {fileID: 4557576527433654746, guid: d1def833422f7574eb2d9b1afb6a9baa, type: 3}
+      objectReference: {fileID: 2983654312773792263, guid: c12c9dbfde7752a4e8b8429739c3cf97, type: 3}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: BossSpawn
       value: 
       objectReference: {fileID: 2052031799}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
+      propertyPath: BossInMap.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: MeleEnemy.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
+      propertyPath: BossInMap.Array.data[0]
+      value: 
+      objectReference: {fileID: 2983654312773792263, guid: c12c9dbfde7752a4e8b8429739c3cf97, type: 3}
     - target: {fileID: 6707164217849624986, guid: 1407942b9185d0b4c92faf10201a69b5, type: 3}
       propertyPath: MeleEnemy.Array.data[0]
       value: 
@@ -27030,7 +27038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052031798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 75.2, y: -180.3, z: 0}
+  m_LocalPosition: {x: 126.2, y: -164.7, z: 0}
   m_LocalScale: {x: 0.48315516, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 507797586}
