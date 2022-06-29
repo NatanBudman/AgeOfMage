@@ -3189,7 +3189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320815662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 195.3, y: 33.272102, z: 0}
+  m_LocalPosition: {x: 898, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 319146022}
@@ -19477,12 +19477,6 @@ MonoBehaviour:
   - {fileID: 1327493807}
   parchment: {fileID: 2123040145}
   parchmentCircle: {fileID: 1538923305}
-  hasFire: 0
-  hasWater: 0
-  hasLightning: 0
-  hasWind: 0
-  hasEarth: 0
-  hasHeal: 0
   weapon: {fileID: 1009009563}
 --- !u!1 &1372924475
 GameObject:
@@ -25646,7 +25640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973917027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 593.3, y: -695.1, z: 0}
+  m_LocalPosition: {x: 520.4, y: -691.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2030737945}

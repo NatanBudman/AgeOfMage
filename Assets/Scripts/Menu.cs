@@ -55,6 +55,12 @@ public class Menu : MonoBehaviour
     }
     public void StarCampaing() 
     {
+        SpellSelected.hasEarth = false;
+        SpellSelected.hasFire = false;
+        SpellSelected.hasHeal = false;
+        SpellSelected.hasLightning = false;
+        SpellSelected.hasWater = false;
+        SpellSelected.hasWind = false;
         DaleteSave();
         SceneManager.LoadScene("StoryBoard");
     }

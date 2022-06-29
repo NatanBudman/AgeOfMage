@@ -14,12 +14,12 @@ public class SpellSelected : MonoBehaviour
     public List<Image> Color;
     public Image parchment;
     public Image parchmentCircle;
-    public bool hasFire;
-    public bool hasWater;
-    public bool hasLightning;
-    public bool hasWind;
-    public bool hasEarth;
-    public bool hasHeal;
+    public static bool hasFire;
+    public static bool hasWater;
+    public static bool hasLightning;
+    public static bool hasWind;
+    public static bool hasEarth;
+    public static bool hasHeal;
 
     public Weapon weapon;
 
