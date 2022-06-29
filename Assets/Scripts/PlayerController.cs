@@ -52,13 +52,15 @@ public class PlayerController : MonoBehaviour
     string TagName;
 
     bool PlayerBurning = false;
+
+    public bool hasEarth;
+    public bool hasHeal;
     private void Awake()
     {
         Interface.gameObject.SetActive(false);
     }
     void Start()
     {
-
         Mana = FindObjectOfType<BarraDeVida>();
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         StartCoroutine(time());
@@ -102,35 +104,6 @@ public class PlayerController : MonoBehaviour
         {
             EscobazoAnim = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.B) && Mana.CurrentMana >= 30)
-        {
-            Mana.CurrentMana -= 30;
-            weapon.Heal();
-        }
-
-        if (Input.GetKeyDown(KeyCode.T) && Mana.CurrentMana >= 30)
-        {
-            Mana.CurrentMana -= 20;
-            weapon.Wall();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            weapon.Wind();
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Q) && Mana.CurrentMana >= 50) //Stop Time when Q is pressed
-        //{
-        //    Mana.CurrentMana -= 50;
-        //    timemanager.StopTime();
-        //}
-        //if (Input.GetKeyDown(KeyCode.E) && timemanager.TimeIsStopped)  //Continue Time when E is pressed
-        //{
-        //    timemanager.ContinueTime();
-
-        //}
-
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -144,19 +117,6 @@ public class PlayerController : MonoBehaviour
             Mana.CurrentMana -= Weapon.SpellCost;
 
         }
-
-        //if (Input.GetMouseButtonDown(1) && Mana.CurrentMana >= weapon.SpellCost)
-        //{
-        //    weapon.Fire2();
-        //    Mana.CurrentMana -= weapon.SpellCost;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.K) && Mana.CurrentMana >= weapon.SpellCost)
-        //{
-        //    weapon.Fire3();
-        //    Mana.CurrentMana -= weapon.SpellCost;
-        //}
-
         moveDirection = new Vector2(moveX, moveY);
 
         //mousePosition = camera;

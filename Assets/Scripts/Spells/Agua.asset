@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Agua
   description: Creas una gota de agua mojada que sigue a los enemigos para mojarlos.
-  Book: {fileID: 0}
-  mana: 
-  attack: 
-  cost: 0
+  Book: {fileID: 1930248448455450779, guid: ab1a92705e3d1f144a2737e07b0edae6, type: 3}
+  mana: 10
+  attack: 15
+  cost: 40
   IsBoughtBook: 0

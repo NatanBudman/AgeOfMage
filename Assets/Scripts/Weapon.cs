@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public Transform player;
     public Transform target;
 
+    public GameObject normalBolt;
     public GameObject fireBolt;
     public GameObject WaterSpell;
     public GameObject lightningSpell;
@@ -42,25 +43,35 @@ public class Weapon : MonoBehaviour
     {
         if (SpellSelected.index == 0)
         {
+            Normal();
+        }
+        if (SpellSelected.index == 1)
+        {
             FireBolt();
         }
         if (SpellSelected.index == 2)
         {
             Water();
         }
-        if (SpellSelected.index == 1)
-        {
-            Dash();
-        }
         if (SpellSelected.index == 3)
         {
             lightning();
         }
+        if (SpellSelected.index == 4)
+        {
+            Wind();
+        }
     }
 
-    void FireBolt()
+    void Normal()
     {
         SpellCost = 5;
+        GameObject projectile = Instantiate(normalBolt, firePoint.position, firePoint.rotation);
+        projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+    }
+    void FireBolt()
+    {
+        SpellCost = 10;
         GameObject projectile = Instantiate(fireBolt, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }
@@ -106,11 +117,5 @@ public class Weapon : MonoBehaviour
     public void Heal()
     {
         GameObject projectile = Instantiate(healingCircle, firePoint.position, firePoint.rotation);
-    }
-    void Dash()
-    {
-        DashSound.Play();
-        SpellCost = 100;
-        player.transform.position = target.position;
     }
 }
