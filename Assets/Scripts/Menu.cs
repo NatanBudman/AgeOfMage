@@ -55,6 +55,9 @@ public class Menu : MonoBehaviour
     }
     public void StarCampaing() 
     {
+        GameManager.IsLevel3 = true;
+        GameManager.IsLevel5 = true;
+
         SpellSelected.hasEarth = false;
         SpellSelected.hasFire = false;
         SpellSelected.hasHeal = false;
