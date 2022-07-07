@@ -5,6 +5,8 @@ using UnityEngine;
 public class ZoneManagerScript : MonoBehaviour
 {
     [SerializeField] Room room;
+    [SerializeField] GameObject IntrucionesZone;
+    [SerializeField] GameObject IntrucionesAltares;
     [SerializeField] public ProtectedZoneScript[] ProtectedZone;
     int ZonesComplete;
     // Start is called before the first frame update
@@ -19,7 +21,9 @@ public class ZoneManagerScript : MonoBehaviour
         //if (room.RoundRooms >= 1){ Destroy(gameObject); }
         if (ProtectedZone[2].IsComplete || room.RoundRooms > 1) 
         {
-            for(int i = 0; i < ProtectedZone.Length; i++) 
+            IntrucionesZone.SetActive(false);
+            IntrucionesAltares.SetActive(true);
+            for (int i = 0; i < ProtectedZone.Length; i++) 
             {
                 ProtectedZone[i].gameObject.SetActive(false);
                 room.RoundRooms = 1;

@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Load();
-        if (room[0].Levels == 2 && IsLevel3 == true)
+        if (IsLevel3 == true)
         {
             room[2].RoundRooms = 3;
         }
-        if (room[0].Levels == 4) 
+        if (IsLevel5 == true) 
         {
             room[4].RoundRooms = 4;
         }
@@ -70,7 +70,16 @@ public class GameManager : MonoBehaviour
         CusSceneConditions();
         RoundCount();
 
- 
+        if (Input.GetKeyDown(KeyCode.L)) 
+        {
+            room[0].Levels += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.K)) 
+        {
+            if (room[room[0].Levels].RoundRooms < 3)
+            room[room[0].Levels].RoundRooms += 1;
+        }
+
         //Debug.Log(countCutScene);
     }
     void SpawnPoints() 
@@ -85,11 +94,14 @@ public class GameManager : MonoBehaviour
         {
             room[0].Levels = 4;
         }
-        if (room[0].Levels <= 2 || room[2].RoundRooms < 3) 
+        if (room[2].RoundRooms == 4)
         {
-            IsLevel3 = true;
+            IsLevel3 = false;
         }
-      
+        if (room[4].RoundRooms == 4)
+        {
+            IsLevel5 = false;
+        }
     }
     void AutoSave() 
     {

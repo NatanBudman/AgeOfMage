@@ -11,7 +11,8 @@ public class Menu : MonoBehaviour
     public GameObject Opcion;
     public GameObject Controls;
     public AudioMixer Mixer;
-
+    public GameObject TutorialButton;
+    public GameObject StartCampaingButton;
     public Slider Music;
     public Slider Sound;
 
@@ -52,6 +53,23 @@ public class Menu : MonoBehaviour
         }
         GameManager.PlayerGold = 0;
         PlayerPrefs.DeleteAll();
+    }
+    public void Tutorial() 
+    {
+        LevelLoader.LoadLevel("Tutorial");
+    }
+    public void OpenStartButton() 
+    {
+        if (TutorialButton.activeSelf == true && StartCampaingButton.activeSelf == true)
+        {
+            TutorialButton.SetActive(false);
+            StartCampaingButton.SetActive(false);
+        }
+        else 
+        {
+            TutorialButton.SetActive(true);
+            StartCampaingButton.SetActive(true);
+        }
     }
     public void StarCampaing() 
     {

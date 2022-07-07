@@ -36,8 +36,8 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(IndexBooks);
-        Debug.Log(IsShopRealod);
+        //Debug.Log(IndexBooks);
+        //Debug.Log(IsShopRealod);
 
         ItemsInSale = GameObject.FindGameObjectsWithTag("Books");
 
@@ -58,20 +58,14 @@ public class Shop : MonoBehaviour
              
            Items3 = (int)Random.Range(0, ItemsForSale.Length - 1);
         }
-
-        if(Items3 > -1 && Items3 != Items2 && Items3 != Items1)  
+        else if(Items3 != -1 && Items3 != Items2 && Items3 != Items1) 
         {
             IsShopRealod = true;
         }
-        if (IsShopRealod) { 
 
-            Items3 = (int)Random.Range(0, ItemsForSale.Length - 1);
-        }
 
-        if (Items3 > -1 && Items3 != Items2 && Items3 != Items1)
-        {
-            IsShopRealod = true;
-        }
+
+  
         if (IsShopRealod)
         {
             ReloadShop();
