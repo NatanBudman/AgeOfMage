@@ -11,7 +11,6 @@ public class AltarScript : MonoBehaviour
     HealthController health;
     [SerializeField] Image LoadBar;
     [SerializeField] SpriteRenderer sprite;
-    [SerializeField] GameObject nextObject;
     [SerializeField] Image[] canvas;
     [SerializeField] float FullBar;
     [SerializeField] float VelocityLoadBar;
@@ -50,7 +49,6 @@ public class AltarScript : MonoBehaviour
                 canvas[i].gameObject.SetActive(false);
             }
 
-            nextObject.SetActive(true);
         }
         if (IsComplete) 
         {

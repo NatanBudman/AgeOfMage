@@ -14,6 +14,8 @@ public class SpecialGenerator : MonoBehaviour
     [SerializeField] float TimeResetToCount;
     [SerializeField] float TimeToPauseOleada;
     [SerializeField] GameObject Protected1;
+    [SerializeField] GameObject InstrucionesAltares;
+    [SerializeField] GameObject IntruccionesZone;
     float currenTimeSpawn;
     float currenTimePuase;
     float currenTimeCountReset;
@@ -40,7 +42,7 @@ public class SpecialGenerator : MonoBehaviour
             }
             if(currenTimeCountReset >= TimeResetToCount) 
             {
-               count = (int)Random.Range(1, 3);
+               count = (int)Random.Range(1, 2);
                currenTimeCountReset = 0;
             }
             randomEnemy = (int)Random.Range(0, Enemy.Length - 1);
@@ -51,6 +53,7 @@ public class SpecialGenerator : MonoBehaviour
             currenTimeCountReset +=  Time.deltaTime;
             GeneratorEnemy();
 
+            // pausa on
             if (currenTimePuase >= TimeToPauseOleada) 
             {
                 pauseOleada = true;
@@ -76,6 +79,7 @@ public class SpecialGenerator : MonoBehaviour
     }
     void EnableGenerator() 
     {
+        // Momentos donde debe de activarse el spawn de enemigos
         if (!Zones[2].IsComplete) 
         {
             if (!Zones[0].IsComplete && Zones[0].CurrentAmount > 0  || !Zones[1].IsComplete && Zones[1].CurrentAmount > 0 || !Zones[2].IsComplete && Zones[2].CurrentAmount > 0 ) 
@@ -91,9 +95,9 @@ public class SpecialGenerator : MonoBehaviour
         {
             altares[0].gameObject.SetActive(true);
         }
-        if (!altares[2].IsComplete && Zones[2].IsComplete) 
+        if (!altares[0].IsComplete && Zones[0].IsComplete) 
         {
-            if (!altares[0].IsComplete && altares[0].CurrentLoad > 0 || !altares[1].IsComplete && altares[1].CurrentLoad > 0 || !altares[2].IsComplete && altares[2].CurrentLoad > 0)
+            if (!altares[0].IsComplete && altares[0].CurrentLoad > 0 )
             {
                 puaseForCompleteRound = false;
             }
@@ -103,11 +107,28 @@ public class SpecialGenerator : MonoBehaviour
             }
         }
 
-        if (altares[2].IsComplete) 
+        if (altares[0].IsComplete) 
         {
             this.gameObject.SetActive(false);
         }
 
+        if (!altares[0].IsComplete) 
+        {
+            InstrucionesAltares.SetActive(true);
+        }
+        else 
+        {
+            InstrucionesAltares.SetActive(false);
 
+        }
+        // intrucciones
+        if (!Zones[0].IsComplete)
+        {
+            IntruccionesZone.SetActive(true);
+        }
+        else 
+        {
+            IntruccionesZone.SetActive(false);
+        }
     }
 }

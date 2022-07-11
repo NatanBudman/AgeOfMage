@@ -162,9 +162,7 @@ public class Shop : MonoBehaviour
         if (IndexBooks >= 0) 
         if (IndexBooks >= 0)
         {
-            Debug.Log(Items1);
-            Debug.Log(Items2);
-            Debug.Log(Items3);
+        
             for (int i = 0; i < 3; i++)
             {
                 if (i == 0)

@@ -19,7 +19,7 @@ public class ZoneManagerScript : MonoBehaviour
     void Update()
     {
         //if (room.RoundRooms >= 1){ Destroy(gameObject); }
-        if (ProtectedZone[2].IsComplete || room.RoundRooms > 1) 
+        if (ProtectedZone[0].IsComplete || room.RoundRooms > 1) 
         {
             IntrucionesZone.SetActive(false);
             IntrucionesAltares.SetActive(true);

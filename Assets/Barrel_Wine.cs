@@ -15,7 +15,7 @@ public class Barrel_Wine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var Gold = Random.Range(1, 3);
+        var Gold = Random.Range(0, 2);
         if (life <= 0) 
         {
             GameManager.PlayerGold += Gold;
