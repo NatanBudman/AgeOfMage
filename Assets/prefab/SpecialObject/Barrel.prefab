@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2788154673001642085}
   - component: {fileID: 2788154673001642086}
-  - component: {fileID: 8302259483348905703}
   - component: {fileID: 7287309485189973428}
-  m_Layer: 0
+  - component: {fileID: 2000570187766845203}
+  m_Layer: 8
   m_Name: Barrel_Wine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8302259483348905703
+--- !u!114 &7287309485189973428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788154673001642088}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e87a4a1956bf0744c97bbe7fc0004e54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 2
+  wine: {fileID: 2788154673246952583}
+--- !u!58 &2000570187766845203
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,23 +111,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0000038146973, y: 0}
   serializedVersion: 2
-  m_Radius: 1.79
---- !u!114 &7287309485189973428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2788154673001642088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87a4a1956bf0744c97bbe7fc0004e54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 2
-  wine: {fileID: 2788154673246952583}
+  m_Radius: 1.7899998
 --- !u!1 &2788154673246952583
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2788154673246952581}
   - component: {fileID: 4505166433546720801}
   - component: {fileID: 1518667035220950124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,12 +510,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100707910264338461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barrel
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &100707910264338461
 Transform:

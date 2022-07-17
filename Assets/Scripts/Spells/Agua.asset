@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 1930248448455450779, guid: ab1a92705e3d1f144a2737e07b0edae6, type: 3}
   mana: 10
   attack: 15
-  cost: 40
+  cost: 55
   IsBoughtBook: 0
+  TypeSpell: Normal
+  Efectos: Limpia la suciedad

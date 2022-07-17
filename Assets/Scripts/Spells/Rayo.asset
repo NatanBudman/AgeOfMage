@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 7526711161049944199, guid: b3b602a83eaa5ee48aeafc808ad2e710, type: 3}
   mana: 10
   attack: 13
-  cost: 30
+  cost: 50
   IsBoughtBook: 0
+  TypeSpell: Normal
+  Efectos: 'Atraviesa enemigos '

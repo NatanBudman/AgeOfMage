@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 7126886899103141336, guid: 55f47b627e1cac444a83779f1de114aa, type: 3}
   mana: 15
   attack: 0
-  cost: 60
+  cost: 85
   IsBoughtBook: 0
+  TypeSpell: Especial
+  Efectos: Cura

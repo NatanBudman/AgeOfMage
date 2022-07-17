@@ -11,4 +11,7 @@ public class SpellsBook : ScriptableObject
     public string attack;
     public int cost;
     public bool IsBoughtBook;
+    public string TypeSpell;
+    public string Efectos;
+
 }

@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             Mana.CurrentMana -= 10;
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetMouseButtonDown(1))
         {
             weapon.Melee();
             EscobazoAnim = true;
@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour
         if (health.Death == true)
         {
             transform.position = game.SpawnPoint.position;
+            GameManager.PlayerGold -= 35;
             SceneManager.LoadScene("Lose");
             health.currentLife = health.MaxLife;
         }
@@ -211,10 +212,10 @@ public class PlayerController : MonoBehaviour
         TagName = collision.gameObject.tag;
         if (TagName == "Enemy" && collision.GetComponent<HealthController>().Death == true)
         {
+            Interface.text = "Right Click";
             Interface.gameObject.transform.position = collision.GetComponent<EnemyScript>().gameObject.transform.position;
             Interface.gameObject.transform.rotation = new Quaternion(0,0,0f,0f);
             Interface.gameObject.SetActive(true);
-            Interface.text = "F";
         }
         if (Invensibility == false)
         {

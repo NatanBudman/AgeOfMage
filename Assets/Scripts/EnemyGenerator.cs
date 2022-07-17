@@ -82,7 +82,7 @@ public class EnemyGenerator : MonoBehaviour
             }
 
         }
-        if (BossSpwaner && room.RoundRooms == 4 && room.PlayerInRoom == true)
+        if (BossSpwaner && room.RoundRooms == 3 && room.PlayerInRoom == true)
         {
             BossGenerate();
             CoolDownRangeEnemy = 0;

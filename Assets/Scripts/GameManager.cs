@@ -43,11 +43,11 @@ public class GameManager : MonoBehaviour
         Load();
         if (IsLevel3 == true)
         {
-            room[2].RoundRooms = 3;
+            room[2].RoundRooms = 2;
         }
         if (IsLevel5 == true) 
         {
-            room[4].RoundRooms = 4;
+            room[4].RoundRooms = 2;
         }
         //SpawnPoints();
         room = GetComponentsInChildren<Room>();
@@ -90,15 +90,15 @@ public class GameManager : MonoBehaviour
     void SpecialLevels() 
     {
         // exepciones del sistema de rondas y niveles
-        if (room[3].CompleteRoom == true && room[0].Levels == 3) 
+        if (room[3].CompleteRoom == true && room[0].Levels == 2) 
         {
-            room[0].Levels = 4;
+            room[0].Levels = 3;
         }
-        if (room[2].RoundRooms == 4)
+        if (room[2].RoundRooms == 3)
         {
             IsLevel3 = false;
         }
-        if (room[4].RoundRooms == 4)
+        if (room[4].RoundRooms == 3)
         {
             IsLevel5 = false;
         }
@@ -248,6 +248,10 @@ public class GameManager : MonoBehaviour
     }
     void GoldCount() 
     {
+        if (PlayerGold < 0) 
+        {
+            PlayerGold = 0;
+        }
         _NumbersInCount = "" + PlayerGold;
         if (PlayerGold <= 9) 
         {
@@ -312,7 +316,7 @@ public class GameManager : MonoBehaviour
         
 
 
-        if (room[room[0].Levels].RoundRooms == 4)
+        if (room[room[0].Levels].RoundRooms == 3)
         {
             BossBatlle.gameObject.SetActive(true);
         }

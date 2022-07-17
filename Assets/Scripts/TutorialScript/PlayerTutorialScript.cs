@@ -9,6 +9,14 @@ public class PlayerTutorialScript : MonoBehaviour
     [SerializeField] float Speed;
     private Vector2 moveDirection;
     private Vector2 mousePosition;
+
+    public float dashSpeed;
+
+    public float dashLength = .5f, dashCooldown = 1f;
+    private float dashTime = 0.5f;
+
+    private Coroutine dashing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +27,10 @@ public class PlayerTutorialScript : MonoBehaviour
     void Update()
     {
         SpellShoot();
+        if (Input.GetKeyDown(KeyCode.Space) && dashing == null)
+        {
+            dashing = StartCoroutine(DashCoroutine());
+        }
     }
     private void FixedUpdate()
     {
@@ -46,5 +58,18 @@ public class PlayerTutorialScript : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg + 90f;
         rb.rotation = aimAngle;
+    }
+    private IEnumerator DashCoroutine()
+    {
+        var endOfFrame = new WaitForEndOfFrame();
+
+        for (float timer = 0; timer < dashTime; timer += Time.deltaTime)
+        {
+            rb.MovePosition(transform.position - (transform.up * (dashSpeed * Time.deltaTime)));
+
+            yield return endOfFrame;
+        }
+
+        dashing = null;
     }
 }

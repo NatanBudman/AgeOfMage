@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
 public class TroncoScript : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class TroncoScript : MonoBehaviour
         if (life <= 0) 
         {
             TroncoTirado.SetActive(true);
+            this.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             this.gameObject.SetActive(false);
         }
     }
@@ -31,6 +34,15 @@ public class TroncoScript : MonoBehaviour
         {
             life--;
             Destroy(collision.collider.gameObject);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyBullets")) 
+        {
+            life--;
+            Destroy(collision.gameObject);
+
         }
     }
 }

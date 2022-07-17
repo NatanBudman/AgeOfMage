@@ -114,14 +114,14 @@ public class Room : MonoBehaviour
     {
         
         // pasa de ronda
-        if (NoEnemy == true  && RoundRooms > 4 && PlayerInRoom == true)
+        if (NoEnemy == true  && RoundRooms > 3 && PlayerInRoom == true)
         {
             doors.PassLevel();
             InstatntiateItem = true;
             IfFiveRound();
             cooldownPass += Time.deltaTime;
         }
-        if (NoEnemy == true && PlayerInRoom == true && RoundRooms <= 4 )
+        if (NoEnemy == true && PlayerInRoom == true && RoundRooms <= 3 )
         {
             cooldownPass += Time.deltaTime;
             if (cooldownPass >= 5)
@@ -129,7 +129,7 @@ public class Room : MonoBehaviour
                 RoundRooms += 1;
                 AddEnemy = true;
                 cooldownPass = 0;
-                if (RoundRooms == 4) 
+                if (RoundRooms == 3) 
                 {
                     IsBossApears = true;
                 }

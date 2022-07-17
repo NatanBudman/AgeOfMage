@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class EnemyScript : MonoBehaviour
@@ -56,6 +57,7 @@ public class EnemyScript : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
+
         Colliders = GetComponentsInChildren<BoxCollider2D>();
 
  
@@ -107,7 +109,6 @@ public class EnemyScript : MonoBehaviour
     }
     public void ChasePlayer() 
     {
-       
         if (IsLongRange) 
         {
             // distancia de disparo
@@ -123,11 +124,11 @@ public class EnemyScript : MonoBehaviour
         if (chasePlayer ) 
         {
             Vector2 objetive = new Vector2(player.transform.position.x, player.transform.position.y);
-            Vector2 newPos = Vector2.MoveTowards(rb.position,objetive,state.Speed * Time.deltaTime);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, objetive, state.Speed * Time.deltaTime);
             rb.MovePosition(newPos);
         }
      
-
+      
     }
    
     void SeePlayer(GameObject See) 
@@ -176,6 +177,11 @@ public class EnemyScript : MonoBehaviour
         {
             Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
         }
+        if (PosibilitySpawnItem == 2) 
+        {
+            Instantiate(DeathItems[2], transform.position, Quaternion.identity);
+
+        }
         Destroy(gameObject);
 
     }
@@ -196,7 +202,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (collision.tag == "PJ" )
         {
-            if (heatlh.Death && Input.GetKeyDown(KeyCode.F))
+            if (heatlh.Death && Input.GetMouseButtonDown(1))
             {
                 LootEnmey();
             }

@@ -129,6 +129,7 @@ MonoBehaviour:
   - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   Colliders: []
   Damage: 90
+  agent: {fileID: 0}
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1
@@ -174,6 +175,7 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0

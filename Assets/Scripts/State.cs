@@ -46,7 +46,18 @@ public class State : MonoBehaviour
     }
     void StatesSee() 
     {
-     
+        if (PlayerState.text == "Slowed") 
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255);
+        }
+        if (PlayerState.text == "Normal")
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        }
+        if (PlayerState.text == "Burning")
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0);
+        }
         if (Speed < MaxSpeed) 
         {
             PlayerState.text = "Slowed";

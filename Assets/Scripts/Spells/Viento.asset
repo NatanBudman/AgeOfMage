@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 7253587318183744813, guid: 0819b6bb27c6b7c4db86a30f7889beab, type: 3}
   mana: 10
   attack: 20
-  cost: 50
+  cost: 45
   IsBoughtBook: 0
+  TypeSpell: Normal
+  Efectos: 

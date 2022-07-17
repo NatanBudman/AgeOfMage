@@ -33,6 +33,11 @@ public class WineScript : MonoBehaviour
         {
             collision.GetComponent<State>().Speed = 12;
         }
+        if (collision.GetComponent<Elements>().SpellElement == "Agua") 
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
