@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 3715197859461176417, guid: c685444004722064fb1d4d92c10d7521, type: 3}
   mana: 5
   attack: 0
-  cost: 45
+  cost: 80
   IsBoughtBook: 0
+  TypeSpell: Especial
+  Efectos: Detiene el paso

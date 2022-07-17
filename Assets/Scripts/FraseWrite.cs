@@ -75,7 +75,7 @@ public class FraseWrite : MonoBehaviour
        {
             
            text.text = text.text + character;
-           yield return new WaitForSeconds(0.05f);
+           yield return new WaitForSeconds(0.01f);
         }
     }
     public void NextLine() 

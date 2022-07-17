@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6423487292455266489}
   - component: {fileID: 9055414661495703219}
   - component: {fileID: -2092603490194006433}
+  - component: {fileID: -6752891485169732738}
   m_Layer: 0
   m_Name: Simo
   m_TagString: Enemy
@@ -132,11 +133,14 @@ MonoBehaviour:
   - {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
   Colliders: []
   Damage: 25
+  agent: {fileID: -6752891485169732738}
   IsLongRange: 1
   RangeShoot: 125
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &1291141923099717324
 Rigidbody2D:
   serializedVersion: 4
@@ -175,6 +179,7 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0
@@ -294,6 +299,28 @@ MonoBehaviour:
   IsReload: 0
   IsCanon: 0
   IsRifle: 0
+--- !u!195 &-6752891485169732738
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557576527433654746}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 10.1
+  m_Speed: 3.5
+  m_Acceleration: 20
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 21.602924
+  m_BaseOffset: 10.801462
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6318981281347293393
 GameObject:
   m_ObjectHideFlags: 0

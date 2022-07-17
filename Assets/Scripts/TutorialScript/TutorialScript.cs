@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour
 {
+    [SerializeField] ProtectedZoneScript Zone;
+    [SerializeField] AltarScript altar;
     [SerializeField] HealthController enemy;
     [SerializeField] GameObject[] ItemsToActivate;
     [SerializeField] bool IsCompleteFirstObjetive;
@@ -12,6 +14,10 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] bool IsCompleteThreeObjetive;
     [SerializeField] bool IsCompleteFourObjetive;
     [SerializeField] bool IsCompleteFiveObjetive;
+    [SerializeField] bool IsCompleteSixObjetive;
+    [SerializeField] bool IsCompleteSevenObjetive;
+    [SerializeField] bool IsCompleteEightnObjetive;
+    [SerializeField] bool IsCompleteNinenObjetive;
     bool W = false;
     bool S = false;
     bool D = false;
@@ -36,10 +42,13 @@ public class TutorialScript : MonoBehaviour
         FourObjetive();
         FiveObjetive();
         SixObjetive();
+        SevenObjetive();
+        EightObjetive();
+        NineObjetive();
     }
     private void firstObjetive()
     {
-        if (IsCompleteFirstObjetive) 
+        if (IsCompleteFirstObjetive && !IsCompleteSecondObjetive) 
         {
             ItemsToActivate[0].SetActive(false);
             ItemsToActivate[1].SetActive(true);
@@ -57,7 +66,7 @@ public class TutorialScript : MonoBehaviour
     }
     private void SecondtObjetive() 
     {
-        if (IsCompleteSecondObjetive)
+        if (IsCompleteSecondObjetive && !IsCompleteThreeObjetive)
         {
             ItemsToActivate[1].SetActive(false);
             ItemsToActivate[2].SetActive(true);
@@ -74,7 +83,7 @@ public class TutorialScript : MonoBehaviour
     }
     private void ThreeObjetive() 
     {
-        if (IsCompleteSecondObjetive == true && IsCompleteThreeObjetive == false) 
+        if (IsCompleteSecondObjetive == true  &&  IsCompleteFourObjetive == false) 
         {
             currenTimeThreeObjetive += Time.deltaTime;
         }
@@ -82,7 +91,7 @@ public class TutorialScript : MonoBehaviour
         {
             IsCompleteThreeObjetive = true;
         }
-        if (IsCompleteThreeObjetive) 
+        if (IsCompleteThreeObjetive && !IsCompleteFourObjetive) 
         {
             ItemsToActivate[2].SetActive(false);
             ItemsToActivate[3].SetActive(true);
@@ -90,12 +99,12 @@ public class TutorialScript : MonoBehaviour
     }
     private void FourObjetive() 
     {
-        if (IsCompleteFourObjetive) 
+        if (IsCompleteFourObjetive && !IsCompleteFiveObjetive) 
         {
             ItemsToActivate[3].SetActive(false);
             ItemsToActivate[4].SetActive(true);
         }
-        if (IsCompleteThreeObjetive == true && IsCompleteFourObjetive == false) 
+        if (IsCompleteThreeObjetive == true && IsCompleteFiveObjetive == false) 
         {
             currenTimeFourObjetive += Time.deltaTime;
         }
@@ -106,7 +115,7 @@ public class TutorialScript : MonoBehaviour
     }
     private void FiveObjetive() 
     {
-        if (IsCompleteFiveObjetive) 
+        if (IsCompleteFourObjetive && !IsCompleteSixObjetive) 
         {
             ItemsToActivate[5].SetActive(true);
         }
@@ -121,6 +130,47 @@ public class TutorialScript : MonoBehaviour
     private void SixObjetive() 
     {
         if (enemy == null) 
+        {
+            IsCompleteSixObjetive = true;
+        }
+        if(IsCompleteSixObjetive == true && !IsCompleteSevenObjetive) 
+        {
+            ItemsToActivate[5].SetActive(false);
+            ItemsToActivate[6].SetActive(true);
+
+        }
+    }
+    private void SevenObjetive() 
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsCompleteSixObjetive) 
+        {
+            IsCompleteSevenObjetive = true;
+        }
+        if (IsCompleteSevenObjetive && !IsCompleteEightnObjetive) 
+        {
+            ItemsToActivate[6].SetActive(false);
+            ItemsToActivate[7].SetActive(true);
+        }
+    }
+    private void EightObjetive() 
+    {
+        if (Zone.IsComplete) 
+        {
+            IsCompleteEightnObjetive = true;
+        }
+        if (IsCompleteEightnObjetive && !IsCompleteNinenObjetive)
+        {
+            ItemsToActivate[7].SetActive(false);
+            ItemsToActivate[8].SetActive(true);
+        }
+    }
+    private void NineObjetive() 
+    {
+        if (altar.IsComplete) 
+        {
+            IsCompleteNinenObjetive = true;
+        }
+        if (IsCompleteNinenObjetive)
         {
             LevelLoader.LoadLevel("Menu");
         }

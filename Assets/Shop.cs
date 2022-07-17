@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     GameObject player;
     [SerializeField] public SpellsBook[] ItemsForSale;
     [SerializeField] Transform[] ItemsSpawn;
+    [SerializeField] GameObject[] ItemsSold;
     [SerializeField] public GameObject ItemsColliders1;
     [SerializeField] public GameObject ItemsColliders2;
     [SerializeField] public GameObject ItemsColliders3;
@@ -15,6 +16,7 @@ public class Shop : MonoBehaviour
     [SerializeField] public Text ItemName;
     [SerializeField] public Text ItemCost;
     [SerializeField] public Text ItemAttack;
+    [SerializeField] public Text ItemType;
     [SerializeField] public Image Panel;
     public int Items1 = -1;
     public int Items2 = -1;
@@ -78,55 +80,31 @@ public class Shop : MonoBehaviour
     {
         if (ItemsForSale[Items1].IsBoughtBook)
         {
-            ItemsForSale[Items1].Book.gameObject.SetActive(false);
-
-            if (ItemsForSale[Items1].Book.activeSelf == true)
-                ItemsInSale[0].SetActive(false);
-
+            ItemsSold[0].SetActive(true);
         }
-        else
-        {
-            ItemsForSale[Items1].Book.gameObject.SetActive(true);
-
-
-        }
+   
         if (ItemsForSale[Items2].IsBoughtBook)
         {
-            ItemsForSale[Items2].Book.gameObject.SetActive(false);
-
-            if (ItemsForSale[Items2].Book.activeSelf == true)
-                ItemsInSale[1].SetActive(false);
-
+            ItemsSold[1].SetActive(true);
         }
-        else
-        {
-            ItemsForSale[Items2].Book.gameObject.SetActive(true);
-
-
-        }
+    
         if (ItemsForSale[Items3].IsBoughtBook)
         {
-            ItemsForSale[Items3].Book.gameObject.SetActive(false);
-
-            if (ItemsForSale[Items3].Book.activeSelf == true)
-                ItemsInSale[2].SetActive(false);
-
+            ItemsSold[2].SetActive(true);
         }
-        else
-        {
-            ItemsForSale[Items3].Book.gameObject.SetActive(true);
-
-        }
+   
 
         if (isItem1)
         {
             if (!ItemsForSale[Items1].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description: " + ItemsForSale[Items1].description;
-                ItemName.text = "Name:" + ItemsForSale[Items1].name;
-                ItemCost.text = "Cost:" + ItemsForSale[Items1].cost;
-                ItemAttack.text = "Attack:" + ItemsForSale[Items1].attack;
+                ItemDescription.text = "Description: " + ItemsForSale[Items1].description + "\n"+ "\n" + "Efectos: " + ItemsForSale[Items1].Efectos + "\n" + "\n" + "Press F to Buy";
+                ItemName.text = "Name: " + ItemsForSale[Items1].name;
+                ItemCost.text = "Cost: " + ItemsForSale[Items1].cost;
+                ItemAttack.text = "Attack: " + ItemsForSale[Items1].attack;
+                ItemType.text = "Tipo: " + ItemsForSale[Items1].TypeSpell;
+
             }
 
         }
@@ -135,10 +113,12 @@ public class Shop : MonoBehaviour
             if (!ItemsForSale[Items2].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description: " + ItemsForSale[Items2].description;
+                ItemDescription.text = "Description: " + ItemsForSale[Items2].description + "\n" + "\n" + "Efectos: " + ItemsForSale[Items2].Efectos + "\n" + "\n" + "Press F to Buy";
                 ItemName.text = "Name: " + ItemsForSale[Items2].name;
                 ItemCost.text = "Cost: " + ItemsForSale[Items2].cost;
                 ItemAttack.text = "Attack: " + ItemsForSale[Items2].attack;
+                ItemType.text = "Tipo: " + ItemsForSale[Items2].TypeSpell;
+
             }
 
 
@@ -148,10 +128,11 @@ public class Shop : MonoBehaviour
             if (!ItemsForSale[Items3].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description " + ItemsForSale[Items3].description;
+                ItemDescription.text = "Description: " + ItemsForSale[Items3].description + "\n" + "\n" + "Efectos: " + ItemsForSale[Items3].Efectos + "\n" + "\n" + "Press F to Buy";
                 ItemName.text = "Name: " + ItemsForSale[Items3].name;
                 ItemCost.text = "Cost: " + ItemsForSale[Items3].cost;
                 ItemAttack.text = "Attack: " + ItemsForSale[Items3].attack;
+                ItemType.text = "Tipo: " + ItemsForSale[Items3].TypeSpell ;
             }
 
         }

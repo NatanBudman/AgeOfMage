@@ -69,9 +69,9 @@ public class GasBoss : MonoBehaviour
             //if (!playerScript.Invensibility)
             //{
             //collision.GetComponent<State>().Slow(15);if
-            if (collision.GetComponent<HealthController>().DurationBurning <= 1) 
+            if (collision.GetComponent<HealthController>().DurationBurning <= 0) 
             {
-               collision.GetComponent<HealthController>().DurationBurning += 1;
+               collision.GetComponent<HealthController>().DurationBurning = 1;
             }
             //playerScript.Invensibility = true;
             //}

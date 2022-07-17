@@ -35,5 +35,13 @@ public class Barrel_Wine : MonoBehaviour
             Destroy(collision.collider.gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision) 
+    {
+        if (collision.CompareTag("EnemyBullets"))
+        {
+            life--;
+            Destroy(collision.gameObject);
+        }
+    }
 
 }

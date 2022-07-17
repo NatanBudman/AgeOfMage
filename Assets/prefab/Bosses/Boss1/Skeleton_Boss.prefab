@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 7291965132659408318}
   - component: {fileID: 8929043700893584651}
   - component: {fileID: 7280438660200346757}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skeleton_Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 3597055324135052969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -149.83, y: -247.2261, z: 0}
-  m_LocalScale: {x: 4.2107477, y: 4.366304, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 8167687899324691657}
   - {fileID: 3597055322913489770}
@@ -312,6 +312,8 @@ MonoBehaviour:
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &3597055324135052973
 Rigidbody2D:
   serializedVersion: 4
@@ -376,8 +378,10 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
+  DurationBurning: 0
   Element: 
 --- !u!114 &3597055324135052968
 MonoBehaviour:

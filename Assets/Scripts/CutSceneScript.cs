@@ -14,6 +14,8 @@ public class CutSceneScript : MonoBehaviour
     public GameObject CutScene_Level_2_Part2;
     public GameObject CutScene_Level_3;
     public GameObject CutScene_Level_3_Part2;
+    public GameObject CutScene_Level_5;
+    public GameObject CutScene_Level_5_Part2;
     public GameObject Edgar;
 
     [SerializeField] private GameObject BoneLose;
@@ -96,7 +98,12 @@ public class CutSceneScript : MonoBehaviour
         }
         if (Scene == 6) 
         {
-            LevelLoader.LoadLevel("VictoryScene");
+            LoadScene = 7;
+            Save();
+        }
+        if(Scene == 7) 
+        {
+            Save();
         }
         StandartsTalking();
 
@@ -863,7 +870,7 @@ public class CutSceneScript : MonoBehaviour
             case 17:
                     Talking("Bone");
 
-                    frase.SpeakCutScene("Bueno, vamonos, seguramente se abrió otra puerta en la torre, a ver a donde nos lleba ahora.");
+                    frase.SpeakCutScene("Bueno, vamonos, seguramente se abrió otra puerta en la torre, a ver a donde nos lleva ahora.");
                 break;
             case 18:
                     Talking("Edgar");
@@ -1211,6 +1218,283 @@ public class CutSceneScript : MonoBehaviour
         }
 
     }
+    void Level5BeforeBoss() 
+    {
+        if (IsBoneLordFollow == "Si")
+        {
+            BoneLose.SetActive(true);
+            switch (FraseWrite.index)
+            {
+                case 0:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    break; 
+                case 1:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    break;
+                case 2:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    break;
+                case 3:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    break;
+                case 4:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    break;
+                case 5:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" (Manda a volar a Bonelord)");
+                    BoneLose.SetActive(false);
+                    break;
+                case 6:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¡Huesudo!");
+                    break;
+                case 7:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" (Fuera de cuadro y hablando a lo lejos) Bonelord:¡Tranquilo Eddy, estoy bien!");
+                    break;
+                case 8:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¡Ahora vete brujo, ya es muy tarde! ¡No encontrarás a tu princesa!");
+                    break;
+                case 9:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¡Silencio demonio, no vas a impedir que salve a esa chica!");
+                    break;
+                case 10:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Si que eres necio, te dije que ya es tarde...");
+                    break;
+                case 11:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Deja de hablar y entregame a la chica...");
+                    break;
+                case 12:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¡Ese es mi Eddy, bien decidido!");
+                    break;
+                case 13:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¡Vos no te metas!");
+                    break;
+                case 14:
+                    Talking("Princess");
+                    frase.SpeakCutScene("  Ahora brujo, no queres entender por palabras, voy a tener que hacerte retroceder a la fuerza...");
+                    break;
+                case 15:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Fin de la charla");
+                    break;
+                case 16:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Fin de la charla");
+                    LevelLoader.LoadLevel("Level1");
+                    break;
+
+            }
+            if (IsBoneLordFollow == "No") 
+            {
+                switch (FraseWrite.index) 
+                {
+                    case 0:
+                        Talking("Princess");
+                        frase.SpeakCutScene(" ¡Alto ahí, brujo inmundo!");
+                        break;
+                    case 1:
+                        Talking("Princess");
+                        frase.SpeakCutScene(" ¡Ouch, ese vocabulario duele!");
+                        break;
+                    case 2:
+                        Talking("Edgar");
+                        frase.SpeakCutScene("  Has luchado con valor y fiereza, pero basta de estos incompetentes a los que llamo secuaces, es hora de que te vayas...");
+                        break;
+                    case 3:
+                        Talking("Princess");
+                        frase.SpeakCutScene(" No pienso irme hasta que me entregues a la princesa....");
+                        break;
+                    case 4:
+                        Talking("Edgar");
+                        frase.SpeakCutScene("  Llegas muy tarde, me temo de que toda tu misión fue en vano...");
+                        break;
+                    case 5:
+                        Talking("Princess");
+                        frase.SpeakCutScene(" Callate, no pienso hacerle caso a tus sinsentidos...");
+                        break;
+                    case 6:
+                        Talking("Edgar");
+                        frase.SpeakCutScene(" Si que sos idiota, no tiene sentido intentar hacerte escuchar...");
+                        break;
+                    case 7:
+                        Talking("Edgar");
+                        frase.SpeakCutScene(" Fin de la charla");
+                        break;
+                    case 8:
+                        LevelLoader.LoadLevel("Level1");
+                        break;
+
+                }
+            }
+        }
+    }
+    void Level5LaterBoss() 
+    {
+        if (IsBoneLordFollow == "Si") 
+        {
+            switch (FraseWrite.index) 
+            {
+                case 0:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Has sido derrotada, ahora decime donde está la princesa... ");
+                    break;
+                case 1:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¡Ya te dije que es tarde, la salvaron la semana pasada, bobo!");
+                    break;
+                case 2:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Oohhh... Me siento medio bobo la verdad...");
+                    break;
+                case 3:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Callate, no pienso hacerle caso a tus sinsentidos...");
+                    break;
+                case 4:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Lindo plot twist...");
+                    break;
+                case 5:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" Ahora que mataste a todo mi ejercito, me derrotaste y viste que todo fue en vano... ¿Que pensas hacer");
+                    break;
+                case 6:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Ehhh... ¿No querrás salir conmigo?");
+                    break;
+                case 7:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¿Que? ¿Despues de todo esto me invitas a salir ? ¿Así sin mas ? ");
+                    break;
+                case 8:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Es que Eddy no es muy listo...");
+                    break;
+                case 9:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¡No te metas huesudo!");
+                    break;
+                case 10:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Bueno, mis padres se conocieron en peores situaciones, no veo por que no...");
+                    break;
+                case 11:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¿¡En serio!?");
+                    break;
+                case 12:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¡Wow!");
+                    break;
+                case 13:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¿E-entonces te parece si vamos a cenar o algo ahora ? ");
+                    break;
+                case 14:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Me gusta la idea, ya tenía ganas de tomarme una copita...");
+                    break;
+                case 15:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" ¿Vas a llevar a tu craneo mascota?");
+                    break;
+                case 16:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¿Eh?.");
+                    break;
+                case 17:
+                    Talking("Edgar");
+                    frase.SpeakCutScene("  ¿Mascota? Prefiero el termino fiambre de compañía... Pero no creas que Edgar me va a abandonar así nomas, somos como hueso y carne, somos inseparables...");
+                    break;
+                case 18:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" Bueno Huesitos, te veo en casa, si me disculpas, está bella demonio y yo debemos irnos...");
+                    break;
+                case 19:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" (Aldania y Edgar se van y queda Bonelord solo)");
+                    break;
+                case 20:
+                    Talking("Null");
+                    frase.SpeakCutScene("  Edgar, no me dejes solo, voy a tardar un día en volver, es mas, ni siquiera se donde queda tu casa ¿Edgar ? ¿¡Edgar! ? ¡EEEEEDGAAAAAAAAR!");
+                    break;
+                case 21:
+                    Talking("Bone");
+                    frase.SpeakCutScene(" Fin");
+                    break;
+                case 22:
+                    LevelLoader.LoadLevel("VictoryScene");
+                    break;
+            }
+        }
+        if (IsBoneLordFollow == "No") 
+        {
+            switch (FraseWrite.index)
+            {
+                case 0:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Has sido derrotada, ahora dime. ¿Donde está la princesa ? ");
+                    break;
+                case 1:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¿Sos necio o que? Te dije que ya es tarde, la salvaron hace una semana...");
+                    break;
+                case 2:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¿Eh?");
+                    break;
+                case 3:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Es una lider politica de gran poder... ¿Te crees que no la iban a madnar a rescatar ? ");
+                    break;
+                case 4:
+                    Talking("Princess");
+                    frase.SpeakCutScene("  Oh, tiene sentido ahora que lo decis....");
+                    break;
+                case 5:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Ahora que te quedaste sin princesa que salvar me imagino que no te queda nada que hacer por acá...");
+                    break;
+                case 6:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" ¿Queres salir conmigo?");
+                    break;
+                case 7:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" ¿Que? Despues de matar a mis subordinados, destruir mi honor y orgullo en una pelea...");
+                    break;
+                case 8:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" No tengo nada que perder. ¿No?..");
+                    break;
+                case 9:
+                    Talking("Edgar");
+                    frase.SpeakCutScene(" Bueno, mis padres se conocieron en peores situaciones, no veo por que no...");
+                    break;
+                case 10:
+                    Talking("Princess");
+                    frase.SpeakCutScene(" Genial ¿Vamos a cenar o algo?");
+                    break;
+                    Talking("Princess");
+                    LevelLoader.LoadLevel("Level1");
+                    break;
+
+            }
+        }
+    }
     public void Opcion1() 
     {
         Options = 1;
@@ -1275,6 +1559,15 @@ public class CutSceneScript : MonoBehaviour
             CutScene_Level_3_Part2.gameObject.SetActive(true);
 
         }
+        if(Scene == 6) 
+        {
+            CutScene_Level_5.gameObject.SetActive(true);
+        }
+        if (Scene == 7) 
+        {
+            CutScene_Level_5_Part2.gameObject.SetActive(true);
+        }
+        
     }
     void Talking(string ID) 
     {
@@ -1334,6 +1627,13 @@ public class CutSceneScript : MonoBehaviour
             Standarts[3].SetActive(false);
 
         }
-
+        if (ID == "Princess")
+        {
+            Standarts[4].SetActive(true);
+        }
+        else 
+        {
+            Standarts[4].SetActive(false);
+        }
     }
 }

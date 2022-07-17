@@ -125,11 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085e1d27215ceba4abe13044f6f0c591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 300
+  MaxLife: 75
   currentLife: 0
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerState: {fileID: 0}
-  MaxSpeed: 10
+  MaxSpeed: 16
   Speed: 0
   SlowState: 0
   ThisIsPlayer: 0
@@ -168,11 +169,11 @@ MonoBehaviour:
   rb: {fileID: 4914649307056463319}
   sprite: {fileID: 2047937909533816318}
   DeathItems:
-  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
+  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   - {fileID: 5649100164515028444, guid: 6259bcaa26cdba54eb370278d30e9e8d, type: 3}
   Colliders: []
-  Damage: 5
+  Damage: 15
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1

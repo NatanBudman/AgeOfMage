@@ -259,6 +259,7 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0
@@ -297,11 +298,12 @@ MonoBehaviour:
   rb: {fileID: 7193661271237868042}
   sprite: {fileID: 4103719213658182160}
   DeathItems:
-  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
+  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   - {fileID: 5649100164515028444, guid: 6259bcaa26cdba54eb370278d30e9e8d, type: 3}
   Colliders: []
   Damage: 25
+  agent: {fileID: 0}
   IsLongRange: 1
   RangeShoot: 65
   chasePlayer: 1

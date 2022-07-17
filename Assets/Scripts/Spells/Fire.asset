@@ -17,5 +17,7 @@ MonoBehaviour:
   Book: {fileID: 6162996503211972893, guid: b417d9f9e2da2d944a871df0821bd457, type: 3}
   mana: 5
   attack: 10
-  cost: 55
+  cost: 75
   IsBoughtBook: 0
+  TypeSpell: Raro
+  Efectos: "Da\xF1o en area y quemaduras"
