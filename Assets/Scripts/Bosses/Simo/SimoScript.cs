@@ -55,7 +55,7 @@ public class SimoScript : MonoBehaviour
         }
         if (heathl.Death) 
         {
-            //room.CompleteRoom = true;
+            GameManager.CompleteLevel3 = true;
             Room.IsDefeatBoss = true;
         }
     }
