@@ -53,6 +53,7 @@ public class Menu : MonoBehaviour
         }
         GameManager.PlayerGold = 0;
         PlayerPrefs.DeleteAll();
+        GameManager.CompleteLevel3 = false;
     }
     public void Tutorial() 
     {

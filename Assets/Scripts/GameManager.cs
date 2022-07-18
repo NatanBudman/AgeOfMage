@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public  bool GamePuase = false;
 
-
+    public static bool CompleteLevel3 = false;
     public Transform SpawnPoint;
     public Transform[] newSpawnPoint;
 
@@ -63,11 +63,11 @@ public class GameManager : MonoBehaviour
         PauseMode();
 
         AutoSave();
+        CusSceneConditions();
         GoldCount();
         IconLoad();
         SpawnPoints();
         SpecialLevels();
-        CusSceneConditions();
         RoundCount();
 
         if (Input.GetKeyDown(KeyCode.L)) 
@@ -101,6 +101,11 @@ public class GameManager : MonoBehaviour
         if (room[4].RoundRooms == 3)
         {
             IsLevel5 = false;
+        }
+        if (CompleteLevel3 && room[0].Levels == 2) 
+        {
+            room[2].CompleteLevel = "Complete";
+            room[0].Levels += 1; 
         }
     }
     void AutoSave() 
@@ -151,8 +156,9 @@ public class GameManager : MonoBehaviour
   
        if (Room.IsDefeatBoss)
        {
-            InstantiateLoadIcon = true;
+            room[room[0].Levels].CompleteLevel = "Complete";
             room[room[0].Levels].CompleteRoom = true;
+            InstantiateLoadIcon = true;
             Save();
             SceneManager.LoadScene("cutscenes");
        }

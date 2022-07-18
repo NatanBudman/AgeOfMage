@@ -1501,7 +1501,7 @@ public class CutSceneScript : MonoBehaviour
                     frase.SpeakCutScene(" Genial ¿Vamos a cenar o algo?");
                     break;
                     Talking("Princess");
-                    LevelLoader.LoadLevel("Level1");
+                    LevelLoader.LoadLevel("VictoryScene");
                     break;
 
             }
