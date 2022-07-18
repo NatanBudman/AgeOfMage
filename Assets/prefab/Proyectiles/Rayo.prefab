@@ -9854,5 +9854,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1102074747115731014}
-  Damage: 15
+  Damage: 20
   SplashRange: 0

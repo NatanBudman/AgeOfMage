@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
         }
         if (TagName == "Gold")
         {
-            int Gold = Random.Range(1, 5);
+            int Gold = Random.Range(1, 4);
             GameManager.GetGold(Gold);
 
         }

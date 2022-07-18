@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AltaresManager : MonoBehaviour
 {
+    [SerializeField] GameManager manager;
     [SerializeField] Room Room4;
     [SerializeField]AltarScript[] Altares;
 
@@ -17,9 +18,11 @@ public class AltaresManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Altares[0].IsComplete) 
+        if (Altares[0].IsComplete ) 
         {
+            manager.room[0].Levels = 4;
             Room4.CompleteRoom = true;
+            this.gameObject.SetActive(false);
         }
     }
 }

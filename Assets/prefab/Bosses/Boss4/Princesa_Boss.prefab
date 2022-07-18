@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3688588736660307613}
   - component: {fileID: 1306860599750081331}
   - component: {fileID: 1457867340}
+  - component: {fileID: 1552645922125466780}
   m_Layer: 0
   m_Name: Princesa_Boss
   m_TagString: Enemy
@@ -129,7 +130,6 @@ MonoBehaviour:
   - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
   Colliders: []
   Damage: 90
-  agent: {fileID: 0}
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1
@@ -256,6 +256,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellElement: Fuego
+--- !u!114 &1552645922125466780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2983654312773792263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43145d4ee9ace274fb713e806e9d9f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2983654312947376774
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,10 +595,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsAmount: 10
+  bulletsIfAngryAmount: 3
   startAngle: 0
   endAngle: 360
   bullet: {fileID: 1296797218766769388, guid: 49befa3087cf4f2459d3c7b1bdb4d0be, type: 3}
   parent: {fileID: 8820560614301553984}
+  heatlh: {fileID: 2983654312773792257}
 --- !u!114 &6590965046257666414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,8 +629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e89ceb80ce4a264399467d38ed3e391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletsAmount: 5
+  bulletsAmount: 10
+  bulletsIfAngryAmount: 3
   startAngle: 0
   endAngle: 360
   bullet: {fileID: 5366228542654288496, guid: 84e77ed5722fb9e4e80fab1117b990ed, type: 3}
   parent: {fileID: 8820560614301553984}
+  heatlh: {fileID: 2983654312773792257}

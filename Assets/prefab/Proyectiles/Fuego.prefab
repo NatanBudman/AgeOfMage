@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1102074747115731014}
-  Damage: 20
-  SplashRange: 4
+  Damage: 25
+  SplashRange: 5
 --- !u!50 &1102074747115731014
 Rigidbody2D:
   serializedVersion: 4

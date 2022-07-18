@@ -96,13 +96,13 @@ public class SimoScript : MonoBehaviour
         {
             IsShoot = true;
         }
-        if (CurrentRifle >= CoolDownRifle && heathl.Death)
+        if (CurrentRifle >= CoolDownRifle && !heathl.Death)
         {
             IsRifle = true;
             CurrentRifle = 0;
         }
      
-        if (CurrentCanon >= CoolDownCanon && heathl.Death) 
+        if (CurrentCanon >= CoolDownCanon && !heathl.Death) 
         {
             IsCanon = true;
             CurrentRifle = 0;
@@ -124,7 +124,7 @@ public class SimoScript : MonoBehaviour
     }
     public void Fire()
     {
-        if (IsShootRifle && heathl.Death)
+        if (IsShootRifle && !heathl.Death)
         {
             CurrentRifleBullets += Time.deltaTime;
             if (FrecunceRifleBullets <= CurrentRifleBullets) 
@@ -134,7 +134,7 @@ public class SimoScript : MonoBehaviour
                 CurrentRifleBullets = 0;
             }
         }
-        if (IsShootCanon && countCanonShoot > 0 && heathl.Death) 
+        if (IsShootCanon && countCanonShoot > 0 && !heathl.Death) 
         {
             GameObject RifleProjectile = Instantiate(BulletCanon, RiflePointShoot.position, Quaternion.identity);
             RifleProjectile.GetComponent<Rigidbody2D>().AddForce(RiflePointShoot.up * fireForce, ForceMode2D.Impulse);

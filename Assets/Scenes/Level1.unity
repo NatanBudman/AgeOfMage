@@ -34755,6 +34755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0bebf5696626e34da352184890643b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 2030737944}
   Room4: {fileID: 289431837}
   Altares:
   - {fileID: 1286185437}
@@ -48694,7 +48695,7 @@ PrefabInstance:
       objectReference: {fileID: 236083646}
     - target: {fileID: 1700699232410722186, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: dashSpeed
-      value: 300
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1700699232410722186, guid: d705b7973680521468f522360a935776, type: 3}
       propertyPath: SpellPower

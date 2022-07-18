@@ -42,7 +42,7 @@ public class SpecialGenerator : MonoBehaviour
             }
             if(currenTimeCountReset >= TimeResetToCount) 
             {
-               count = (int)Random.Range(1, 2);
+               count = (int)Random.Range(2, 3);
                currenTimeCountReset = 0;
             }
             randomEnemy = (int)Random.Range(0, Enemy.Length - 1);
