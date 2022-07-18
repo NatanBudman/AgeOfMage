@@ -27,6 +27,7 @@ public class Shop : MonoBehaviour
     public bool isItem3;
     bool IsShopRealod = false;
     public GameObject[] ItemsInSale;
+    bool IsBought = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,11 +64,15 @@ public class Shop : MonoBehaviour
         else if(Items3 != -1 && Items3 != Items2 && Items3 != Items1) 
         {
             IsShopRealod = true;
+            IsBought = true;
         }
 
 
 
-  
+        if (IsBought) 
+        {
+            IsItemsBuy();
+        }
         if (IsShopRealod)
         {
             ReloadShop();
@@ -75,23 +80,26 @@ public class Shop : MonoBehaviour
 
         SpellDescription();
     }
-
-    void SpellDescription()
+    void IsItemsBuy() 
     {
         if (ItemsForSale[Items1].IsBoughtBook)
         {
             ItemsSold[0].SetActive(true);
         }
-   
+
         if (ItemsForSale[Items2].IsBoughtBook)
         {
             ItemsSold[1].SetActive(true);
         }
-    
+
         if (ItemsForSale[Items3].IsBoughtBook)
         {
             ItemsSold[2].SetActive(true);
         }
+    }
+    void SpellDescription()
+    {
+    
    
 
         if (isItem1)
@@ -99,11 +107,11 @@ public class Shop : MonoBehaviour
             if (!ItemsForSale[Items1].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description: " + ItemsForSale[Items1].description + "\n"+ "\n" + "Efectos: " + ItemsForSale[Items1].Efectos + "\n" + "\n" + "Press F to Buy";
+                ItemDescription.text = "Description: " + ItemsForSale[Items1].description + "\n"+ "\n" + "Efect: " + ItemsForSale[Items1].Efectos + "\n" + "\n" + "Press F to Buy";
                 ItemName.text = "Name: " + ItemsForSale[Items1].name;
                 ItemCost.text = "Cost: " + ItemsForSale[Items1].cost;
                 ItemAttack.text = "Attack: " + ItemsForSale[Items1].attack;
-                ItemType.text = "Tipo: " + ItemsForSale[Items1].TypeSpell;
+                ItemType.text = "Type: " + ItemsForSale[Items1].TypeSpell;
 
             }
 
@@ -113,11 +121,11 @@ public class Shop : MonoBehaviour
             if (!ItemsForSale[Items2].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description: " + ItemsForSale[Items2].description + "\n" + "\n" + "Efectos: " + ItemsForSale[Items2].Efectos + "\n" + "\n" + "Press F to Buy";
+                ItemDescription.text = "Description: " + ItemsForSale[Items2].description + "\n" + "\n" + "Efect: " + ItemsForSale[Items2].Efectos + "\n" + "\n" + "Press F to Buy";
                 ItemName.text = "Name: " + ItemsForSale[Items2].name;
                 ItemCost.text = "Cost: " + ItemsForSale[Items2].cost;
                 ItemAttack.text = "Attack: " + ItemsForSale[Items2].attack;
-                ItemType.text = "Tipo: " + ItemsForSale[Items2].TypeSpell;
+                ItemType.text = "Type: " + ItemsForSale[Items2].TypeSpell;
 
             }
 
@@ -128,11 +136,11 @@ public class Shop : MonoBehaviour
             if (!ItemsForSale[Items3].IsBoughtBook)
             {
 
-                ItemDescription.text = "Description: " + ItemsForSale[Items3].description + "\n" + "\n" + "Efectos: " + ItemsForSale[Items3].Efectos + "\n" + "\n" + "Press F to Buy";
+                ItemDescription.text = "Description: " + ItemsForSale[Items3].description + "\n" + "\n" + "Efect: " + ItemsForSale[Items3].Efectos + "\n" + "\n" + "Press F to Buy";
                 ItemName.text = "Name: " + ItemsForSale[Items3].name;
                 ItemCost.text = "Cost: " + ItemsForSale[Items3].cost;
                 ItemAttack.text = "Attack: " + ItemsForSale[Items3].attack;
-                ItemType.text = "Tipo: " + ItemsForSale[Items3].TypeSpell ;
+                ItemType.text = "Type: " + ItemsForSale[Items3].TypeSpell ;
             }
 
         }

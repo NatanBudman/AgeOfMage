@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SimoScript : MonoBehaviour
 {
+    //[SerializeField] Room room;
     EnemyScript enemy;
+    HealthController heathl;
     [SerializeField] Animator Animations;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform RiflePointShoot;
@@ -39,6 +41,7 @@ public class SimoScript : MonoBehaviour
         {
             Spawn = GameObject.FindGameObjectsWithTag("EnemySpawn");
         }
+        heathl = GetComponent<HealthController>();
     }
 
     // Update is called once per frame
@@ -49,6 +52,11 @@ public class SimoScript : MonoBehaviour
         if (IsShoot) 
         {
             Fire();
+        }
+        if (heathl.Death) 
+        {
+            //room.CompleteRoom = true;
+            Room.IsDefeatBoss = true;
         }
     }
     void animations() 
@@ -88,13 +96,13 @@ public class SimoScript : MonoBehaviour
         {
             IsShoot = true;
         }
-        if (CurrentRifle >= CoolDownRifle)
+        if (CurrentRifle >= CoolDownRifle && heathl.Death)
         {
             IsRifle = true;
             CurrentRifle = 0;
         }
      
-        if (CurrentCanon >= CoolDownCanon) 
+        if (CurrentCanon >= CoolDownCanon && heathl.Death) 
         {
             IsCanon = true;
             CurrentRifle = 0;
@@ -116,7 +124,7 @@ public class SimoScript : MonoBehaviour
     }
     public void Fire()
     {
-        if (IsShootRifle)
+        if (IsShootRifle && heathl.Death)
         {
             CurrentRifleBullets += Time.deltaTime;
             if (FrecunceRifleBullets <= CurrentRifleBullets) 
@@ -126,7 +134,7 @@ public class SimoScript : MonoBehaviour
                 CurrentRifleBullets = 0;
             }
         }
-        if (IsShootCanon && countCanonShoot > 0) 
+        if (IsShootCanon && countCanonShoot > 0 && heathl.Death) 
         {
             GameObject RifleProjectile = Instantiate(BulletCanon, RiflePointShoot.position, Quaternion.identity);
             RifleProjectile.GetComponent<Rigidbody2D>().AddForce(RiflePointShoot.up * fireForce, ForceMode2D.Impulse);

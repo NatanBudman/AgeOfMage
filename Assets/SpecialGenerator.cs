@@ -86,10 +86,10 @@ public class SpecialGenerator : MonoBehaviour
             {
                 puaseForCompleteRound = false;
             }
-            else
-            {
-                puaseForCompleteRound = true;
-            }
+            //else
+            //{
+            //    puaseForCompleteRound = true;
+            //}
         }
         if(Zones[2].gameObject.activeSelf == false && Zones[2].IsComplete && !altares[0].IsComplete) 
         {

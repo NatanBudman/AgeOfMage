@@ -20,9 +20,18 @@ public class SpellSelected : MonoBehaviour
     public static bool hasWind;
     public static bool hasEarth;
     public static bool hasHeal;
+    public static string isHasFire;
+    public static string isHasWater;
+    public static string isHasLightning;
+    public static string isHasWind;
+    public static string isHasEarth;
+    public static string isHasHeal;
 
     public Weapon weapon;
-
+    void Awake() 
+    {
+        LoadSpells();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -37,29 +46,79 @@ public class SpellSelected : MonoBehaviour
         if (books[0].IsBoughtBook == true)
         {
             hasFire = true;
+            isHasFire = "Si";
         }
         if (books[1].IsBoughtBook == true)
         {
             hasWater = true;
+            isHasWater = "Si";
         }
         if (books[2].IsBoughtBook == true)
         {
             hasLightning = true;
+            isHasLightning = "Si";
         }
         if (books[3].IsBoughtBook == true)
         {
             hasEarth = true;
+            isHasEarth = "Si";
         }
         if (books[4].IsBoughtBook == true)
         {
             hasWind = true;
+            isHasWind = "Si";
+
         }
         if (books[5].IsBoughtBook == true)
         {
             hasHeal = true;
+            isHasHeal = "Si";
+
         }
 
-
+        SaveSpells();
+        if (isHasFire == "Si") 
+        {
+            books[0].IsBoughtBook = true;
+        }
+        if(isHasWater == "Si") 
+        {
+            books[1].IsBoughtBook = true;
+        }
+        if (isHasLightning == "Si") 
+        {
+            books[2].IsBoughtBook = true;
+        }
+        if (isHasEarth == "Si")
+        {
+            books[3].IsBoughtBook = true;
+        }
+        if (isHasWind == "Si") 
+        {
+            books[4].IsBoughtBook = true;
+        }
+        if (isHasHeal == "Si") 
+        {
+            books[5].IsBoughtBook = true;
+        }
+    }
+    void SaveSpells() 
+    {
+        PlayerPrefs.SetString("Fire", isHasFire);
+        PlayerPrefs.SetString("Water", isHasWater);
+        PlayerPrefs.SetString("Light", isHasLightning);
+        PlayerPrefs.SetString("Earth", isHasEarth);
+        PlayerPrefs.SetString("Wind", isHasWind);
+        PlayerPrefs.SetString("Heal", isHasHeal);
+    }
+    void LoadSpells() 
+    {
+        isHasFire = PlayerPrefs.GetString("Fire");
+        isHasWater = PlayerPrefs.GetString("Water");
+        isHasLightning = PlayerPrefs.GetString("Light");
+        isHasEarth = PlayerPrefs.GetString("Earth");
+        isHasWind = PlayerPrefs.GetString("Wind");
+        isHasHeal = PlayerPrefs.GetString("Heal");
 
     }
     void SpellParchment() 

@@ -19,10 +19,12 @@ public class ProtectedZoneScript : MonoBehaviour
     public float CurrentAmount = 0;
     public bool IsComplete;
     float MaxSpeed;
+    float n;
     // Start is called before the first frame update
     void Start()
     {
         MaxSpeed = SpeedBarLoad;
+        n = SpeedBarLoad - 1;
     }
 
     // Update is called once per frame
@@ -61,6 +63,14 @@ public class ProtectedZoneScript : MonoBehaviour
         {
             EnableNextObject.SetActive(true);
         }
+        if (IsEnemyInZone == true)
+        {
+            SpeedBarLoad = n;
+        }
+        else
+        {
+            SpeedBarLoad = MaxSpeed;
+        }
         BarLoad.fillAmount = CurrentAmount / BarAmount;
 
         CurrentAmount = Mathf.Clamp(CurrentAmount, 0, BarAmount);
@@ -70,17 +80,7 @@ public class ProtectedZoneScript : MonoBehaviour
         if(collision.CompareTag("PJ")) 
         {
             IsPlayerInZone = true;
-            if (IsEnemyInZone == false)
-            {
-                float n = SpeedBarLoad;
-                n = SpeedBarLoad - 1;
-                SpeedBarLoad = n;
-            }
-            else 
-            {
-                SpeedBarLoad = MaxSpeed;
-            }
-        
+            IsZoneLoad = true;
         }
         if (collision.CompareTag("Enemy") && collision.GetComponent<HealthController>().Death == false && collision.GetComponent<EnemyScript>())
         {
