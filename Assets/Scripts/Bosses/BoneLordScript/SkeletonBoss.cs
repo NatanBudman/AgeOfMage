@@ -8,7 +8,6 @@ public class SkeletonBoss : MonoBehaviour
     HealthController health;
     PlayerController playerScript;
     EnemyScript enemy;
-    // Start is called before the first frame update
     [SerializeField] private Animator animation; 
     [SerializeField] private GameObject Portals;
     [SerializeField]private float CoolDownSpawnEnemy;
@@ -56,7 +55,6 @@ public class SkeletonBoss : MonoBehaviour
       
         SpawnGas.position = new Vector2(transform.position.x, transform.position.y);
 
-        Debug.Log(CurrenTimeAttack);
         CurrenTimeAttack += Time.deltaTime;
         CurrentTime += Time.deltaTime;
         CurrenTimeGas += Time.deltaTime;
@@ -155,17 +153,11 @@ public class SkeletonBoss : MonoBehaviour
              Vector2 pos3 = new Vector2(transform.position.x - 25, transform.position.y);
              Instantiate(Portals, pos3, Quaternion.identity);
         }
-
-        //if (CurrentTime >= CoolDownSpawnEnemy - 5) 
-        //{
-        //    Portals.color
-        //}
     }
     void Animation() 
     {
         animation.SetBool("Attack", Attack);
         animation.SetBool("Eructando", Eructando);
-        //animation.SetBool("Drink", Drink);
     }
     void GasAttack() 
     {
@@ -200,16 +192,4 @@ public class SkeletonBoss : MonoBehaviour
             }
         }
     }
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-
-    //    if (other.collider.tag == "PJ")
-    //    {
-    //        if (!playerScript.Invensibility)
-    //        {
-    //            other.collider.GetComponent<HealthController>().GetDamage(90);
-    //            playerScript.Invensibility = true;
-    //        }
-    //    }
-    //}
 }

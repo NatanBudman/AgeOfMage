@@ -399,11 +399,14 @@ MonoBehaviour:
   - {fileID: 5832300869910282455, guid: 99f110cea84076a4797edd7c086ff42b, type: 3}
   Colliders: []
   Damage: 100
+  agent: {fileID: 0}
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &7996467104226151110
 Rigidbody2D:
   serializedVersion: 4
@@ -442,8 +445,10 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
+  DurationBurning: 0
   Element: 
 --- !u!114 &-449822816230000485
 MonoBehaviour:

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1726854280367600222}
   - component: {fileID: -6383340845986812448}
   - component: {fileID: -3488066921280244260}
-  - component: {fileID: -5207355501217664444}
   - component: {fileID: 6673998381760314768}
   - component: {fileID: 983764734090306881}
   - component: {fileID: -2195888503022217469}
@@ -37,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 5273805884302020360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.4703, y: 1.45, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1.9, y: 1.9, z: 1}
   m_Children:
   - {fileID: 3049140685931919445}
   - {fileID: 3680042807990830401}
@@ -114,14 +113,17 @@ MonoBehaviour:
   DeathItems:
   - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
   - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
-  - {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
+  - {fileID: 5649100164515028444, guid: 6259bcaa26cdba54eb370278d30e9e8d, type: 3}
   Colliders: []
   Damage: 10
+  agent: {fileID: 0}
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &1726854280367600222
 Rigidbody2D:
   serializedVersion: 4
@@ -181,35 +183,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085e1d27215ceba4abe13044f6f0c591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 100
+  MaxLife: 25
   currentLife: 0
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0
   Element: 
---- !u!114 &-5207355501217664444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5273805884302020360}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2195606c126c64586a582c127306b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talk: []
-  GobliinsTalk: []
-  SkeletonsTalk: []
-  BossTalk: []
-  SpawnDialogue: {fileID: 3049140685931919445}
-  GoblinTalk: 0
-  SkeletonTalk: 0
-  bossTalk: 0
 --- !u!61 &6673998381760314768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -271,7 +254,7 @@ MonoBehaviour:
   animation: {fileID: 983764734090306881}
   attackCollider: {fileID: -6383340845986812448}
   colliders: {fileID: 6673998381760314768}
-  RangeAttack: 8
+  RangeAttack: 7
   coolwDownAttack: 2
 --- !u!114 &-6347672325503889769
 MonoBehaviour:
@@ -286,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerState: {fileID: 0}
-  MaxSpeed: 22
+  MaxSpeed: 28
   Speed: 16
   SlowState: 0
   ThisIsPlayer: 0

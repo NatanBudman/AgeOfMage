@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     State state;
     GameManager game;
     public Animator animation;
+    public Text Interface;
     private TimeManager timemanager;
     private bool EscobazoAnim;
 
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
 
+    public bool TakeLifePotion;
+    public bool TakeManaPotion;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
@@ -49,22 +53,14 @@ public class PlayerController : MonoBehaviour
 
     bool PlayerBurning = false;
 
-
-    public bool hasFire;
-    public bool hasWater;
-    public bool hasLightning;
     public bool hasEarth;
-    public bool hasWind;
-    public bool hasDash;
     public bool hasHeal;
-
     private void Awake()
     {
-
+        Interface.gameObject.SetActive(false);
     }
     void Start()
     {
-
         Mana = FindObjectOfType<BarraDeVida>();
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         StartCoroutine(time());
@@ -99,7 +95,7 @@ public class PlayerController : MonoBehaviour
             Mana.CurrentMana -= 10;
         }
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetMouseButtonDown(1))
         {
             weapon.Melee();
             EscobazoAnim = true;
@@ -108,35 +104,6 @@ public class PlayerController : MonoBehaviour
         {
             EscobazoAnim = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.B) && Mana.CurrentMana >= 30)
-        {
-            Mana.CurrentMana -= 30;
-            weapon.Heal();
-        }
-
-        if (Input.GetKeyDown(KeyCode.T) && Mana.CurrentMana >= 30)
-        {
-            Mana.CurrentMana -= 20;
-            weapon.Wall();
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            weapon.Wind();
-        }
-
-        //if (Input.GetKeyDown(KeyCode.Q) && Mana.CurrentMana >= 50) //Stop Time when Q is pressed
-        //{
-        //    Mana.CurrentMana -= 50;
-        //    timemanager.StopTime();
-        //}
-        //if (Input.GetKeyDown(KeyCode.E) && timemanager.TimeIsStopped)  //Continue Time when E is pressed
-        //{
-        //    timemanager.ContinueTime();
-
-        //}
-
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -150,19 +117,6 @@ public class PlayerController : MonoBehaviour
             Mana.CurrentMana -= Weapon.SpellCost;
 
         }
-
-        //if (Input.GetMouseButtonDown(1) && Mana.CurrentMana >= weapon.SpellCost)
-        //{
-        //    weapon.Fire2();
-        //    Mana.CurrentMana -= weapon.SpellCost;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.K) && Mana.CurrentMana >= weapon.SpellCost)
-        //{
-        //    weapon.Fire3();
-        //    Mana.CurrentMana -= weapon.SpellCost;
-        //}
-
         moveDirection = new Vector2(moveX, moveY);
 
         //mousePosition = camera;
@@ -204,6 +158,7 @@ public class PlayerController : MonoBehaviour
         if (health.Death == true)
         {
             transform.position = game.SpawnPoint.position;
+            GameManager.PlayerGold -= 35;
             SceneManager.LoadScene("Lose");
             health.currentLife = health.MaxLife;
         }
@@ -253,8 +208,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TagName = collision.gameObject.tag;
 
+        TagName = collision.gameObject.tag;
+        if (TagName == "Enemy" && collision.GetComponent<HealthController>().Death == true)
+        {
+            Interface.text = "Right Click";
+            Interface.gameObject.transform.position = collision.GetComponent<EnemyScript>().gameObject.transform.position;
+            Interface.gameObject.transform.rotation = new Quaternion(0,0,0f,0f);
+            Interface.gameObject.SetActive(true);
+        }
         if (Invensibility == false)
         {
 
@@ -268,9 +230,12 @@ public class PlayerController : MonoBehaviour
         if (TagName == "PocionHealth")
         {
             health.CureLife(25);
+            TakeLifePotion = true;
+
         }
         if (TagName == "ManaPotion")
         {
+            TakeManaPotion = true;
             Mana.CurrentMana += 50;
         }
         if (TagName == "Gold")
@@ -281,7 +246,11 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    private void OnTriggerExit2D(Collider2D collision) 
+    {
+        Interface.gameObject.SetActive(false);
+        
+    }
     IEnumerator time()
     {
         while (true)

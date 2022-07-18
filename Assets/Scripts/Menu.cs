@@ -6,11 +6,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
+    public SpellsBook[] resetBooks;
     public Button Continue_Buttom;
     public GameObject Opcion;
     public GameObject Controls;
     public AudioMixer Mixer;
-
+    public GameObject TutorialButton;
+    public GameObject StartCampaingButton;
     public Slider Music;
     public Slider Sound;
 
@@ -45,10 +47,41 @@ public class Menu : MonoBehaviour
     }
     void DaleteSave()
     {
+        for (int i = 0; i < resetBooks.Length; i++) 
+        {
+            resetBooks[i].IsBoughtBook = false;
+        }
+        GameManager.PlayerGold = 0;
         PlayerPrefs.DeleteAll();
+    }
+    public void Tutorial() 
+    {
+        LevelLoader.LoadLevel("Tutorial");
+    }
+    public void OpenStartButton() 
+    {
+        if (TutorialButton.activeSelf == true && StartCampaingButton.activeSelf == true)
+        {
+            TutorialButton.SetActive(false);
+            StartCampaingButton.SetActive(false);
+        }
+        else 
+        {
+            TutorialButton.SetActive(true);
+            StartCampaingButton.SetActive(true);
+        }
     }
     public void StarCampaing() 
     {
+        GameManager.IsLevel3 = true;
+        GameManager.IsLevel5 = true;
+
+        SpellSelected.hasEarth = false;
+        SpellSelected.hasFire = false;
+        SpellSelected.hasHeal = false;
+        SpellSelected.hasLightning = false;
+        SpellSelected.hasWater = false;
+        SpellSelected.hasWind = false;
         DaleteSave();
         SceneManager.LoadScene("StoryBoard");
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class EnemyScript : MonoBehaviour
@@ -30,11 +31,24 @@ public class EnemyScript : MonoBehaviour
 
     public bool death;
 
+    public bool IsAltarEnable;
+
+    int Item;
+
+    int PosibilitySpawnItem;
+
+   [SerializeField] GameObject[] Altares;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        Altares = GameObject.FindGameObjectsWithTag("Altar");
+
+
+    }
     void Start()
     {
         state = GetComponent<State>();
-
+   
         player = GameObject.FindGameObjectWithTag("PJ");
 
         playerScript = FindObjectOfType<PlayerController>();
@@ -42,6 +56,7 @@ public class EnemyScript : MonoBehaviour
         heatlh = GetComponent<HealthController>();
 
         rb = GetComponent<Rigidbody2D>();
+
 
         Colliders = GetComponentsInChildren<BoxCollider2D>();
 
@@ -51,8 +66,12 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        Item = (int)Random.Range(0, DeathItems.Length);
+
+        PosibilitySpawnItem = (int)Random.Range(0, 4);
+
         Mechanics();
+
     }
     public void Mechanics() 
     {
@@ -62,18 +81,34 @@ public class EnemyScript : MonoBehaviour
         {
             SeePlayer(player);
         }
-        //else if(Encantado == true && Skeleton)
-        //{
-        //    var ramdom = (int)Random.Range(0, generator.GoblinsInMap.Length);
+        ChaseDiffObject();
 
-        //    float distance = Vector2.Distance(this.transform.position, generator.GoblinsInMap[ramdom].transform.position);
-        //    state.EnchantEnemy(5, ramdom);
-        //    SeePlayer(generator.GoblinsInMap[ramdom]);
-        //}
+    }
+    void ChaseDiffObject()
+    {
+        for (int i = 0; i < Altares.Length; i++)
+        {
+            if (Altares[i].activeSelf == true)
+            {
+                IsAltarEnable = true;
+            }
+            else
+            {
+                IsAltarEnable = false;
+            }
+      
+        }
+        if (IsAltarEnable)
+        {
+            player = GameObject.FindGameObjectWithTag("Altar");
+        }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("PJ");
+        }
     }
     public void ChasePlayer() 
     {
-       
         if (IsLongRange) 
         {
             // distancia de disparo
@@ -89,41 +124,39 @@ public class EnemyScript : MonoBehaviour
         if (chasePlayer ) 
         {
             Vector2 objetive = new Vector2(player.transform.position.x, player.transform.position.y);
-            Vector2 newPos = Vector2.MoveTowards(rb.position,objetive,state.Speed * Time.deltaTime);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, objetive, state.Speed * Time.deltaTime);
             rb.MovePosition(newPos);
         }
      
-
+      
     }
    
     void SeePlayer(GameObject See) 
     {
-        Vector2 lookDir = See.transform.position - this.transform.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
+        if (!heatlh.Death) 
+        {
+            Vector2 lookDir = See.transform.position - this.transform.position;
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg + 90f;
+            rb.rotation = angle;
+        }
 
-        rb.rotation = angle;
     }
 
     public void Death() 
     {
-        var PosibilitySpawnItem = (int)Random.Range(0,5);
-        var Item = (int)Random.Range(0,DeathItems.Length);
+   
        if (heatlh.Death == true) 
         {
             for (int i = 0; i < Colliders.Length; i++) 
             {
-                Colliders[i].enabled = false;
+                Colliders[i].isTrigger = true;
             }
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             sprite.sortingLayerName = "Default";
             sprite.sortingOrder = 3;
             death = true;
            
-            if (PosibilitySpawnItem == 1) 
-            {
-                Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
-            }
-            this.GetComponent<EnemyScript>().enabled = false;
+   
            
         }
 
@@ -138,19 +171,40 @@ public class EnemyScript : MonoBehaviour
         heatlh.GetDamage(Damage);
         StartCoroutine(FlashRed());
     }
+    void LootEnmey()
+    {
+        if (PosibilitySpawnItem == 1 || PosibilitySpawnItem == 0)
+        {
+            Instantiate(DeathItems[Item], transform.position, Quaternion.identity);
+        }
+        if (PosibilitySpawnItem == 2) 
+        {
+            Instantiate(DeathItems[2], transform.position, Quaternion.identity);
+
+        }
+        Destroy(gameObject);
+
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.gameObject.tag == "Bullets")
-        //{
-        //    StartCoroutine(FlashRed());
-        //}
-        if (other.collider.tag == "PJ")
+     
+        if (other.collider.tag == "PJ" || other.collider.tag == "Altar" && !heatlh.Death)
         {
             if (!playerScript.Invensibility) 
             {
                 other.collider.GetComponent<HealthController>().GetDamage(Damage);
                 playerScript.Invensibility = true;
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "PJ" )
+        {
+            if (heatlh.Death && Input.GetMouseButtonDown(1))
+            {
+                LootEnmey();
             }
         }
     }

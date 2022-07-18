@@ -16,6 +16,9 @@ TagManager:
   - Gold
   - TPWalls
   - SlimeParent
+  - EnemySpawn
+  - Altar
+  - Books
   layers:
   - Default
   - TransparentFX
@@ -24,8 +27,8 @@ TagManager:
   - Water
   - UI
   - Walls
-  - 
-  - 
+  - Boss
+  - SpecialObject
   - 
   - 
   - 

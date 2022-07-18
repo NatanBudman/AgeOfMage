@@ -8,7 +8,7 @@ public class Select : MonoBehaviour
     GameManager manager;
     Room room;
     public Transform[] Selected;
-
+    [SerializeField] GameObject Options;
     public Image SelectPosition;
 
     int index;
@@ -52,6 +52,30 @@ public class Select : MonoBehaviour
         }
     }
 
+    public void PauseEnable() 
+    {
+        index = 0;
+        if (index == 0 && Options.activeSelf == false) 
+        {
+            manager.IsGamePause(false);
+        }
+    }
+    public void OptionsEnable() 
+    {
+        index = 1;
+        if (index == 1 && Options.activeSelf == false)
+        {
+            Options.SetActive(true);
+        }
+    }
+    public void ExitMenu() 
+    {
+        index = 2;
+        if (index == 2 && Options.activeSelf == false)
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
     void SelectOpcions() 
     {
         switch (index) 
@@ -62,7 +86,7 @@ public class Select : MonoBehaviour
                 break;
             case 1:
                 if (Input.GetKeyDown(KeyCode.Return))
-                    Debug.Log("Opciones");
+                    Options.SetActive(true);
                 break;
             case 2:
                 if (Input.GetKeyDown(KeyCode.Return)) 

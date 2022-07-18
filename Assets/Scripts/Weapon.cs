@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public Transform player;
     public Transform target;
 
+    public GameObject normalBolt;
     public GameObject fireBolt;
     public GameObject WaterSpell;
     public GameObject lightningSpell;
@@ -42,7 +43,7 @@ public class Weapon : MonoBehaviour
     {
         if (SpellSelected.index == 0)
         {
-            NormalSpell();
+            Normal();
         }
         if (SpellSelected.index == 1)
         {
@@ -56,26 +57,30 @@ public class Weapon : MonoBehaviour
         {
             lightning();
         }
+        if (SpellSelected.index == 4)
+        {
+            Wind();
+        }
     }
 
-    void NormalSpell()
+    public void Normal()
     {
-
+        //Debug.Log("usando");
+        SpellCost = 5;
+        GameObject projectile = Instantiate(normalBolt, firePoint.position, firePoint.rotation);
+        projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }
-
     void FireBolt()
     {
-        SpellCost = 5;
+        SpellCost = 10;
         GameObject projectile = Instantiate(fireBolt, firePoint.position, firePoint.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
-
     }
     public void Wind()
     {
         GameObject wind;
-        wind = Instantiate(windProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation) as GameObject;
+        wind = Instantiate(windProjectile, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), transform.rotation) as GameObject;
     }
-
     void Water()
     {
         SpellCost = 10;
@@ -113,11 +118,5 @@ public class Weapon : MonoBehaviour
     public void Heal()
     {
         GameObject projectile = Instantiate(healingCircle, firePoint.position, firePoint.rotation);
-    }
-    void Dash()
-    {
-        DashSound.Play();
-        SpellCost = 100;
-        player.transform.position = target.position;
     }
 }

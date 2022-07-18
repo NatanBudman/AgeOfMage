@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 902856204639611674}
   - component: {fileID: 5974657688144730411}
   - component: {fileID: 6244157693577123236}
+  - component: {fileID: -7874551542095007058}
   m_Layer: 0
   m_Name: Slime_3
   m_TagString: Enemy
@@ -141,14 +142,19 @@ MonoBehaviour:
   rb: {fileID: 1197753464062792697}
   sprite: {fileID: 3593690450943516159}
   DeathItems:
-  - {fileID: 5649100164515028444, guid: bf0ec4a17cf2f4645a4ed165e3fbf22d, type: 3}
+  - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
+  - {fileID: 2309037519908169981, guid: 3ad8324186b6a2e4cb14072002b666df, type: 3}
+  - {fileID: 7935494174096512267, guid: 54e4986bd72d63540b7c5adae82d2257, type: 3}
   Colliders: []
   Damage: 8
+  agent: {fileID: 0}
   IsLongRange: 0
   RangeShoot: 0
   chasePlayer: 1
   Encantado: 0
   death: 0
+  IsAltarEnable: 0
+  Altares: []
 --- !u!50 &1197753464062792697
 Rigidbody2D:
   serializedVersion: 4
@@ -187,6 +193,7 @@ MonoBehaviour:
   burningTime: 0
   burningState: 0
   Death: 0
+  IsDestroyDeath: 1
   DamageReduction: 0
   DamageIncrement: 0
   DurationBurning: 0
@@ -300,6 +307,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.7189128, y: 2.2553205}
   m_EdgeRadius: 0
+--- !u!195 &-7874551542095007058
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3593690450943516153}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 3.645
+  m_Speed: 0
+  m_Acceleration: 20
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.37
+  m_BaseOffset: 4.685
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &5719402622633642692
 PrefabInstance:
   m_ObjectHideFlags: 0

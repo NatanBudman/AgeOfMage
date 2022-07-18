@@ -6,11 +6,6 @@ public class TrackingBullet : MonoBehaviour
 {
     private GameObject enemy;
     private int speed = 20;
-    private TimeManager timemanager;
-    void Start()
-    {
-        timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
-    }
 
     private GameObject FindClosestEnemy()
     {
@@ -58,8 +53,6 @@ public class TrackingBullet : MonoBehaviour
 
     private void MoveTowardsEnemy()
     {
-        if (timemanager.TimeIsStopped == false)
-        {
             transform.position = Vector3.MoveTowards(transform.position,
                 enemy.transform.position, speed * Time.deltaTime);
             Vector3 offset = transform.position - enemy.transform.position;
@@ -70,6 +63,5 @@ public class TrackingBullet : MonoBehaviour
             {
                 enemy.transform.position *= 1.0f;
             }
-        }
     }
 }

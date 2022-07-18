@@ -13,6 +13,7 @@ public class HealthController : MonoBehaviour
     public bool burningState;
 
     public bool Death = false;
+    [SerializeField] bool IsDestroyDeath = true;
 
     float CooldownPerSeconds;
     float TimePerSecond;
@@ -148,6 +149,11 @@ public class HealthController : MonoBehaviour
             DurationBurning = 2;
          
         }
+
+        if (gameObject.tag == "Altar") 
+        {
+            DurationBurning = 0;
+        }
     }
     void Revive() 
     {
@@ -163,7 +169,7 @@ public class HealthController : MonoBehaviour
     void IfDeath() 
     {
         
-        if (Death) 
+        if (Death && IsDestroyDeath) 
         {
             Destroy(gameObject, 10);
         }
@@ -266,14 +272,20 @@ public class HealthController : MonoBehaviour
         {
             SpellElement = "Null";
         }
+        if (gameObject.tag == "Altar") 
+        {
+            if (collision.gameObject.tag == "Bullets") 
+            {
+                collision.gameObject.GetComponent<Bullet>().Damage = 0;
+                Destroy(collision.gameObject);
+            }
+        }
         
     }
     public IEnumerator GetDamangePerSeconds()
     {
-        DamagePerSeconds = 0.05f;
+        DamagePerSeconds = 0.1f;
         currentLife -= DamagePerSeconds;
         yield return new WaitForSeconds(0.001f);
-       
-
     }
 }

@@ -8,7 +8,6 @@ public class GoblinScript : MonoBehaviour
 
     EnemyScript enemy;
    
-    private GameObject player;
 
     [SerializeField] private GameObject GoblinBlood;
 
@@ -24,7 +23,6 @@ public class GoblinScript : MonoBehaviour
     bool Attacking = false;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("PJ");
 
         enemy = GetComponent<EnemyScript>();
     }
@@ -44,7 +42,7 @@ public class GoblinScript : MonoBehaviour
     {
         AttackCurrentTime += Time.deltaTime;
 
-        if (Vector2.Distance(transform.position, player.transform.position) <= RangeAttack)
+        if (Vector2.Distance(transform.position, enemy.player.transform.position) <= RangeAttack)
         {
 
             if (coolwDownAttack <= AttackCurrentTime)
@@ -80,9 +78,7 @@ public class GoblinScript : MonoBehaviour
             BloodScale += Time.deltaTime;
             GoblinBlood.SetActive(true);
             GoblinBlood.transform.localScale = new Vector3( BloodScale,BloodScale) ;
-            attackCollider.enabled = false;
-            colliders.enabled = false;
-            //this.GetComponent<GoblinScript>().enabled = false;
+          
         }
     }
     void AnimationsEnemy()
