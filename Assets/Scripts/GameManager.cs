@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
             room[2].CompleteLevel = "Complete";
             room[0].Levels += 1; 
         }
+
     }
     void AutoSave() 
     {
@@ -267,13 +268,18 @@ public class GameManager : MonoBehaviour
         }
 
         if (PlayerGold > 9 && PlayerGold <= 99)
-        { 
+        {
             char numer2 = _NumbersInCount[1];
             Gold[0].text = "" + numer2;
             char numer1 = _NumbersInCount[0];
             Gold[1].text = "" + numer1;
         }
-        if (PlayerGold > 99 && PlayerGold <= 999) 
+        else 
+        {
+            //char numer2 = _NumbersInCount[1];
+            Gold[1].text = "0" ;
+        }
+        if (PlayerGold > 99 && PlayerGold <= 999)
         {
             char numer3 = _NumbersInCount[2];
             Gold[0].text = "" + numer3;
@@ -281,9 +287,13 @@ public class GameManager : MonoBehaviour
             Gold[1].text = "" + numer2;
             char numer1 = _NumbersInCount[0];
             Gold[2].text = "" + numer1;
-
         }
-        if (PlayerGold > 999 && PlayerGold <= 9999) 
+        else 
+        {
+            //char numer3 = _NumbersInCount[2];
+            Gold[2].text = "0";
+        }
+        if (PlayerGold > 999 && PlayerGold <= 9999)
         {
             char numer4 = _NumbersInCount[3];
             Gold[0].text = "" + numer4;
@@ -293,6 +303,11 @@ public class GameManager : MonoBehaviour
             Gold[2].text = "" + numer2;
             char numer1 = _NumbersInCount[0];
             Gold[3].text = "" + numer1;
+        }
+        else 
+        {
+            //char numer4 = _NumbersInCount[3];
+            Gold[3].text = "0";
         }
         if (PlayerGold > 9999) 
         {
