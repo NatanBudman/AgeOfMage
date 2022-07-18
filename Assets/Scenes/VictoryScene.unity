@@ -229,6 +229,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
@@ -317,6 +318,7 @@ GameObject:
   - component: {fileID: 1245143760}
   - component: {fileID: 1245143759}
   - component: {fileID: 1245143758}
+  - component: {fileID: 1245143762}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -405,6 +407,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1245143762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245143757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5a6433ffa7f524ab1401d56b3a3035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeMenu: 6
 --- !u!1 &2142775647
 GameObject:
   m_ObjectHideFlags: 0

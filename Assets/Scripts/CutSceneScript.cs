@@ -28,7 +28,7 @@ public class CutSceneScript : MonoBehaviour
     public int Scene = 2;
     int LoadScene;
     int index;
-
+    bool boneHere = true;
     string IsBoneLordFollow = "Si";
 
 
@@ -93,16 +93,19 @@ public class CutSceneScript : MonoBehaviour
         }
         if (Scene == 5) 
         {
+            Level3LaterBoss();
             LoadScene = 6;
             Save();
         }
         if (Scene == 6) 
         {
+            Level5BeforeBoss();
             LoadScene = 7;
             Save();
         }
         if(Scene == 7) 
         {
+            Level5LaterBoss();
             Save();
         }
         StandartsTalking();
@@ -1222,33 +1225,42 @@ public class CutSceneScript : MonoBehaviour
     {
         if (IsBoneLordFollow == "Si")
         {
-            BoneLose.SetActive(true);
+            
+            if (boneHere == true) 
+            {
+               BoneLose.SetActive(true);
+            }
+            else
+            {
+                BoneLose.SetActive(false);
+
+            }
             switch (FraseWrite.index)
             {
                 case 0:
                     Talking("Princess");
-                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    frase.SpeakCutScene(" ¡Alto ahí, brujo inmundo!");
                     break; 
                 case 1:
                     Talking("Princess");
-                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    frase.SpeakCutScene(" Primero: Esa forma de hablar duele...");
                     break;
                 case 2:
                     Talking("Edgar");
-                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    frase.SpeakCutScene(" Segundo: ¿Así sin mas venis? ¿Sin minions ni nada ? ");
                     break;
                 case 3:
                     Talking("Edgar");
-                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    frase.SpeakCutScene(" Ella es así, cuando ve que los otros son inutiles, ella se manda al frente");
                     break;
                 case 4:
                     Talking("Bone");
-                    frase.SpeakCutScene(" ¡Alto ahí, burjo inmundo!");
+                    frase.SpeakCutScene(" ¡Silencio traidor!");
                     break;
                 case 5:
                     Talking("Princess");
                     frase.SpeakCutScene(" (Manda a volar a Bonelord)");
-                    BoneLose.SetActive(false);
+                    boneHere = false;
                     break;
                 case 6:
                     Talking("Bone");
@@ -1297,6 +1309,7 @@ public class CutSceneScript : MonoBehaviour
                     break;
 
             }
+        }
             if (IsBoneLordFollow == "No") 
             {
                 switch (FraseWrite.index) 
@@ -1339,7 +1352,6 @@ public class CutSceneScript : MonoBehaviour
 
                 }
             }
-        }
     }
     void Level5LaterBoss() 
     {

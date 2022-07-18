@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
        if (Room.IsDefeatBoss)
        {
             InstantiateLoadIcon = true;
-            room[room[0].Levels].CompleteLevel = "Complete";
+            room[room[0].Levels].CompleteRoom = true;
             Save();
             SceneManager.LoadScene("cutscenes");
        }
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
     }
     public void Save()
     {
-  
+        PlayerPrefs.SetInt("Gold", PlayerGold);
         PlayerPrefs.SetInt("Rounds", room[Level].RoundRooms);
         PlayerPrefs.SetInt("Level", Level);
         PlayerPrefs.SetString("Complete", room[Level].CompleteLevel);
@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour
     {
 
         room[0].Levels = PlayerPrefs.GetInt("Level", Level);
+        PlayerGold = PlayerPrefs.GetInt("Gold");
         room[room[0].Levels].RoundRooms = PlayerPrefs.GetInt("Rounds", room[Level].RoundRooms);
         for (int i = 0; i < Level - 1; i++) 
         {
