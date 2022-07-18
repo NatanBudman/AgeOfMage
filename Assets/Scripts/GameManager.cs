@@ -276,7 +276,6 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            //char numer2 = _NumbersInCount[1];
             Gold[1].text = "0" ;
         }
         if (PlayerGold > 99 && PlayerGold <= 999)
@@ -290,7 +289,6 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            //char numer3 = _NumbersInCount[2];
             Gold[2].text = "0";
         }
         if (PlayerGold > 999 && PlayerGold <= 9999)
@@ -306,7 +304,6 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
-            //char numer4 = _NumbersInCount[3];
             Gold[3].text = "0";
         }
         if (PlayerGold > 9999) 
